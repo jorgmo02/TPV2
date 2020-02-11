@@ -1,0 +1,1 @@
+This is the basic version of PingPong. It has a class Paddle and Ball to inherit directly from GameObject. The logic of the game is in PingPong.
