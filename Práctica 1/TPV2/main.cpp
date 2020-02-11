@@ -1,11 +1,11 @@
 #include <iostream>
 
-#include "PingPong.h"
+#include "Asteroids.h"
 
 using namespace std;
 
 void start() {
-	PingPong g;
+	Asteroids g;
 	g.start();
 }
 

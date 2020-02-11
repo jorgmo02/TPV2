@@ -5,11 +5,11 @@
 #include "Manager.h"
 #include "SDLGame.h"
 
-class PingPong {
+class Asteroids {
 
 public:
-	PingPong();
-	virtual ~PingPong();
+	Asteroids();
+	virtual ~Asteroids();
 
 	// from SDLGame
 	void start();
