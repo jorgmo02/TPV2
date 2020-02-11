@@ -19,6 +19,5 @@ int main(int ac, char **av) {
 	} catch (...) {
 		cerr << "Caught and exception of unknown type ..";
 	}
-
 	return 0;
 }
