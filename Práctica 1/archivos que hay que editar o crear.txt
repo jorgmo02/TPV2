@@ -1,0 +1,30 @@
+	manejo del juego:
+GameCtrl
+ScoreManager
+ScoreViewer
+GameLogic
+
+PingPong ---> Asteroids
+Resources
+
+SimpleMoveBahviour? No sé si servirá para algo
+
+
+	caza:
+-FighterViewer
+-Health
+-FighterCtrl
+-Gun
+-FighterMotion
+
+	asteroides:
+-Asteroid
+-AsteroidPool
+-AsteroidsMotion
+-AsteroidsViewer
+
+	balas:
+-Bullet
+-BulletsPool
+-BulletsMotion
+-BulletsViewer

@@ -1,7 +1,0 @@
-GameCtrl
-GameLogic
-PingPong
-Resources
-ScoreManager
-ScoreViewer
-SimpleMoveBahviour? No sé si servirá para algo
