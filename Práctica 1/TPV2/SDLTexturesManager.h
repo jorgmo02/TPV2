@@ -12,19 +12,20 @@ public:
 	virtual ~SDLTexturesManager();
 
 	// supposed to be called before start using the object
-	virtual bool init();
+	bool init() override;
 
-	inline Texture* getTexture(int tag) {
+	Texture* getTexture(std::size_t tag) override {
 		return textures_[tag];
 	}
 
-	bool loadFromImg(int tag, SDL_Renderer *renderer, string fileName);
-	bool loadFromText(int tag, SDL_Renderer *renderer, string text, Font &font,
-			SDL_Color color);
+	bool loadFromImg(std::size_t, SDL_Renderer *renderer,
+			const string &fileName) override;
+	bool loadFromText(std::size_t, SDL_Renderer *renderer, const string &text,
+			const Font *font, const SDL_Color &color) override;
 private:
-	void storeTexture(int tag, Texture *texture);
+	void storeTexture(std::size_t tag, Texture *texture);
 
 	bool initialized_;
-	map<int, Texture*> textures_;
+	map<std::size_t, Texture*> textures_;
 
 };

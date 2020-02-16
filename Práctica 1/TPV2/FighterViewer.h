@@ -16,6 +16,6 @@ public:
 	void draw() override;
 private:
 	Transform* tr_;
-	SDL_Rect frame;
+	SDL_Rect clip;
 	Texture* texture_;
 };

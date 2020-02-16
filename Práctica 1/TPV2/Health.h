@@ -4,9 +4,11 @@
 
 class Health : public Component {
 private:
-	int health_ = 0;
+	int health_ = 3;
 	Texture* heart_ = nullptr;
 public:
+	Health();
+	~Health();
 
 };
 

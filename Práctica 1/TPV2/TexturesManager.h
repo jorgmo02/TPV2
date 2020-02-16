@@ -17,9 +17,10 @@ public:
 	// supposed to be called before start using the object
 	virtual bool init() = 0;
 
-	virtual Texture* getTexture(int tag) = 0;
-	virtual bool loadFromImg(int tag, SDL_Renderer *renderer,
-			string fileName) = 0;
-	virtual bool loadFromText(int tag, SDL_Renderer *renderer, string texto,
-			Font &font, SDL_Color color = { 0, 0, 0, 255 }) = 0;
+	virtual Texture* getTexture(std::size_t tag) = 0;
+	virtual bool loadFromImg(std::size_t tag, SDL_Renderer *renderer,
+			const string &fileName) = 0;
+	virtual bool loadFromText(std::size_t tag, SDL_Renderer *renderer,
+			const string &texto, const Font *font, const SDL_Color &color = { 0,
+					0, 0, 255 }) = 0;
 };

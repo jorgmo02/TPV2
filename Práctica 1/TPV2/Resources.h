@@ -34,7 +34,7 @@ public:
 
 		// text
 		HelloWorld,
-		PresAnyKey,
+		PressAnyKey,
 		GameOver
 	};
 

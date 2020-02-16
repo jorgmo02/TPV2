@@ -33,7 +33,7 @@ vector<Resources::ImageInfo> Resources::images_{
 
 vector<Resources::TextMsgInfo> Resources::messages_ {
 //
-		{ PresAnyKey, "Press Any Key ...", { COLOR(0xaaffbbff) }, ARIAL24 }, //
+		{ PressAnyKey, "Press Any Key ...", { COLOR(0xaaffbbff) }, ARIAL24 }, //
 		{ GameOver, "Game Over", { COLOR(0xffffbbff) }, ARIAL24 } //
 };
 

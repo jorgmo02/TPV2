@@ -87,7 +87,7 @@ void SDLGame::initResources() {
 
 	for (auto &txtmsg : Resources::messages_) {
 		textures_->loadFromText(txtmsg.id, renderer_, txtmsg.msg,
-				*fonts_->getFont(txtmsg.fontId), txtmsg.color);
+				fonts_->getFont(txtmsg.fontId), txtmsg.color);
 	}
 
 	for (auto &sound : Resources::sounds_) {

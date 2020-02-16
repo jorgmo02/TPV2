@@ -44,7 +44,7 @@ void GameCtrl::draw() {
 
 	if (!scoreManager_->isRunning()) {
 		Texture *hitanykey = game_->getTextureMngr()->getTexture(
-				Resources::PresAnyKey);
+				Resources::PressAnyKey);
 		hitanykey->render(
 				game_->getWindowWidth() / 2 - hitanykey->getWidth() / 2,
 				game_->getWindowHeight() - hitanykey->getHeight() - 50);

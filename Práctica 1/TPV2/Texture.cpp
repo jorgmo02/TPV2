@@ -9,13 +9,13 @@ Texture::Texture() :
 		texture_(nullptr), renderer_(nullptr), width_(0), height_(0) {
 }
 
-Texture::Texture(SDL_Renderer *renderer, string fileName) :
+Texture::Texture(SDL_Renderer *renderer, const string& fileName) :
 		texture_(nullptr), width_(0), height_(0) {
 	loadFromImg(renderer, fileName);
 }
 
-Texture::Texture(SDL_Renderer *renderer, string text, Font &font,
-		const SDL_Color color) :
+Texture::Texture(SDL_Renderer *renderer, const string& text, const Font *font,
+		const SDL_Color& color) :
 		texture_(nullptr), width_(0), height_(0) {
 	loadFromText(renderer, text, font, color);
 }
@@ -33,7 +33,7 @@ void Texture::close() {
 	}
 }
 
-bool Texture::loadFromImg(SDL_Renderer *renderer, string fileName) {
+bool Texture::loadFromImg(SDL_Renderer *renderer, const string& fileName) {
 	SDL_Surface *surface = IMG_Load(fileName.c_str());
 	if (surface != nullptr) {
 		close(); // destroy current texture
@@ -50,9 +50,9 @@ bool Texture::loadFromImg(SDL_Renderer *renderer, string fileName) {
 	return texture_ != nullptr;
 }
 
-bool Texture::loadFromText(SDL_Renderer *renderer, string text, Font &font,
-		const SDL_Color color) {
-	SDL_Surface *textSurface = font.renderText(text, color);
+bool Texture::loadFromText(SDL_Renderer *renderer, const string& text, const Font *font,
+		const SDL_Color& color) {
+	SDL_Surface *textSurface = font->renderText(text, color);
 	if (textSurface != nullptr) {
 		close();
 		texture_ = SDL_CreateTextureFromSurface(renderer, textSurface);
@@ -68,34 +68,36 @@ bool Texture::loadFromText(SDL_Renderer *renderer, string text, Font &font,
 	return texture_ != nullptr;
 }
 
-void Texture::render(SDL_Renderer *renderer, int x, int y) const {
+void Texture::render(int x, int y) const {
 	SDL_Rect dest;
 	dest.x = x;
 	dest.y = y;
 	dest.w = width_;
 	dest.h = height_;
-	render(renderer, dest);
+	render(dest);
 }
 
-void Texture::render(SDL_Renderer *renderer, const SDL_Rect &dest,
-		SDL_Rect *clip) const {
+void Texture::render(const SDL_Rect &dest, const SDL_Rect& clip) const {
 	if (texture_) {
-		SDL_Rect default_clip = { 0, 0, width_, height_ };
-		if (clip == nullptr) {
-			clip = &default_clip;
-		}
-		SDL_RenderCopy(renderer, texture_, clip, &dest);
+		SDL_RenderCopy(renderer_, texture_, &clip, &dest);
 	}
 }
 
-void Texture::render(SDL_Renderer *renderer, const SDL_Rect &dest, double angle,
-		SDL_Rect *clip) const {
+void Texture::render(const SDL_Rect &dest) const {
+	SDL_Rect clip = {0, 0, width_, height_ };
+	render(dest, clip);
+}
+
+
+void Texture::render(const SDL_Rect &dest, double angle,
+		const SDL_Rect &clip) const {
 	if (texture_) {
-		SDL_Rect default_clip = { 0, 0, width_, height_ };
-		if (clip == nullptr) {
-			clip = &default_clip;
-		}
-		SDL_RenderCopyEx(renderer, texture_, clip, &dest, angle, nullptr,
+		SDL_RenderCopyEx(renderer_, texture_, &clip, &dest, angle, nullptr,
 				SDL_FLIP_NONE);
 	}
+}
+
+void Texture::render(const SDL_Rect &dest, double angle) const {
+	SDL_Rect clip = {0, 0, width_, height_ };
+	render(dest, angle, clip);
 }
