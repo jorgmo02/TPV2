@@ -11,14 +11,26 @@ public:
 
 	enum TextureId : int {
 		// images
-		Blank,
-		TennisBall,
-		KeyBoardIcon,
-		MouseIcon,
 		AIIcon,
-		SpaceShips,
 		Airplanes,
+		Asteroid,
+		Astreoid,
+		Badges,
+		Bird,
+		Black_Hole,
+		Blank,
+		Bullet,
+		Explosion,
+		Fire_Egg,
+		Heart,
+		KeyBoardIcon,
+		Life,
+		Monster,
+		MouseIcon,
+		SpaceShips,
 		Star,
+		TennisBall,
+		White_Rect,
 
 		// text
 		HelloWorld,
@@ -29,12 +41,17 @@ public:
 	enum AudioId : int {
 		// music
 		Beat,
-		Cheer,
-		Boooo,
+		Imperial_March,
 
 		// sound effects
-		Wall_Hit,
-		Paddle_Hit
+		Boooo,
+		Cheer,
+		ExplosionSound,
+		GunShot,
+		Missed,
+		Paddle_Hit,
+		Score_Update,
+		Wall_Hit
 	};
 
 	enum FontId : int {

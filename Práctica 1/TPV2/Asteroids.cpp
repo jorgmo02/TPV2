@@ -36,35 +36,21 @@ void Asteroids::initGame() {
 
 	entityManager_ = new EntityManager(game_);
 
-	Entity *leftPaddle = entityManager_->addEntity();
-	Transform *leftPaddleTR = leftPaddle->addComponent<Transform>();
-	leftPaddle->addComponent<PaddleKBCtrl>();
-	leftPaddle->addComponent<PaddleMoveBehaviour>();
-	leftPaddle->addComponent<Rectangle,SDL_Color>({COLOR(0xAA0000FF)});
-	leftPaddleTR->setPos(5, game_->getWindowHeight() / 2 - 25);
-	leftPaddleTR->setWH(10, 50);
-
-	Entity *rightPaddle = entityManager_->addEntity();
-	Transform *rightPaddleTR = rightPaddle->addComponent<Transform>();
-	rightPaddle->addComponent<PaddleMouseCtrl>();
-	rightPaddle->addComponent<PaddleMoveBehaviour>();
-	rightPaddle->addComponent<Rectangle,SDL_Color>({COLOR(0x0000AAFF)});
-	rightPaddleTR->setPos(game_->getWindowWidth() - 15,
-			game_->getWindowHeight() / 2 - 25);
-	rightPaddleTR->setWH(10, 50);
-
-	Entity *ball = entityManager_->addEntity();
-	Transform *ballTR = ball->addComponent<Transform>();
-	ball->addComponent<Rectangle>();
-	ballTR->setPos(game_->getWindowWidth() / 2 - 6,
-			game_->getWindowHeight() / 2 - 6);
-	ballTR->setWH(11, 11);
+	Entity* caza = entityManager_->addEntity();
+	Transform* cazaTR = caza->addComponent<Transform>();
+	//FighterViewer
+	//Health
+	//FighterCtrl
+	//Gun
+	//FighterMotion
+	cazaTR->setPos(5, game_->getWindowHeight() / 2 - 25);
+	cazaTR->setWH(10, 50);
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);
-	gameManager->addComponent<GameLogic>(ballTR, leftPaddleTR, rightPaddleTR);
+	gameManager->addComponent<GameLogic>(cazaTR);
 	gameManager->addComponent<ScoreViewer>();
-	gameManager->addComponent<GameCtrl>(GETCMP2(ball, Transform));
+	gameManager->addComponent<GameCtrl>(cazaTR);
 }
 
 void Asteroids::closeGame() {

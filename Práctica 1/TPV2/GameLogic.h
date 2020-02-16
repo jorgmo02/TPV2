@@ -6,14 +6,12 @@
 
 class GameLogic: public Component {
 public:
-	GameLogic(Transform* ballTR, Transform* leftPaddleTR, Transform* rightPaddleTR);
+	GameLogic(Transform* cazaTR);
 	virtual ~GameLogic();
 	void init() override;
 	void update() override;
 private:
-	Transform* ballTR_;
-	Transform* leftPaddleTR_;
-	Transform* rightPaddleTR_;
+	Transform* cazaTR_;
 	ScoreManager *scoreManager_;
 };
 

@@ -4,7 +4,7 @@ ScoreManager
 ScoreViewer
 GameLogic
 
-PingPong ---> Asteroids
+PingPong pasa a ser ---> Asteroids
 Resources
 
 SimpleMoveBahviour? No sé si servirá para algo

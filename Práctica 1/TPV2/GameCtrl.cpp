@@ -1,5 +1,4 @@
 #include "GameCtrl.h"
-
 #include "Entity.h"
 #include "InputHandler.h"
 
@@ -8,9 +7,11 @@ GameCtrl::GameCtrl(Transform *ballTR) :
 		ballTR_(ballTR), //
 		scoreManager_(nullptr) //
 {
+
 }
 
 GameCtrl::~GameCtrl() {
+
 }
 
 void GameCtrl::init() {

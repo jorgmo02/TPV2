@@ -113,6 +113,12 @@
     <ClInclude Include="Asteroids.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FighterViewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Health.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp">
@@ -214,5 +220,14 @@
     <ClCompile Include="Asteroids.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FighterViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Health.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

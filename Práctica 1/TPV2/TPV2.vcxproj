@@ -25,10 +25,12 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="ecs.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="FighterViewer.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FontsManager.h" />
     <ClInclude Include="GameCtrl.h" />
     <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="Health.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="jute.h" />
     <ClInclude Include="Manager.h" />
@@ -59,10 +61,12 @@
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="FighterViewer.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontsManager.cpp" />
     <ClCompile Include="GameCtrl.cpp" />
     <ClCompile Include="GameLogic.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="jute.cpp" />
     <ClCompile Include="main.cpp" />
@@ -88,6 +92,9 @@
     <ClCompile Include="TexturesManager.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
