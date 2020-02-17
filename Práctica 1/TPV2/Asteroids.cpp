@@ -13,6 +13,9 @@
 #include "ScoreViewer.h"
 #include "SimpleMoveBahviour.h"
 #include "Transform.h"
+#include "FighterViewer.h"
+#include "FighterCtrl.h"
+#include "Health.h"
 #include "SDLGame.h"
 
 #include "SDL_macros.h"
@@ -38,13 +41,13 @@ void Asteroids::initGame() {
 
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
-	//FighterViewer
-	//Health
-	//FighterCtrl
+	caza->addComponent<FighterViewer>();
+	caza->addComponent<Health>();
+	caza->addComponent<FighterCtrl>();
 	//Gun
 	//FighterMotion
 	cazaTR->setPos(5, game_->getWindowHeight() / 2 - 25);
-	cazaTR->setWH(10, 50);
+	cazaTR->setWH(50, 50);
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);
