@@ -19,6 +19,8 @@
 #include "SDLGame.h"
 
 #include "SDL_macros.h"
+#include "FighterMotion.h"
+#include "Gun.h"
 
 using namespace std;
 
@@ -44,8 +46,9 @@ void Asteroids::initGame() {
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<Health>();
 	caza->addComponent<FighterCtrl>();
-	//Gun
-	//FighterMotion
+	caza->addComponent<FighterMotion>();
+	caza->addComponent<Gun>();
+
 	cazaTR->setPos(5, game_->getWindowHeight() / 2 - 25);
 	cazaTR->setWH(50, 50);
 

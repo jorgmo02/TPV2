@@ -1,14 +1,23 @@
 #pragma once
 #include "Component.h"
+#include "Transform.h"
+#include "Entity.h"
+
 class FighterMotion : public Component {
+
 public:
 	FighterMotion();
+	FighterMotion(double reduceRate);
 	~FighterMotion();
 
-	void accelerate();
-	// = tr_->setVel(tr_->getVel() + Vector2D(0, -1) * thrust (= factor de empuje, double));
+	void init() override;
+	void update() override;
+
+	bool insideBordersX() const;
+	bool insideBordersY() const;
 
 private:
-	double thrust;
+	Transform* tr_;
+	double reduceRate_;
 };
 

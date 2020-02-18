@@ -3,7 +3,6 @@
 #include "InputHandler.h"
 #include "Entity.h"
 #include "Transform.h"
-#include "FighterMotion.h"
 
 class FighterCtrl : public Component
 {
@@ -22,13 +21,13 @@ public:
 
 	void init() override;
 	void update() override;
-	void setFighterMotion(FighterMotion* fm);
 
 private:
 	SDL_Keycode forward_;
 	SDL_Keycode left_;
 	SDL_Keycode right_;
 	Transform* tr_;
-	FighterMotion* fm_;
+	double thrust_;
+	double speedLimit_;
 };
 

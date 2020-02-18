@@ -125,6 +125,9 @@
     <ClInclude Include="FighterMotion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp">
@@ -236,6 +239,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FighterMotion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

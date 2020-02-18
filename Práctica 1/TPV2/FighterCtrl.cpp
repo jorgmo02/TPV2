@@ -6,7 +6,9 @@ FighterCtrl::FighterCtrl() :
 
 FighterCtrl::FighterCtrl(SDL_Keycode forward, SDL_Keycode left,
 	SDL_Keycode right) :
-	Component(ecs::FighterCtrl) {
+	Component(ecs::FighterCtrl),
+	thrust_(5),
+	speedLimit_(2) {
 	setCtrlKeys(forward, left, right);
 }
 
@@ -17,16 +19,19 @@ void FighterCtrl::init() {
 	tr_ = GETCMP1_(Transform);
 }
 
-void FighterCtrl::setFighterMotion(FighterMotion* fm) {
-	fm_ = fm;
-}
-
 void FighterCtrl::update() {
 	InputHandler* ih = InputHandler::instance();
 
 	if (ih->keyDownEvent()) {
+
 		if (ih->isKeyDown(forward_)) {
-			fm_->accelerate();
+
+			Vector2D newVel = tr_->getVel() + Vector2D(0, -1).rotate(tr_->getRot()) * thrust_;
+
+			if (newVel.magnitude() > speedLimit_)
+				newVel = newVel.normalize() * speedLimit_;
+			
+			tr_->setVel(newVel);
 		}
 		else if (ih->isKeyDown(left_)) {
 			tr_->setRot(tr_->getRot() - 5);
