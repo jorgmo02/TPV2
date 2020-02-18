@@ -49,14 +49,14 @@ void Asteroids::initGame() {
 	caza->addComponent<FighterMotion>();
 	caza->addComponent<Gun>();
 
-	cazaTR->setPos(5, game_->getWindowHeight() / 2 - 25);
+	cazaTR->setPos(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
 	cazaTR->setWH(50, 50);
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);
 	gameManager->addComponent<GameLogic>(cazaTR);
 	gameManager->addComponent<ScoreViewer>();
-	gameManager->addComponent<GameCtrl>(cazaTR);
+	gameManager->addComponent<GameCtrl>();
 }
 
 void Asteroids::closeGame() {

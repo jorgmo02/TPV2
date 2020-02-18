@@ -6,13 +6,12 @@
 
 class GameCtrl: public Component {
 public:
-	GameCtrl(Transform *ballTR);
+	GameCtrl();
 	virtual ~GameCtrl();
 	void init() override;
 	void update() override;
 	void draw() override;
 private:
-	Transform *ballTR_;
 	ScoreManager *scoreManager_;
 };
 
