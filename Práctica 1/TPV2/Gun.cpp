@@ -2,7 +2,7 @@
 #include <iostream>
 
 Gun::Gun() :
-	Gun(2, SDLK_SPACE, 2500) {
+	Gun(2, SDLK_SPACE, 250) {
 }
 
 Gun::Gun(double bulletSpeed, SDL_Keycode shootKey, int timeBetweenShots) :
