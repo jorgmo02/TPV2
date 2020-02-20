@@ -10,11 +10,21 @@ private:
 	int h_;
 	double rot_;
 	int gen_;
+	bool inUse_;
+	int baseTam_;
+	double baseRate_;
 
 public:
 	Asteroid();
-	Asteroid(Vector2D pos, Vector2D vel, int w, int h, double rot, int gen);
+	Asteroid(Vector2D pos, Vector2D vel, double rot, int gen);
 	~Asteroid();
 
+	bool inUse() {
+		return inUse_;
+	}
+
+	void setInUse(bool inUse) {
+		inUse_ = inUse;
+	}
 };
 

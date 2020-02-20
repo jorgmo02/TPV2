@@ -3,20 +3,21 @@
 Asteroid::Asteroid() :  Asteroid(
 	Vector2D(0, 0),		// pos
 	Vector2D(1, 1),	// vel
-	50,					// w
-	50,					// h
 	0,					// rot
 	3					// gen
 ) {
 }
 
-Asteroid::Asteroid(Vector2D pos, Vector2D vel, int w, int h, double rot, int gen) :
+Asteroid::Asteroid(Vector2D pos, Vector2D vel, double rot, int gen) :
+	baseTam_(10),
+	baseRate_(3.0),
 	pos_(pos),
 	vel_(vel),
-	w_(w),
-	h_(h),
+	w_(baseTam_ + gen * baseRate_),
+	h_(baseTam_ + gen * baseRate_),
 	rot_(rot),
-	gen_(gen) {
+	gen_(gen),
+	inUse_(false) {
 }
 
 Asteroid::~Asteroid()
