@@ -2,8 +2,8 @@
 
 AsteroidPool::AsteroidPool() :
 	Component(ecs::AsteroidPool),
-	pool_(&Asteroid::inUse) {
-
+	pool_(&Asteroid::inUse),
+	asteroidsInUse_(0) {
 }
 
 AsteroidPool::~AsteroidPool()
@@ -20,6 +20,7 @@ void AsteroidPool::disableAll() {
 	for (Asteroid* a : pool_.getPool()) {
 		a->setInUse(false);
 	}
+	asteroidsInUse_ = 0;
 }
 
 void AsteroidPool::generateRandomAsteroid() {
@@ -37,5 +38,10 @@ void AsteroidPool::generateRandomAsteroid() {
 	
 	int gen = (rand() % 2) + 1;
 
-	Asteroid* a = new Asteroid(pos, (target-pos).normalize() * (m / 10.0), rand() % 359, gen);
+	//Asteroid* a = new Asteroid(pos, (target-pos).normalize() * (m / 10.0), rand() % 359, gen);
+}
+
+void AsteroidPool::onCollision(Asteroid* a, Bullet* b) {
+	// collision detection
+	
 }

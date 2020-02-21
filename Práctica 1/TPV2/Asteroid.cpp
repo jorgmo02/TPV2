@@ -23,3 +23,13 @@ Asteroid::Asteroid(Vector2D pos, Vector2D vel, double rot, int gen) :
 Asteroid::~Asteroid()
 {
 }
+
+void Asteroid::updateScale() {
+	w_ = baseTam_ + gen_ * baseRate_;
+	h_ = baseTam_ + gen_ * baseRate_;
+}
+
+void Asteroid::reduceGen() {
+	gen_--;
+	updateScale();
+}

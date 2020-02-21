@@ -14,10 +14,15 @@ private:
 	int baseTam_;
 	double baseRate_;
 
+	void updateScale();
+
 public:
 	Asteroid();
 	Asteroid(Vector2D pos, Vector2D vel, double rot, int gen);
 	~Asteroid();
+
+
+	void reduceGen();
 
 	bool inUse() {
 		return inUse_;
@@ -27,4 +32,3 @@ public:
 		inUse_ = inUse;
 	}
 };
-
