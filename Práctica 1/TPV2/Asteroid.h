@@ -19,10 +19,8 @@ private:
 public:
 	Asteroid();
 	Asteroid(Vector2D pos, Vector2D vel, double rot, int gen);
+	void set(Vector2D pos, Vector2D vel, double rot, int gen);
 	~Asteroid();
-
-
-	void reduceGen();
 
 	bool inUse() {
 		return inUse_;
@@ -30,5 +28,9 @@ public:
 
 	void setInUse(bool inUse) {
 		inUse_ = inUse;
+	}
+
+	inline int getGen() const {
+		return gen_;
 	}
 };

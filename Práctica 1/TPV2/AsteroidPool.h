@@ -9,14 +9,14 @@ class AsteroidPool : public Component {
 private:
 	ObjectPool<Asteroid, 30> pool_;
 	int asteroidsInUse_;
+	void generateRandomAsteroid(Asteroid* a);
 
 public:
 	AsteroidPool();
-	~AsteroidPool();
+	virtual ~AsteroidPool();
 
 	void generateAsteroids(int n);
 	void disableAll();
-	void generateRandomAsteroid();
 	void onCollision(Asteroid* a, Bullet* b);
 
 	int getNumOfAsteroid() {

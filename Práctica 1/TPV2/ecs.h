@@ -24,6 +24,7 @@ enum CmpId : CmpIdType {
 	Gun,
 	FighterMotion,
 	AsteroidPool,
+	AsteroidsMotion,
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of components
