@@ -17,10 +17,13 @@
 #include "FighterCtrl.h"
 #include "Health.h"
 #include "SDLGame.h"
+#include "AsteroidPool.h"
 
 #include "SDL_macros.h"
 #include "FighterMotion.h"
 #include "Gun.h"
+#include "AsteroidsMotion.h"
+#include "AsteroidsViewer.h"
 
 using namespace std;
 
@@ -48,9 +51,13 @@ void Asteroids::initGame() {
 	caza->addComponent<FighterCtrl>();
 	caza->addComponent<FighterMotion>();
 	caza->addComponent<Gun>();
-
 	cazaTR->setPos(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
 	cazaTR->setWH(50, 50);
+
+	Entity* asteroidsPool = entityManager_->addEntity();
+	asteroidsPool->addComponent<AsteroidPool>();
+	asteroidsPool->addComponent<AsteroidsMotion>();
+	asteroidsPool->addComponent<AsteroidsViewer>();
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);

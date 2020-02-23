@@ -22,15 +22,33 @@ public:
 	void set(Vector2D pos, Vector2D vel, double rot, int gen);
 	~Asteroid();
 
-	bool inUse() {
+	void updatePos();
+
+	inline bool inUse() {
 		return inUse_;
 	}
 
-	void setInUse(bool inUse) {
+	inline void setInUse(bool inUse) {
 		inUse_ = inUse;
 	}
 
 	inline int getGen() const {
 		return gen_;
+	}
+	
+	inline Vector2D getPos() const{
+		return pos_;
+	}
+
+	inline int getWidth() const{
+		return w_;
+	}
+
+	inline int getHeight() const{
+		return h_;
+	}
+
+	inline int getRot() const{
+		return rot_;
 	}
 };

@@ -46,4 +46,3 @@ private:
 	std::array<T, SIZE> objs_;
 	std::vector<T*> objsPtrs_;
 };
-

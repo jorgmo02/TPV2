@@ -14,6 +14,7 @@ public:
 	virtual ~FighterViewer();
 	void init() override;
 	void draw() override;
+
 private:
 	Transform* tr_;
 	SDL_Rect clip;

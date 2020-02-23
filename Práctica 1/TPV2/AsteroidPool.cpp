@@ -2,7 +2,7 @@
 
 AsteroidPool::AsteroidPool() :
 	Component(ecs::AsteroidPool),
-	pool_(&Asteroid::inUse),
+	pool_([](Asteroid* a) { return a->inUse(); }),
 	asteroidsInUse_(0) {
 }
 
@@ -20,6 +20,7 @@ void AsteroidPool::generateAsteroids(int n) {
 }
 
 void AsteroidPool::disableAll() {
+
 	for (Asteroid* a : pool_.getPool()) {
 		a->setInUse(false);
 	}

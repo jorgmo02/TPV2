@@ -1,15 +1,12 @@
 #include "FighterViewer.h"
 
 FighterViewer::FighterViewer() :
-	Component(ecs::FighterViewer), //
-	tr_(nullptr) {
-	clip = RECT(47, 90, 207, 250);
+	FighterViewer(47, 90, 207, 250) {
 }
 
 FighterViewer::FighterViewer(int x, int y, int w, int h) :
 	Component(ecs::FighterViewer), //
 	tr_(nullptr) {
-	texture_ = game_->getTextureMngr()->getTexture(Resources::Airplanes);
 	clip = RECT(x, y, w, h);
 }
 

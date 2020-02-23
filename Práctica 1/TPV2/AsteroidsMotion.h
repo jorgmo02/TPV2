@@ -9,9 +9,9 @@ public:
 	~AsteroidsMotion();
 
 	void init() override;
+	void update() override;
 
 private:
-	AsteroidPool* asteroidPool_;
-
+	vector<Asteroid*> pool_;
 };
 

@@ -22,6 +22,7 @@
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="AsteroidPool.h" />
     <ClInclude Include="AsteroidsMotion.h" />
+    <ClInclude Include="AsteroidsViewer.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="checkML.h" />
     <ClInclude Include="Collisions.h" />
@@ -66,6 +67,7 @@
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="AsteroidPool.cpp" />
     <ClCompile Include="AsteroidsMotion.cpp" />
+    <ClCompile Include="AsteroidsViewer.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Component.cpp" />

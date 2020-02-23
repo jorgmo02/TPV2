@@ -13,8 +13,8 @@ Asteroid::Asteroid(Vector2D pos, Vector2D vel, double rot, int gen) :
 	baseRate_(3.0),
 	pos_(pos),
 	vel_(vel),
-	w_(baseTam_ + gen * baseRate_),
 	h_(baseTam_ + gen * baseRate_),
+	w_(baseTam_ + gen * baseRate_),
 	rot_(rot),
 	gen_(gen),
 	inUse_(false) {
@@ -31,6 +31,11 @@ void Asteroid::set(Vector2D pos, Vector2D vel, double rot, int gen) {
 
 Asteroid::~Asteroid()
 {
+}
+
+void Asteroid::updatePos() {
+	pos_ = pos_ + vel_;
+	rot_ += 5;
 }
 
 void Asteroid::updateScale() {
