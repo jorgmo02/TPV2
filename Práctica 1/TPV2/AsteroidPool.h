@@ -2,8 +2,7 @@
 #include "Component.h"
 #include "ObjectPool.h"
 #include "Asteroid.h"
-
-class Bullet; // sustituir por include bullet
+#include "Bullet.h"
 
 class AsteroidPool : public Component {
 
@@ -24,7 +23,7 @@ public:
 		return pool_.getPool();
 	}
 
-	int getNumOfAsteroid() {
+	inline int getNumOfAsteroid() const {
 		return asteroidsInUse_;
 	};
 };

@@ -4,10 +4,8 @@
 class Bullet {
 private:
 
-	Vector2D pos_;
-	Vector2D vel_;
-	int w_;
-	int h_;
+	Vector2D pos_, vel_;
+	int w_, h_;
 	double rot_;
 	bool inUse_;
 
@@ -17,33 +15,38 @@ public:
 	void set(Vector2D pos, Vector2D vel, double rot);
 	~Bullet();
 
-	void updatePos();
+	// GETTERS 
 
 	inline bool inUse() {
 		return inUse_;
 	}
-
-	inline void setInUse(bool inUse) {
-		inUse_ = inUse;
-	}
-
 	inline Vector2D getPos() const {
 		return pos_;
 	}
-
+	inline int getWidth() const {
+		return w_;
+	}
+	inline int getHeight() const {
+		return h_;
+	}
+	inline int getRot() const {
+		return rot_;
+	}
 	inline Vector2D getVel() const {
 		return vel_;
 	}
 
-	inline int getWidth() const {
-		return w_;
+	// SETTERS
+
+	inline void setPos(Vector2D pos) {
+		pos_ = pos;
 	}
 
-	inline int getHeight() const {
-		return h_;
+	inline void setRot(double rot) {
+		rot_ = rot;
 	}
 
-	inline int getRot() const {
-		return rot_;
+	inline void setInUse(bool inUse) {
+		inUse_ = inUse;
 	}
 };

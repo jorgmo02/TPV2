@@ -44,21 +44,24 @@ void Asteroids::initGame() {
 
 	entityManager_ = new EntityManager(game_);
 
-	Entity* caza = entityManager_->addEntity();
-	Transform* cazaTR = caza->addComponent<Transform>();
-	caza->addComponent<FighterViewer>();
-	caza->addComponent<Health>();
-	caza->addComponent<FighterCtrl>();
-	caza->addComponent<FighterMotion>();
-	caza->addComponent<Gun>();
-	cazaTR->setPos(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
-	cazaTR->setWH(50, 50);
-
 	Entity* asteroidsPool = entityManager_->addEntity();
 	AsteroidPool* a = asteroidsPool->addComponent<AsteroidPool>();
 	asteroidsPool->addComponent<AsteroidsMotion>();
 	asteroidsPool->addComponent<AsteroidsViewer>();
 	a->generateAsteroids(31);
+
+	Entity* bulletsPool = entityManager_->addEntity();
+	
+
+	Entity* caza = entityManager_->addEntity();
+	Transform* cazaTR = caza->addComponent<Transform>();
+	caza->addComponent<FighterViewer>();
+	caza->addComponent<FighterCtrl>();
+	caza->addComponent<FighterMotion>();
+	caza->addComponent<Gun>();
+	cazaTR->setPos(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
+	cazaTR->setWH(50, 50);
+	caza->addComponent<Health>();
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);
