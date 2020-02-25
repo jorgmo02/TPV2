@@ -8,3 +8,7 @@ BulletsPool::BulletsPool() :
 BulletsPool::~BulletsPool()
 {
 }
+
+void BulletsPool::shoot(Vector2D pos, Vector2D vel, double w, double h) {
+	
+}
