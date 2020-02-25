@@ -140,6 +140,12 @@
     <ClInclude Include="AsteroidsViewer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletsPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp">
@@ -266,6 +272,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AsteroidsViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletsPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

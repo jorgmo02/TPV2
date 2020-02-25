@@ -13,6 +13,7 @@ private:
 
 public:
 	AsteroidPool();
+	void init();
 	virtual ~AsteroidPool();
 
 	void generateAsteroids(int n);

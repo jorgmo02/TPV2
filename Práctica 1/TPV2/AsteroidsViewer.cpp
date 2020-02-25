@@ -26,5 +26,4 @@ void AsteroidsViewer::draw() {
 			rect = RECT(o->getPos().getX(), o->getPos().getY(), o->getWidth(), o->getHeight());
 			texture_->render(rect, o->getRot(), clip);
 		}
-
 }
