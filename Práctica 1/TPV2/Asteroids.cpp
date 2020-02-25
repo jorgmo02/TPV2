@@ -55,9 +55,10 @@ void Asteroids::initGame() {
 	cazaTR->setWH(50, 50);
 
 	Entity* asteroidsPool = entityManager_->addEntity();
-	asteroidsPool->addComponent<AsteroidPool>();
+	AsteroidPool* a = asteroidsPool->addComponent<AsteroidPool>();
 	asteroidsPool->addComponent<AsteroidsMotion>();
 	asteroidsPool->addComponent<AsteroidsViewer>();
+	a->generateAsteroids(31);
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);

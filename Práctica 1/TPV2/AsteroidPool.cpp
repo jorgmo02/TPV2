@@ -6,20 +6,16 @@ AsteroidPool::AsteroidPool() :
 	asteroidsInUse_(0) {
 }
 
-void AsteroidPool::init() {
-	generateAsteroids(30);
-}
-
 AsteroidPool::~AsteroidPool()
 {
 }
 
 void AsteroidPool::generateAsteroids(int n) {
 
-	vector<Asteroid*> p = pool_.getPool();
-
 	for (int i = 0; i < n; i++) {
-		generateRandomAsteroid(p[i]);
+		Asteroid* o = pool_.getObj();
+		if(o != nullptr)
+			generateRandomAsteroid(o);
 	}
 }
 
@@ -36,22 +32,24 @@ void AsteroidPool::generateRandomAsteroid(Asteroid* a) {
 	int h = game_->getWindowHeight();
 	int w = game_->getWindowWidth();
 
-	Vector2D r((rand() % 100) - 50, (rand() % 100) - 50);	// margen con respecto al centro de la pantalla
-	Vector2D pos(rand() % w, rand() % h);					// posición inicial del nuevo asteroide
-	Vector2D target((Vector2D(w, h) / 2) + r);				// posición hacia la que se dirige el nuevo asteroide
-	int m = (rand() % 10) + 1;								// número para multiplicar por el vector de velocidad
-	int gen = (rand() % 3) + 1;								// generación del nuevo asteroide
+	RandomNumberGenerator* random = game_->getRandGen();
 
-	// aplica las modificaciones al asteroide
-	a->set(pos, (target - pos).normalize() * (m / 10.0), rand() % 359, gen);
+	Vector2D r((random->nextInt() % 100) - 50, (random->nextInt() % 100) - 50);	// margen con respecto al centro de la pantalla
+	Vector2D pos(random->nextInt() % w, random->nextInt() % h);					// posición inicial del nuevo asteroide
+	Vector2D target((Vector2D(w, h) / 2) + r);				// posición hacia la que se dirige el nuevo asteroide
+	int m = (random->nextInt() % 10) + 1;								// número para multiplicar por el vector de velocidad
+	int gen = (random->nextInt() % 3) + 1;								// generación del nuevo asteroide
+
+	// aplica las modificaciones al asteroide y hace setInUse(true)
+	a->set(pos, (target - pos).normalize() * (m / 10.0), random->nextInt() % 359, gen);
 	
 	asteroidsInUse_++;
 }
 
 void AsteroidPool::onCollision(Asteroid* a, Bullet* b) {
 	// collision detection
+	a->setInUse(false);
 	if (a->getGen() > 1) {
-		a->setInUse(false);
 		
 		//pool_.getObj()->set();
 		asteroidsInUse_++;

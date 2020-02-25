@@ -1,6 +1,6 @@
 #include "Asteroid.h"
 
-Asteroid::Asteroid() :  Asteroid(
+Asteroid::Asteroid() : Asteroid(
 	Vector2D(0, 0),		// pos
 	Vector2D(1, 1),	// vel
 	0,					// rot
@@ -25,17 +25,12 @@ void Asteroid::set(Vector2D pos, Vector2D vel, double rot, int gen) {
 	vel_ = vel;
 	rot_ = rot;
 	gen_ = gen;
-	inUse_ = true;
+	setInUse(true);
 	updateScale();
 }
 
 Asteroid::~Asteroid()
 {
-}
-
-void Asteroid::updatePos() {
-	pos_ = pos_ + vel_;
-	rot_ += 5;
 }
 
 void Asteroid::updateScale() {
