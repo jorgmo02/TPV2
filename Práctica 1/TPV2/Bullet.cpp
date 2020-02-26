@@ -26,7 +26,3 @@ void Bullet::set(Vector2D pos, Vector2D vel, double rot) {
 Bullet::~Bullet()
 {
 }
-
-void Bullet::updatePos() {
-	pos_ = pos_ + vel_;
-}

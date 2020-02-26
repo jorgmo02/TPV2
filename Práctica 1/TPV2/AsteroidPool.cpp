@@ -46,12 +46,22 @@ void AsteroidPool::generateRandomAsteroid(Asteroid* a) {
 	asteroidsInUse_++;
 }
 
+void AsteroidPool::generateAsteroid(Asteroid* newAst, Vector2D aPos, Vector2D aVel, int gen) {
+
+	Vector2D vel(aVel.getY(), aVel.getX());
+	Vector2D pos = aPos + vel * vel.magnitude();					// posición inicial del nuevo asteroide
+
+	// aplica las modificaciones al asteroide y hace setInUse(true)
+	newAst->set(pos, vel, game_->getRandGen()->nextInt() % 359, gen);
+
+	asteroidsInUse_++;
+}
+
 void AsteroidPool::onCollision(Asteroid* a, Bullet* b) {
-	// collision detection
-	a->setInUse(false);
 	if (a->getGen() > 1) {
-		
-		//pool_.getObj()->set();
-		asteroidsInUse_++;
+		generateAsteroid(pool_.getObj(), a->getPos(), a->getVel(), a->getGen() - 1);
+		generateAsteroid(pool_.getObj(), a->getPos(), a->getVel() * -1, a->getGen() - 1);
 	}
+	a->setInUse(false);
+	asteroidsInUse_--;
 }

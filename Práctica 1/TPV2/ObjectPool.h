@@ -43,6 +43,6 @@ public:
 
 private:
 	std::function<bool(T*)> inUseF_;
-	std::array<T, SIZE> objs_;
 	std::vector<T*> objsPtrs_;
+	std::array<T, SIZE> objs_;
 };

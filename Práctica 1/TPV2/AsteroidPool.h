@@ -3,6 +3,7 @@
 #include "ObjectPool.h"
 #include "Asteroid.h"
 #include "Bullet.h"
+#include "Collisions.h"
 
 class AsteroidPool : public Component {
 
@@ -10,6 +11,8 @@ private:
 	ObjectPool<Asteroid, 30> pool_;
 	int asteroidsInUse_;
 	void generateRandomAsteroid(Asteroid* a);
+
+	void generateAsteroid(Asteroid* newAst, Vector2D aPos, Vector2D aVel, int gen);
 
 public:
 	AsteroidPool();
@@ -27,4 +30,3 @@ public:
 		return asteroidsInUse_;
 	};
 };
-

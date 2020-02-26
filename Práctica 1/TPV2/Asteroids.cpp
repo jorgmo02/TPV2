@@ -48,7 +48,8 @@ void Asteroids::initGame() {
 	AsteroidPool* a = asteroidsPool->addComponent<AsteroidPool>();
 	asteroidsPool->addComponent<AsteroidsMotion>();
 	asteroidsPool->addComponent<AsteroidsViewer>();
-	a->generateAsteroids(31);
+	a->generateAsteroids(1);
+	//a->onCollision(a->getPool()[0], nullptr);
 
 	Entity* bulletsPool = entityManager_->addEntity();
 	
