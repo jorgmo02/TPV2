@@ -3,6 +3,7 @@
 #include "InputHandler.h"
 #include "Entity.h"
 #include "Transform.h"
+#include "BulletsPool.h"
 
 class Gun : public Component {
 
@@ -20,4 +21,5 @@ private:
 	int lastShootInstant_;
 	int timeBetweenShots_;
 	Transform* tr_;
+	BulletsPool* pool_;
 };

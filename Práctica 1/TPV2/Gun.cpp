@@ -21,6 +21,7 @@ Gun::~Gun()
 
 void Gun::init() {
 	tr_ = GETCMP1_(Transform);
+	//pool_ = GETCMP1_(BulletsPool);
 }
 
 void Gun::update()
@@ -30,8 +31,10 @@ void Gun::update()
 	if (ih->keyDownEvent() && SDL_GetTicks() - lastShootInstant_ >= timeBetweenShots_) {
 
 		if (ih->isKeyDown(shootKey_)) {
-			// shoot
-			std::cout << "he disparado\n";
+			pool_->shoot(
+				tr_->getPos(), tr_->getVel(),
+				tr_->getW(), tr_->getH()
+			);
 			lastShootInstant_ = SDL_GetTicks();
 		}
 	}
