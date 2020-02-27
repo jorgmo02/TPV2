@@ -43,32 +43,30 @@ void Asteroids::initGame() {
 	entityManager_ = new EntityManager(game_);
 
 	Entity* asteroidsPool = entityManager_->addEntity();
-	AsteroidPool* a = asteroidsPool->addComponent<AsteroidPool>();
+	AsteroidPool* aPool = asteroidsPool->addComponent<AsteroidPool>();
 	asteroidsPool->addComponent<AsteroidsMotion>();
 	asteroidsPool->addComponent<AsteroidsViewer>();
-	a->generateAsteroids(1);
-	//a->onCollision(a->getPool()[0], nullptr);
 
 	Entity* bulletsPool = entityManager_->addEntity();
-	BulletsPool* b = bulletsPool->addComponent<BulletsPool>();
+	BulletsPool* bPool = bulletsPool->addComponent<BulletsPool>();
 	bulletsPool->addComponent<BulletsMotion>();
 	bulletsPool->addComponent<BulletsViewer>();
 
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
+	Health* cazaHealth = caza->addComponent<Health>();
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<FighterCtrl>();
 	caza->addComponent<FighterMotion>();
-	caza->addComponent<Gun>(b);
+	caza->addComponent<Gun>(bPool);
 	cazaTR->setPos(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
 	cazaTR->setWH(50, 50);
-	caza->addComponent<Health>();
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);
 	gameManager->addComponent<GameLogic>(cazaTR);
 	gameManager->addComponent<ScoreViewer>();
-	gameManager->addComponent<GameCtrl>();
+	gameManager->addComponent<GameCtrl>(aPool, cazaHealth);
 }
 
 void Asteroids::closeGame() {

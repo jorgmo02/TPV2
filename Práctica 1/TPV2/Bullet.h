@@ -17,7 +17,7 @@ public:
 
 	// GETTERS 
 
-	inline bool inUse() {
+	inline bool inUse() const {
 		return inUse_;
 	}
 	inline Vector2D getPos() const {
