@@ -19,3 +19,13 @@ void BulletsPool::shoot(Vector2D pos, Vector2D vel, double w, double h) {
 	// aplica las modificaciones y hace setInUse(true)
 	b->set(pos, vel, rot);
 }
+
+void BulletsPool::onCollision(Asteroid* a, Bullet* b) {
+	b->setInUse(false);
+}
+
+void BulletsPool::disableAll() {
+	for (auto o : pool_.getPool()) {
+		o->setInUse(false);
+	}
+}
