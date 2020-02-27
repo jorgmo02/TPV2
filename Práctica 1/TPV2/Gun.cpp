@@ -1,18 +1,17 @@
 #include "Gun.h"
-#include <iostream>
 
-Gun::Gun() :
-	Gun(2, SDLK_SPACE, 250) {
+Gun::Gun(BulletsPool* p) :
+	Gun(p, 2, SDLK_SPACE, 250) {
 }
 
-Gun::Gun(double bulletSpeed, SDL_Keycode shootKey, int timeBetweenShots) :
+Gun::Gun(BulletsPool* p, double bulletSpeed, SDL_Keycode shootKey, int timeBetweenShots) :
 	Component(ecs::Gun),
+	pool_(p),
 	tr_(nullptr),
 	bulletSpeed_(bulletSpeed),
 	shootKey_(shootKey),
 	timeBetweenShots_(timeBetweenShots),
-	lastShootInstant_(0)
-{
+	lastShootInstant_(0) {
 }
 
 Gun::~Gun()
@@ -21,7 +20,6 @@ Gun::~Gun()
 
 void Gun::init() {
 	tr_ = GETCMP1_(Transform);
-	//pool_ = GETCMP1_(BulletsPool);
 }
 
 void Gun::update()

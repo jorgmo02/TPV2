@@ -8,8 +8,8 @@
 class Gun : public Component {
 
 public:
-	Gun();
-	Gun(double bulletSpeed, SDL_Keycode shootKey, int timeBetweenShots);
+	Gun(BulletsPool* p);
+	Gun(BulletsPool* p, double bulletSpeed, SDL_Keycode shootKey, int timeBetweenShots);
 	virtual ~Gun();
 
 	void init() override;

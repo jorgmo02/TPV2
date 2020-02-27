@@ -2,29 +2,26 @@
 #include "Asteroids.h"
 #include <assert.h>
 
-#include "GameCtrl.h"
-#include "GameLogic.h"
-#include "InputHandler.h"
-#include "PaddleKBCtrl.h"
-#include "PaddleMouseCtrl.h"
-#include "PaddleMoveBehaviour.h"
-#include "Rectangle.h"
-#include "ScoreManager.h"
-#include "ScoreViewer.h"
-#include "SimpleMoveBahviour.h"
-#include "Transform.h"
-#include "FighterViewer.h"
-#include "FighterCtrl.h"
-#include "Health.h"
-#include "SDLGame.h"
 #include "AsteroidPool.h"
-
-#include "SDL_macros.h"
-#include "FighterMotion.h"
-#include "Gun.h"
 #include "AsteroidsMotion.h"
 #include "AsteroidsViewer.h"
 #include "BulletsMotion.h"
+#include "BulletsPool.h"
+#include "BulletsViewer.h"
+#include "FighterCtrl.h"
+#include "FighterMotion.h"
+#include "FighterViewer.h"
+#include "GameCtrl.h"
+#include "GameLogic.h"
+#include "Gun.h"
+#include "Health.h"
+#include "InputHandler.h"
+#include "ScoreManager.h"
+#include "ScoreViewer.h"
+#include "SDLGame.h"
+#include "Transform.h"
+
+#include "SDL_macros.h"
 
 using namespace std;
 
@@ -53,14 +50,16 @@ void Asteroids::initGame() {
 	//a->onCollision(a->getPool()[0], nullptr);
 
 	Entity* bulletsPool = entityManager_->addEntity();
+	BulletsPool* b = bulletsPool->addComponent<BulletsPool>();
 	bulletsPool->addComponent<BulletsMotion>();
+	bulletsPool->addComponent<BulletsViewer>();
 
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();
 	caza->addComponent<FighterViewer>();
 	caza->addComponent<FighterCtrl>();
 	caza->addComponent<FighterMotion>();
-	caza->addComponent<Gun>();
+	caza->addComponent<Gun>(b);
 	cazaTR->setPos(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
 	cazaTR->setWH(50, 50);
 	caza->addComponent<Health>();
