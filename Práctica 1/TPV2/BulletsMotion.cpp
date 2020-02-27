@@ -17,7 +17,16 @@ void BulletsMotion::init()
 void BulletsMotion::update()
 {
 	for (auto o : pool_) {
-		if(o->inUse())
+		if (o->inUse()) {
 			o->setPos(o->getPos() + o->getVel());
+
+			Vector2D oPos = o->getPos();
+
+			if (oPos.getY() > game_->getWindowHeight() ||
+				oPos.getY() < 0 ||
+				oPos.getX() > game_->getWindowWidth() ||
+				oPos.getX() < 0)
+				o->setInUse(false);
+		}
 	}
 }

@@ -31,7 +31,8 @@ void Gun::update()
 		if (ih->isKeyDown(shootKey_)) {
 			pool_->shoot(
 				tr_->getPos(), tr_->getVel(),
-				tr_->getW(), tr_->getH()
+				tr_->getW(), tr_->getH(),
+				tr_->getRot()
 			);
 			lastShootInstant_ = SDL_GetTicks();
 		}
