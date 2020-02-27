@@ -8,36 +8,43 @@ public:
 	ScoreManager(int pointsToWin);
 	virtual ~ScoreManager();
 
-	int getScore() const {
+	inline bool getScore() const {
 		return score_;
 	}
 
-	void setScore(int score) {
-		score_ = score;
-	}
+	void updateScore(int score);
 
-	int getRounds() const {
+	inline int getPointsToWin() const {
 		return pointsToWin_;
 	}
 
-	void setPointsToWin(int pointsToWin) {
+	inline void setPointsToWin(int pointsToWin) {
 		pointsToWin_ = pointsToWin;
 	}
 
-	bool isRunning() const {
+	inline bool isRunning() const {
 		return running_;
 	}
 
-	void setRunning(bool running) {
+	inline void setRunning(bool running) {
 		running_ = running;
 	}
 
-	bool isGameOver() {
-		return score_ == pointsToWin_;
+	inline void setEnd(bool ended) {
+		end_ = ended;
+	}
+
+	inline bool isGameOver() const {
+		return end_;
+	}
+
+	inline bool hasWon() const {
+		return score_ >= pointsToWin_;
 	}
 
 private:
 	bool running_;
+	bool end_;
 	int score_;
 	int pointsToWin_;
 };

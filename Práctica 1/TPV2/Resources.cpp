@@ -34,7 +34,9 @@ vector<Resources::ImageInfo> Resources::images_{
 vector<Resources::TextMsgInfo> Resources::messages_ {
 //
 		{ PressAnyKey, "Press Any Key ...", { COLOR(0xaaffbbff) }, ARIAL24 }, //
-		{ GameOver, "Game Over", { COLOR(0xffffbbff) }, ARIAL24 } //
+		{ GameOver, "Game Over", { COLOR(0xffffbbff) }, ARIAL24 }, //		
+		{ YouWon, "You won!", { COLOR(0xffffbbff) }, ARIAL24 }, //	
+		{ YouLost, "You lost!", { COLOR(0xffffbbff) }, ARIAL24 } //
 };
 
 vector<Resources::MusicInfo> Resources::musics_ {

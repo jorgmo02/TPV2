@@ -26,9 +26,9 @@
 using namespace std;
 
 Asteroids::Asteroids() :
-		game_(nullptr), //
-		entityManager_(nullptr), //
-		exit_(false) {
+	game_(nullptr), //
+	entityManager_(nullptr), //
+	exit_(false) {
 	initGame();
 }
 
@@ -64,7 +64,7 @@ void Asteroids::initGame() {
 
 	Entity *gameManager = entityManager_->addEntity();
 	gameManager->addComponent<ScoreManager>(1);
-	gameManager->addComponent<GameLogic>(cazaTR);
+	gameManager->addComponent<GameLogic>(cazaTR, aPool, bPool, cazaHealth);
 	gameManager->addComponent<ScoreViewer>();
 	gameManager->addComponent<GameCtrl>(aPool, cazaHealth);
 }

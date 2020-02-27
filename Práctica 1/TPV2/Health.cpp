@@ -1,7 +1,12 @@
 #include "Health.h"
 
 Health::Health() :
-	Component(ecs::Health) {
+	Health(3) {
+}
+
+Health::Health(int lifes) :
+	Component(ecs::Health),
+	health_(lifes) {
 }
 
 Health::~Health() {

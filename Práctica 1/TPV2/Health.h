@@ -5,14 +5,22 @@
 
 class Health : public Component {
 private:
-	int health_ = 3;
+	int health_;
 	Texture* heart_ = nullptr;
 public:
 	Health();
+	Health(int lifes);
 	virtual ~Health();
 
 	void init() override;
 	void draw() override;
 	void substractLife();
+	inline void setLifes(int lifes) {
+		health_ = lifes;
+	}
+	inline int getLifes() const {
+		return health_;
+	}
+
 };
 
