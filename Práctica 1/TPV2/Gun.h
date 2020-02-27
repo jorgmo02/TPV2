@@ -10,7 +10,7 @@ class Gun : public Component {
 public:
 	Gun();
 	Gun(double bulletSpeed, SDL_Keycode shootKey, int timeBetweenShots);
-	~Gun();
+	virtual ~Gun();
 
 	void init() override;
 	void update() override;

@@ -19,7 +19,7 @@ public:
 	Asteroid();
 	Asteroid(Vector2D pos, Vector2D vel, double rot, int gen);
 	void set(Vector2D pos, Vector2D vel, double rot, int gen);
-	~Asteroid();
+	virtual ~Asteroid();
 
 	// GETTERS 
 

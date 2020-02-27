@@ -10,7 +10,7 @@ public:
 	FighterCtrl();
 	FighterCtrl(SDL_Keycode forward, SDL_Keycode left,
 		SDL_Keycode right);
-	~FighterCtrl();
+	virtual ~FighterCtrl();
 
 	inline void setCtrlKeys(SDL_Keycode forward, SDL_Keycode left,
 		SDL_Keycode right) {

@@ -1,4 +1,5 @@
 #include "BulletsPool.h"
+#include "Entity.h"
 
 BulletsPool::BulletsPool() :
 	Component(ecs::BulletsPool),

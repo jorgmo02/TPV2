@@ -9,7 +9,8 @@ private:
 	Texture* heart_ = nullptr;
 public:
 	Health();
-	~Health();
+	virtual ~Health();
+
 	void init() override;
 	void draw() override;
 	void substractLife();

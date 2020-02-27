@@ -8,7 +8,7 @@ class FighterMotion : public Component {
 public:
 	FighterMotion();
 	FighterMotion(double reduceRate);
-	~FighterMotion();
+	virtual ~FighterMotion();
 
 	void init() override;
 	void update() override;

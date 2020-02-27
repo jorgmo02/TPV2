@@ -13,7 +13,7 @@ public:
 	Bullet();
 	Bullet(Vector2D pos, Vector2D vel, double rot);
 	void set(Vector2D pos, Vector2D vel, double rot);
-	~Bullet();
+	virtual ~Bullet();
 
 	// GETTERS 
 

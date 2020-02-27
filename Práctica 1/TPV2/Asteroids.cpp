@@ -24,6 +24,7 @@
 #include "Gun.h"
 #include "AsteroidsMotion.h"
 #include "AsteroidsViewer.h"
+#include "BulletsMotion.h"
 
 using namespace std;
 
@@ -52,7 +53,7 @@ void Asteroids::initGame() {
 	//a->onCollision(a->getPool()[0], nullptr);
 
 	Entity* bulletsPool = entityManager_->addEntity();
-	
+	bulletsPool->addComponent<BulletsMotion>();
 
 	Entity* caza = entityManager_->addEntity();
 	Transform* cazaTR = caza->addComponent<Transform>();

@@ -6,7 +6,7 @@
 class AsteroidsMotion :	public Component {
 public:
 	AsteroidsMotion();
-	~AsteroidsMotion();
+	virtual ~AsteroidsMotion();
 
 	void init() override;
 	void update() override;
