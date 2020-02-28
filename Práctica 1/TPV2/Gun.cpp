@@ -34,6 +34,7 @@ void Gun::update()
 				tr_->getW(), tr_->getH(),
 				tr_->getRot()
 			);
+			game_->getAudioMngr()->playChannel(Resources::Wall_Hit, 0);
 			lastShootInstant_ = SDL_GetTicks();
 		}
 	}

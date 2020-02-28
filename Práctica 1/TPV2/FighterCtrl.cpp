@@ -23,14 +23,13 @@ void FighterCtrl::update() {
 	InputHandler* ih = InputHandler::instance();
 
 	if (ih->keyDownEvent()) {
-
 		if (ih->isKeyDown(forward_)) {
 
 			Vector2D newVel = tr_->getVel() + Vector2D(0, -1).rotate(tr_->getRot()) * thrust_;
 
 			if (newVel.magnitude() > speedLimit_)
 				newVel = newVel.normalize() * speedLimit_;
-			
+
 			tr_->setVel(newVel);
 		}
 		else if (ih->isKeyDown(left_)) {

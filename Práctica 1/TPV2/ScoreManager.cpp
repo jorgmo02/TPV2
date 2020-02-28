@@ -1,24 +1,13 @@
 #include "ScoreManager.h"
 
 ScoreManager::ScoreManager() :
-		ScoreManager(5) {
-}
-
-ScoreManager::ScoreManager(int pointsToWin) :
 	Component(ecs::ScoreManager), //
 	running_(false), //
-	end_(false),
+	end_(true),
 	score_(0), //
-	pointsToWin_(pointsToWin) //
+	win_(false) //
 {
 }
 
 ScoreManager::~ScoreManager() {
 }
-
-void ScoreManager::updateScore(int score)
-{
-	score_ = score;
-	end_ = score_ >= pointsToWin_;
-}
-

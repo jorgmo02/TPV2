@@ -1,25 +1,23 @@
 #pragma once
 
 #include "Component.h"
+#include <iostream>
 
 class ScoreManager: public Component {
 public:
 	ScoreManager();
-	ScoreManager(int pointsToWin);
 	virtual ~ScoreManager();
 
-	inline bool getScore() const {
+	inline int getScore() const {
 		return score_;
 	}
 
-	void updateScore(int score);
-
-	inline int getPointsToWin() const {
-		return pointsToWin_;
+	inline void sumPoint() {
+		score_++;
 	}
-
-	inline void setPointsToWin(int pointsToWin) {
-		pointsToWin_ = pointsToWin;
+	
+	inline void setPoints(int points) {
+		score_ = points;
 	}
 
 	inline bool isRunning() const {
@@ -30,21 +28,25 @@ public:
 		running_ = running;
 	}
 
-	inline void setEnd(bool ended) {
-		end_ = ended;
+	inline void setWin(bool win) {
+		win_ = win;
+	}
+
+	inline void setGameOver(bool end) {
+		end_ = end;
 	}
 
 	inline bool isGameOver() const {
 		return end_;
 	}
 
-	inline bool hasWon() const {
-		return score_ >= pointsToWin_;
+	inline bool isWin() const {
+		return win_;
 	}
 
 private:
 	bool running_;
 	bool end_;
+	bool win_;
 	int score_;
-	int pointsToWin_;
 };

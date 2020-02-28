@@ -63,7 +63,7 @@ void Asteroids::initGame() {
 	cazaTR->setWH(50, 50);
 
 	Entity *gameManager = entityManager_->addEntity();
-	gameManager->addComponent<ScoreManager>(1);
+	gameManager->addComponent<ScoreManager>();
 	gameManager->addComponent<GameLogic>(cazaTR, aPool, bPool, cazaHealth);
 	gameManager->addComponent<ScoreViewer>();
 	gameManager->addComponent<GameCtrl>(aPool, cazaHealth);
@@ -129,4 +129,3 @@ void Asteroids::render() {
 
 	SDL_RenderPresent(game_->getRenderer());
 }
-

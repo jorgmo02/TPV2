@@ -20,6 +20,8 @@ GameCtrl::~GameCtrl() {
 
 void GameCtrl::init() {
 	scoreManager_ = GETCMP1_(ScoreManager);
+	game_->getAudioMngr()->playMusic(Resources::Imperial_March, -1);
+	game_->getAudioMngr()->pauseMusic();
 }
 
 void GameCtrl::update() {
@@ -29,11 +31,13 @@ void GameCtrl::update() {
 			// inicia partida
 			pool_->generateAsteroids(asteroidsGenerated);
 			scoreManager_->setRunning(true);
+			game_->getAudioMngr()->resumeMusic();
 
-			// rest the score if the game is over
+			// reset the score if the game is over
 			if (scoreManager_->isGameOver()) {
-				scoreManager_->updateScore(0);
+				scoreManager_->setPoints(0);
 				health_->setLifes(3);
+				scoreManager_->setGameOver(false);
 			}
 		}
 	}
@@ -47,23 +51,4 @@ void GameCtrl::draw() {
 				game_->getWindowWidth() / 2 - hitanykey->getWidth() / 2,
 				game_->getWindowHeight() - hitanykey->getHeight() - 50);
 	}
-
-	// game over message when game is over			// rest the score if the game is over
-	/*if (state == Lose || state == Win) {
-
-		Resources::TextureId winOrLose;
-		(state == Lose) ?
-			winOrLose = Resources::YouLost		:
-			winOrLose = Resources::YouWon;
-		
-		Texture* winLose = game_->getTextureMngr()->getTexture(winOrLose);
-
-		Texture *gameOver = game_->getTextureMngr()->getTexture(
-				Resources::GameOver);
-
-		gameOver->render(game_->getWindowWidth() / 2 - gameOver->getWidth() / 2,
-				game_->getWindowHeight() - gameOver->getHeight() - 170);
-		winLose->render(game_->getWindowWidth() / 2 - gameOver->getWidth() / 2,
-				game_->getWindowHeight() - gameOver->getHeight() - 150);
-	}*/
 }

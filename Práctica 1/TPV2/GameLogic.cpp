@@ -20,7 +20,7 @@ void GameLogic::init() {
 }
 
 void GameLogic::update() {
-	if (scoreManager_->isRunning()) {
+	if (!scoreManager_->isGameOver() && scoreManager_->isRunning()) {
 		// check for collision of caza with items
 		for (Asteroid* a : aPool_->getPool()) {
 			if (a->inUse()) {
@@ -36,14 +36,13 @@ void GameLogic::checkWithFighter(Asteroid* a) {
 		cazaTR_->getPos(), cazaTR_->getW(), cazaTR_->getH(), cazaTR_->getRot(),
 		a->getPos(), a->getWidth(), a->getHeight(), a->getRot()
 	)) {
-		reset();
 		health_->substractLife();
+		reset();
+		game_->getAudioMngr()->playChannel(Resources::ExplosionSound, 0);
 		if (health_->getLifes() <= 0) {
-			scoreManager_->setRunning(false);
-			scoreManager_->setEnd(true);
+			scoreManager_->setGameOver(true);
+			scoreManager_->setWin(false);
 		}
-		else
-			aPool_->generateAsteroids(10);
 	}
 }
 
@@ -56,11 +55,13 @@ void GameLogic::checkWithBullets(Asteroid* a) {
 			)) {
 				aPool_->onCollision(a, b);
 				bPool_->onCollision(a, b);
-				scoreManager_->updateScore(scoreManager_->getScore() + 1);
- 				if (aPool_->getNumOfAsteroid() <= 0) {
+				scoreManager_->sumPoint();
+				game_->getAudioMngr()->playChannel(Resources::GunShot, 0);
+
+				if (aPool_->getNumOfAsteroid() <= 0) {
+					scoreManager_->setGameOver(true);
+					scoreManager_->setWin(true);
 					reset();
-					scoreManager_->setRunning(false);
-					scoreManager_->setEnd(true);
 				}
 			}
 		}
@@ -68,12 +69,16 @@ void GameLogic::checkWithBullets(Asteroid* a) {
 }
 
 void GameLogic::reset() {
+	game_->getAudioMngr()->pauseMusic();
+	scoreManager_->setRunning(false);
 	aPool_->disableAll();
 	bPool_->disableAll();
+
 	cazaTR_->setVel(0, 0);
 	cazaTR_->setPos(
 		game_->getWindowWidth() / 2,
 		game_->getWindowHeight() / 2
 	);
+	cazaTR_->setRot(0);
 }
 
