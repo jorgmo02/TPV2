@@ -9,13 +9,14 @@
 class GameCtrl: public Component {
 public:
 	GameCtrl();
-	GameCtrl(AsteroidPool* a, Health* h);
+	GameCtrl(AsteroidPool* a, Health* h, int asteroidsGenerated);
 	virtual ~GameCtrl();
 	void init() override;
 	void update() override;
 	void draw() override;
 private:
-	int asteroidsGenerated;
+	int iniLifes_;
+	int asteroidsGenerated_;
 	AsteroidPool* pool_;
 	Health* health_;
 	ScoreManager *scoreManager_;

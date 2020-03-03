@@ -6,6 +6,7 @@ Health::Health() :
 
 Health::Health(int lifes) :
 	Component(ecs::Health),
+	maxHealth_(lifes),
 	health_(lifes) {
 }
 

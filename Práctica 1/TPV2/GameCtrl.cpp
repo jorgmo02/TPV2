@@ -3,15 +3,15 @@
 #include "InputHandler.h"
 
 GameCtrl::GameCtrl() :
-	GameCtrl(nullptr, nullptr) {
+	GameCtrl(nullptr, nullptr, 10) {
 }
 
-GameCtrl::GameCtrl(AsteroidPool* a, Health* h) :
+GameCtrl::GameCtrl(AsteroidPool* a, Health* h, int asteroidsGenerated) :
 	Component(ecs::GameCtrl),
 	health_(h),
 	pool_(a),
 	scoreManager_(nullptr),
-	asteroidsGenerated(10) {
+	asteroidsGenerated_(asteroidsGenerated) {
 }
 
 GameCtrl::~GameCtrl() {
@@ -28,17 +28,16 @@ void GameCtrl::update() {
 
 	if (InputHandler::instance()->keyDownEvent()) {
 		if (!scoreManager_->isRunning()) {
-			// inicia partida
-			pool_->generateAsteroids(asteroidsGenerated);
-			scoreManager_->setRunning(true);
-			game_->getAudioMngr()->resumeMusic();
-
 			// reset the score if the game is over
 			if (scoreManager_->isGameOver()) {
 				scoreManager_->setPoints(0);
-				health_->setLifes(3);
-				scoreManager_->setGameOver(false);
+				health_->setLifes(health_->getMaxHealth());
 			}
+			// inicia partida
+			pool_->generateAsteroids(asteroidsGenerated_);
+			scoreManager_->setRunning(true);
+			game_->getAudioMngr()->resumeMusic();
+
 		}
 	}
 }

@@ -6,6 +6,7 @@
 class Health : public Component {
 private:
 	int health_;
+	int maxHealth_;	
 	Texture* heart_ = nullptr;
 public:
 	Health();
@@ -20,6 +21,10 @@ public:
 	}
 	inline int getLifes() const {
 		return health_;
+	}
+
+	inline int getMaxHealth() const {
+		return maxHealth_;
 	}
 
 };

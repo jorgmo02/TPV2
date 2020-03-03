@@ -7,6 +7,7 @@
 class BulletsPool : public Component {
 public:
 	BulletsPool();
+	BulletsPool(double bulletSpeed);
 	virtual ~BulletsPool();
 
 	void shoot(Vector2D pos, Vector2D vel, double w, double h, double rot);
@@ -20,7 +21,7 @@ public:
 	void disableAll();
 
 private:
-	double bulletSpeed = 2;
+	double bulletSpeed_;
 	ObjectPool<Bullet, 10> pool_;
 
 };

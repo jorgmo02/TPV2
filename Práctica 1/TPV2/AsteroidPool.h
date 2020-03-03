@@ -9,12 +9,15 @@ class AsteroidPool : public Component {
 private:
 	ObjectPool<Asteroid, 30> pool_;
 	int asteroidsInUse_;
+	int asteroidsVel_;
+
 	void generateRandomAsteroid(Asteroid* a);
 
 	void generateAsteroid(Asteroid* newAst, Vector2D aPos, Vector2D aVel, int gen);
 
 public:
 	AsteroidPool();
+	AsteroidPool(int asteroidsVel);
 	virtual ~AsteroidPool();
 
 	void generateAsteroids(int n);

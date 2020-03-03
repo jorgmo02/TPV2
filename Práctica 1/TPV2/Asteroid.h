@@ -18,7 +18,6 @@ private:
 public:
 	Asteroid();
 	Asteroid(Vector2D pos, Vector2D vel, double rot, int gen);
-	void set(Vector2D pos, Vector2D vel, double rot, int gen);
 	virtual ~Asteroid();
 
 	// GETTERS 
@@ -58,4 +57,6 @@ public:
 	inline void setInUse(bool inUse) {
 		inUse_ = inUse;
 	}
+
+	void set(Vector2D pos, Vector2D vel, double rot, int gen);
 };

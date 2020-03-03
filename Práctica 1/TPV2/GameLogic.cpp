@@ -37,11 +37,11 @@ void GameLogic::checkWithFighter(Asteroid* a) {
 		a->getPos(), a->getWidth(), a->getHeight(), a->getRot()
 	)) {
 		health_->substractLife();
+		scoreManager_->setRunning(false);
 		reset();
 		game_->getAudioMngr()->playChannel(Resources::ExplosionSound, 0);
 		if (health_->getLifes() <= 0) {
-			scoreManager_->setGameOver(true);
-			scoreManager_->setWin(false);
+			scoreManager_->setGameOver(false);
 		}
 	}
 }
@@ -59,9 +59,8 @@ void GameLogic::checkWithBullets(Asteroid* a) {
 				game_->getAudioMngr()->playChannel(Resources::GunShot, 0);
 
 				if (aPool_->getNumOfAsteroid() <= 0) {
-					scoreManager_->setGameOver(true);
-					scoreManager_->setWin(true);
 					reset();
+					scoreManager_->setGameOver(true);
 				}
 			}
 		}
@@ -70,7 +69,6 @@ void GameLogic::checkWithBullets(Asteroid* a) {
 
 void GameLogic::reset() {
 	game_->getAudioMngr()->pauseMusic();
-	scoreManager_->setRunning(false);
 	aPool_->disableAll();
 	bPool_->disableAll();
 

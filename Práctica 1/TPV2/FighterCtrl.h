@@ -8,8 +8,8 @@ class FighterCtrl : public Component
 {
 public:
 	FighterCtrl();
-	FighterCtrl(SDL_Keycode forward, SDL_Keycode left,
-		SDL_Keycode right);
+	FighterCtrl(SDL_Keycode forward, SDL_Keycode left, SDL_Keycode right,
+		double thrust, double speedLimit);
 	virtual ~FighterCtrl();
 
 	inline void setCtrlKeys(SDL_Keycode forward, SDL_Keycode left,
