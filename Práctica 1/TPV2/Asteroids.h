@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-
 #include "Manager.h"
 #include "SDLGame.h"
 
@@ -17,6 +16,7 @@ public:
 
 private:
 	void initGame();
+	void initEntities();
 	void closeGame();
 	void handleInput();
 	void update();
@@ -29,4 +29,15 @@ private:
 	const static int _WINDOW_WIDTH_ = 640;
 	const static int _WINDOW_HEIGHT_ = 480;
 
+	int FONT_COLOR = 0x111122ff;
+
+	int NUM_LIFES = 3;
+
+	int ASTEROID_SPEED = 10;
+	int ASTEROIDS_PER_ROUND = 10;
+	float BULLETS_SPEED = 2.0;
+	float FIGHTER_IMPULSE = 5.0;
+	float FIGHTER_SPEED_LIMIT = 2.0;
+	float FIGHTER_RED_SPEED_RATE = 0.995;
+	float TIME_BETWEEN_SHOTS = 0.995;
 };

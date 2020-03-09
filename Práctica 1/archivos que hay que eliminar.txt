@@ -1,4 +1,0 @@
-PaddleKBCtrl
-PaddleMouseCtrl
-PaddleMoveBehaviour
-Rectangle? No parece servir para nada
