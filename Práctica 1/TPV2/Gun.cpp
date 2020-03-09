@@ -25,9 +25,8 @@ void Gun::update()
 {
 	InputHandler* ih = InputHandler::instance();
 
-	if (ih->keyDownEvent() && SDL_GetTicks() - lastShootInstant_ >= timeBetweenShots_) {
-
-		if (ih->isKeyDown(shootKey_)) {
+	if (ih->keyDownEvent()) {
+		if (ih->isKeyDown(shootKey_) && SDL_GetTicks() - lastShootInstant_ >= timeBetweenShots_) {
 			pool_->shoot(
 				tr_->getPos(), tr_->getVel(),
 				tr_->getW(), tr_->getH(),

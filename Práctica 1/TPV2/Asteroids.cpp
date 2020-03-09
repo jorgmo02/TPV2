@@ -39,7 +39,26 @@ Asteroids::~Asteroids() {
 void Asteroids::initGame() {
 	game_ = SDLGame::init("Asteroids", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
 	entityManager_ = new EntityManager(game_);
+	readJson();		// read game values from "./resources/cfg/asteroids.cfg"
 	initEntities();
+}
+
+void Asteroids::readJson() {
+	cfg_ = jute::parser::parse_file(DATA_FILE);
+
+	FONT_COLOR = cfg_["font"]["color"].as_int();
+
+	ASTEROIDS_PER_ROUND = cfg_["asteroids"]["per round"].as_int();
+	ASTEROID_SPEED = cfg_["asteroids"]["speed"].as_int();
+
+	BULLETS_SPEED = cfg_["bullets"]["speed"].as_double();
+	TIME_BETWEEN_SHOTS = cfg_["bullets"]["time"].as_double() * 1000;	// miliseconds
+
+	NUM_LIFES = cfg_["lifes"].as_int();
+
+	FIGHTER_IMPULSE = cfg_["fighter"]["impulse"].as_double();
+	FIGHTER_SPEED_LIMIT = cfg_["fighter"]["speed limit"].as_double();
+	FIGHTER_RED_SPEED_RATE = cfg_["fighter"]["red speed rate"].as_double();
 }
 
 void Asteroids::initEntities() {
