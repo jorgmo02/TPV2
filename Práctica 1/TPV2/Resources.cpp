@@ -41,7 +41,7 @@ vector<Resources::TextMsgInfo> Resources::messages_ {
 
 vector<Resources::MusicInfo> Resources::musics_ {
 //
-		{ Imperial_March, "resources/sound/imperial_march.wav" }, //
+		{ Imperial_March, "resources/sound/Main menu.wav" }, //
 		{ Beat, "resources/sound/beat.wav" }
 
 };
