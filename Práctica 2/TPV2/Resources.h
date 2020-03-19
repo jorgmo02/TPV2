@@ -20,6 +20,7 @@ public:
 		Airplanes,
 		Asteroid,
 		Bullet,
+		Heart,
 
 		// text
 		HelloWorld,
@@ -36,7 +37,8 @@ public:
 
 		// sound effects
 		Wall_Hit,
-		Paddle_Hit
+		Paddle_Hit,
+		Explosion
 	};
 
 	enum FontId : std::size_t {

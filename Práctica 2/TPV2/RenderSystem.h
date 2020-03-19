@@ -10,6 +10,7 @@
 #include "Transform.h"
 #include "ImageComponent.h"
 #include "Texture.h"
+#include "GameCtrlSystem.h"
 
 class RenderSystem: public System {
 public:
@@ -47,26 +48,60 @@ public:
 
 	}
 
+	void drawHealth() {
+		int playerHealth = mngr_->getHandler<_hdlr_Fighter>()->getComponent<Health>()->health_;
+
+		int wWidth = game_->getWindowWidth();
+		int wHeight = game_->getWindowHeight();
+
+		SDL_Rect rect
+			RECT(wWidth / 20, wHeight / 20, wWidth / 20, wHeight / 20);
+
+		for (int i = 0; i < playerHealth; i++) {
+			game_->getTextureMngr()->getTexture(Resources::Heart)->render(rect);
+			rect.x += wWidth / 18;
+		}
+	}
+
 	void update() override {
 
-		// draw asteroids
-		for (auto &e : mngr_->getGroupEntities<_grp_Asteroids>()) {
-			draw(e);
+		GameState::State currentState = mngr_->getSystem<GameCtrlSystem>()->getGameState()->currentState_;
+
+		if (currentState == GameState::State::Started) {
+
+			// draw asteroids
+			for (auto& e : mngr_->getGroupEntities<_grp_Asteroids>()) {
+				draw(e);
+			}
+			// draw bullets
+			for (auto& e : mngr_->getGroupEntities<_grp_Bullets>()) {
+				draw(e);
+			}
+			// draw fighter
+			draw(mngr_->getHandler<_hdlr_Fighter>(), fighterClip_);
 		}
-		// draw bullets
-		for (auto &e : mngr_->getGroupEntities<_grp_Bullets>()) {
-			draw(e);
+		else if (currentState == GameState::State::Stopped) {
+			Texture msg(game_->getRenderer(), "Press ENTER to start", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+			// info message
+			msg.render(game_->getWindowWidth() / 2 - msg.getWidth() / 2, game_->getWindowHeight() - msg.getHeight() - 10);
 		}
 
-		// draw fighter
-		draw(mngr_->getHandler<_hdlr_Fighter>(), fighterClip_);
+		else {
+			string winText;
+			(currentState == GameState::State::Win) ? winText = "You win!" : winText = "You lose!";
+
+			Texture winTexture(game_->getRenderer(), winText, game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+			// win/lose message
+			winTexture.render(game_->getWindowWidth() / 2 - winTexture.getWidth() / 2, winTexture.getHeight());
+
+			Texture msg(game_->getRenderer(), "Press ENTER to start a new game", game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+			// info message
+			msg.render(game_->getWindowWidth() / 2 - msg.getWidth() / 2, game_->getWindowHeight() - msg.getHeight() - 10);
+		}
 
 		// draw score
 		drawScore();
-
-		// info message
-		Texture msg(game_->getRenderer(),"Press ENTER to add More Stars", game_->getFontMngr()->getFont(Resources::ARIAL24),{COLOR(0xff0000ff)});
-		msg.render(game_->getWindowWidth()/2-msg.getWidth()/2,game_->getWindowHeight()-msg.getHeight()-10);
+		drawHealth();
 	}
 
 private:

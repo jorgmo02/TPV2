@@ -3,7 +3,6 @@
 #include "SDLGame.h"
 #include "System.h"
 #include "Manager.h"
-#include "GameCtrlSystem.h"
 #include "Entity.h"
 #include "InputHandler.h"
 #include "Health.h"
@@ -48,17 +47,12 @@ public:
 		mngr_->setHandler<_hdlr_Fighter>(fighter_);
 	}
 
-	void onCollisionWithAsteroid(Entity* a) {
+	void onCollisionWithAsteroid(Entity* a);
+
+	void reset() {
 		tr_->position_ = Vector2D(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
 		tr_->velocity_ = Vector2D(0, 0);
-		mngr_->getSystem<GameCtrlSystem>()->onFighterDeath();
-		/*health_->substractLife();
-		scoreManager_->setRunning(false);
-		reset();
-		game_->getAudioMngr()->playChannel(Resources::ExplosionSound, 0);
-		if (health_->getLifes() <= 0) {
-			scoreManager_->setGameOver(false);
-		}*/
+		tr_->rotation_ = 0;
 	}
 
 	void update() override {
@@ -102,6 +96,8 @@ public:
 					tr_->velocity_.getY() * -1);
 		}
 	}
+
+	inline int getMaxLifes() const { return maxLifes_; }
 
 private:
 	Entity* fighter_;

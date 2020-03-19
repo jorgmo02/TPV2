@@ -17,7 +17,8 @@ vector<Resources::ImageInfo> Resources::images_ {
 		{ SpaceShips, "resources/images/spaceships.png" }, //
 		{ Airplanes, "resources/images/airplanes.png" }, //
 		{ Asteroid, "resources/images/asteroid.png" }, //
-		{ Bullet, "resources/images/bullet.png" } //
+		{ Bullet, "resources/images/bullet.png" }, //
+		{ Heart, "resources/images/heart.png" } //
 };
 
 vector<Resources::TextMsgInfo> Resources::messages_ {
@@ -38,6 +39,7 @@ vector<Resources::MusicInfo> Resources::musics_ {
 vector<Resources::SoundInfo> Resources::sounds_ {
 //
 		{ Wall_Hit, "resources/sound/wall_hit.wav" }, //
-		{ Paddle_Hit, "resources/sound/paddle_hit.wav" } //
+		{ Paddle_Hit, "resources/sound/paddle_hit.wav" }, //
+		{ Explosion, "resources/sound/explosion.wav" }, //
 };
 

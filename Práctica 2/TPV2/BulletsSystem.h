@@ -14,6 +14,11 @@ public:
 		b->setActive(false);
 	};
 
+	void disableBullets() {
+		for (Entity* a : mngr_->getGroupEntities<_grp_Bullets>())
+			a->setActive(false);
+	}
+
 	void shoot(Vector2D pos, Vector2D vel, double w, double h, double rot) {
 
 		Vector2D bulletPos = pos + Vector2D(w / 2, h / 2) + Vector2D(0, -(h / 2)).rotate(rot);

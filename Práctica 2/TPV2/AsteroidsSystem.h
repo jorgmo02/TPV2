@@ -20,6 +20,12 @@ public:
 			createRandomAsteroid();
 	};
 
+	void disableAsteroids() {
+		for (Entity* a : mngr_->getGroupEntities<_grp_Asteroids>())
+			a->setActive(false);
+		numOfAsteroids_ = 0;
+	};
+
 	void onCollisionWithBullet(Entity* a, Entity* b);
 
 	void update() override {

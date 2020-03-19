@@ -16,6 +16,7 @@ Asteroids::Asteroids() :
 		mngr_(nullptr), //
 		exit_(false) {
 	initGame();
+	loadFromJson();
 	setConfig();
 }
 
@@ -41,15 +42,42 @@ void Asteroids::initGame() {
 	fighterGunSystem_ = mngr_->addSystem<FighterGunSystem>();
 }
 
+void Asteroids::loadFromJson() {
+	cfg_ = jute::parser::parse_file(CONFIG_FILE);
+
+	ASTEROIDS_PER_ROUND = cfg_["asteroids"]["per round"].as_int();
+	ASTEROIDS_VEL = cfg_["asteroids"]["speed"].as_int();
+	ASTEROIDS_HEIGHT = cfg_["asteroids"]["height"].as_int();
+	ASTEROIDS_WIDTH = cfg_["asteroids"]["width"].as_int();
+	ASTEROIDS_GENS = cfg_["asteroids"]["gens"].as_int();
+
+	BULLETS_WIDTH = cfg_["bullets"]["width"].as_int();
+	BULLETS_HEIGHT = cfg_["bullets"]["height"].as_int();
+	BULLETS_VEL = cfg_["bullets"]["speed"].as_int();
+
+	FIGHTER_CLIP = {
+		cfg_["fighter"]["clip"]["iniX"].as_int(),
+		cfg_["fighter"]["clip"]["iniY"].as_int(),
+		cfg_["fighter"]["clip"]["finX"].as_int(),
+		cfg_["fighter"]["clip"]["finY"].as_int()
+	};
+	FIGHTER_MAX_LIFES = cfg_["lifes"].as_int();
+	FIGHTER_IMPULSE = cfg_["fighter"]["impulse"].as_double();
+	FIGHTER_SPEED_LIMIT = cfg_["fighter"]["speed limit"].as_double();
+	FIGHTER_REDUCE_RATE = cfg_["fighter"]["red speed rate"].as_double();
+	FIGHTER_TIME_BETWEEN_SHOOTS = cfg_["bullets"]["time"].as_double() * 1000;	// miliseconds
+}
+
 void Asteroids::setConfig() {
-	asteroidsSystem_->setAsteroidsConfig(10, 10, 10, 3);
-	bulletsSystem_->setBulletsConfig(10, 10, 2);
-	renderSystem_->setFighterClip({ 47, 90, 207, 250 });
+	asteroidsSystem_->setAsteroidsConfig(ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_VEL, ASTEROIDS_GENS);
+	bulletsSystem_->setBulletsConfig(BULLETS_WIDTH, BULLETS_HEIGHT, BULLETS_VEL);
+	renderSystem_->setFighterClip(FIGHTER_CLIP);
 	fighterSystem_->setFighterConfig(
-		5.0, 2.0, 5.0, 0.995, 3,
+		FIGHTER_IMPULSE, FIGHTER_SPEED_LIMIT, FIGHTER_ROTATION_RATE, FIGHTER_REDUCE_RATE, FIGHTER_MAX_LIFES,
 		SDLK_UP, SDLK_LEFT, SDLK_RIGHT
 	);
-	fighterGunSystem_->setFighterGunConfig(250, SDLK_SPACE);
+	fighterGunSystem_->setFighterGunConfig(FIGHTER_TIME_BETWEEN_SHOOTS, SDLK_SPACE);
+	gameCtrlSystem_->setGameCtrlConfig(ASTEROIDS_PER_ROUND);
 }
 
 void Asteroids::closeGame() {
