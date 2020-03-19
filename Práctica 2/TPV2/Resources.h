@@ -9,54 +9,37 @@ using namespace std;
 class Resources {
 public:
 
-	enum TextureId : int {
+	enum TextureId : std::size_t {
 		// images
+		Blank,
+		TennisBall,
+		KeyBoardIcon,
+		MouseIcon,
 		AIIcon,
+		SpaceShips,
 		Airplanes,
 		Asteroid,
-		Astreoid,
-		Badges,
-		Bird,
-		Black_Hole,
-		Blank,
 		Bullet,
-		Explosion,
-		Fire_Egg,
-		Heart,
-		KeyBoardIcon,
-		Life,
-		Monster,
-		MouseIcon,
-		SpaceShips,
-		Star,
-		TennisBall,
-		White_Rect,
 
 		// text
 		HelloWorld,
 		PressAnyKey,
 		GameOver,
-		YouWon,
-		YouLost
 	};
 
-	enum AudioId : int {
+	enum AudioId : std::size_t {
 		// music
 		Beat,
-		Imperial_March,
+		Cheer,
+		Boooo,
+		MainTheme,
 
 		// sound effects
-		Boooo,
-		Cheer,
-		ExplosionSound,
-		GunShot,
-		Missed,
-		Paddle_Hit,
-		Score_Update,
-		Wall_Hit
+		Wall_Hit,
+		Paddle_Hit
 	};
 
-	enum FontId : int {
+	enum FontId : std::size_t {
 		ARIAL16, ARIAL24,
 	};
 

@@ -5,24 +5,25 @@
 #include "ImageComponent.h"
 #include "ObjectPool.h"
 #include "Transform.h"
+#include "AsteroidGeneration.h"
 
-class BulletsPool : public Singleton<BulletsPool> {
-	friend Singleton<BulletsPool>;
+class AsteroidsPool : public Singleton<AsteroidsPool> {
+	friend Singleton<AsteroidsPool>;
 
 public:
-	virtual ~BulletsPool() {
+	virtual ~AsteroidsPool() {
 	};
 
 	template <typename ...Targs>
 	inline static Entity* construct(Targs&& ...args) {
-		return BulletsPool::instance()->construct_(std::forward<Targs>(args)...);
+		return AsteroidsPool::instance()->construct_(std::forward<Targs>(args)...);
 	}
 
 	inline static void destroy(Entity* p) {
-		BulletsPool::instance()->destroy_(p);
+		AsteroidsPool::instance()->destroy_(p);
 	}
 
-	inline Entity* construct_(Vector2D pos, Vector2D vel, double width, double height, double rot) {
+	inline Entity* construct_(Vector2D pos, Vector2D vel, double width, double height, int gen) {
 		Entity* e = pool_.getObj();
 		if (e != nullptr) {
 			e->setActive(true);
@@ -31,7 +32,7 @@ public:
 			tr->velocity_ = vel;
 			tr->width_ = width;
 			tr->height_ = height;
-			tr->rotation_ = rot;
+			e->getComponent<AsteroidGeneration>()->generation_ = gen;
 		}
 		return e;
 	}
@@ -41,15 +42,16 @@ public:
 	}
 
 private:
-	BulletsPool() :
-		BulletsPool(30) {
+	AsteroidsPool() :
+		AsteroidsPool(10) {
 	}
 
-	BulletsPool(std::size_t n) :
+	AsteroidsPool(std::size_t n) :
 		pool_(n) {
 		for (Entity* e : pool_.getPool()) {
 			e->addComponent<Transform>();
-			e->addComponent<ImageComponent>(SDLGame::instance()->getTextureMngr()->getTexture(Resources::Bullet));
+			e->addComponent<ImageComponent>(SDLGame::instance()->getTextureMngr()->getTexture(Resources::Asteroid));
+			e->addComponent<AsteroidGeneration>();
 		}
 	}
 

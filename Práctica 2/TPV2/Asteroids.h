@@ -1,9 +1,15 @@
 #pragma once
 
 #include <vector>
+
+#include "CollisionSystem.h"
+#include "GameCtrlSystem.h"
 #include "Manager.h"
+#include "RenderSystem.h"
 #include "SDLGame.h"
-#include "jute.h"
+#include "BulletsSystem.h"
+#include "FighterSystem.h"
+#include "FighterGunSystem.h"
 
 class Asteroids {
 
@@ -17,34 +23,24 @@ public:
 
 private:
 	void initGame();
-	void readJson();
-	void initEntities();
+	void setConfig();
 	void closeGame();
-	void handleInput();
-	void update();
-	void render();
 
-	SDLGame* game_;
-	jute::jValue cfg_;	
-	EntityManager* entityManager_;
+	SDLGame *game_;
+	Manager *mngr_;
 	bool exit_;
+
+	RenderSystem *renderSystem_;
+	CollisionSystem *collisionSystem_;
+	GameCtrlSystem *gameCtrlSystem_;
+	AsteroidsSystem* asteroidsSystem_;
+	BulletsSystem* bulletsSystem_;
+	FighterSystem* fighterSystem_;
+	FighterGunSystem* fighterGunSystem_;
 
 	const static int _WINDOW_WIDTH_ = 640;
 	const static int _WINDOW_HEIGHT_ = 480;
 
-	const string DATA_FILE = "./resources/cfg/asteroids.cfg";
-
-	int FONT_COLOR = 0x111122ff;
-
-	int ASTEROID_SPEED = 10;
-	int ASTEROIDS_PER_ROUND = 10;
-
-	float BULLETS_SPEED = 2.0;
-	float TIME_BETWEEN_SHOTS = 1;
-
-	int NUM_LIFES = 3;
-
-	float FIGHTER_IMPULSE = 5.0;
-	float FIGHTER_SPEED_LIMIT = 2.0;
-	float FIGHTER_RED_SPEED_RATE = 0.995;
+	int ASTEROIDS_WIDTH;
+	int ASTEROIDS_HEIGHT;
 };

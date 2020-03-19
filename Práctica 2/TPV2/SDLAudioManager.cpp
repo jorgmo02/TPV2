@@ -54,7 +54,7 @@ bool SDLAudioManager::init() {
 	return true;
 }
 
-bool SDLAudioManager::loadSound(int tag, string fileName) {
+bool SDLAudioManager::loadSound(int tag, const string &fileName) {
 	if (!initialized_)
 		return false;
 
@@ -100,7 +100,7 @@ int SDLAudioManager::channels() {
 	return channels_;
 }
 
-bool SDLAudioManager::loadMusic(int tag, string fileName) {
+bool SDLAudioManager::loadMusic(int tag, const string &fileName) {
 	if (!initialized_)
 		return false;
 

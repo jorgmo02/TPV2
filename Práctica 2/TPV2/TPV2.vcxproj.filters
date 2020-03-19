@@ -9,6 +9,10 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="checkML.h">
@@ -20,7 +24,13 @@
     <ClInclude Include="Collisions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ecs.h">
@@ -35,10 +45,10 @@
     <ClInclude Include="FontsManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameCtrl.h">
+    <ClInclude Include="GameCtrlSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameLogic.h">
+    <ClInclude Include="ImageComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InputHandler.h">
@@ -50,19 +60,25 @@
     <ClInclude Include="Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="ObjectPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OFFacotry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScoreManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ScoreViewer.h">
+    <ClInclude Include="Score.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SDL_macros.h">
@@ -80,7 +96,13 @@
     <ClInclude Include="SDLTexturesManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="SRandBasedGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
@@ -95,57 +117,54 @@
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Asteroids.h">
+    <ClInclude Include="AsteroidsPool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FighterViewer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Health.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterCtrl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterMotion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Gun.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Asteroid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AsteroidPool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AsteroidsMotion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AsteroidsViewer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
+    <ClInclude Include="AsteroidGeneration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BulletsPool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BulletsMotion.h">
+    <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BulletsViewer.h">
+    <ClInclude Include="AsteroidsSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletsSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Health.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterGunSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AudioManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Collisions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp">
+    <ClCompile Include="CollisionSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DefFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
@@ -157,10 +176,7 @@
     <ClCompile Include="FontsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLogic.cpp">
+    <ClCompile Include="GameCtrlSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InputHandler.cpp">
@@ -169,25 +185,25 @@
     <ClCompile Include="jute.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Manager.cpp">
+    <ClCompile Include="ObjectFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OFFacotry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="RandomNumberGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Resources.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ScoreManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ScoreViewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sdl_macros.cpp">
@@ -205,7 +221,13 @@
     <ClCompile Include="SDLTexturesManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="SRandBasedGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
@@ -220,47 +242,42 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Asteroids.cpp">
+    <ClCompile Include="AsteroidsPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FighterViewer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Health.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FighterCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FighterMotion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Gun.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Asteroid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AsteroidPool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AsteroidsMotion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AsteroidsViewer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
+    <ClCompile Include="AsteroidGeneration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BulletsPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BulletsMotion.cpp">
+    <ClCompile Include="GameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BulletsViewer.cpp">
+    <ClCompile Include="AsteroidsSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BulletsSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FighterSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Health.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FighterGunSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="ClassDiagram4.cd" />
   </ItemGroup>
 </Project>

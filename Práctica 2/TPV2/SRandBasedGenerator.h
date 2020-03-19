@@ -10,9 +10,9 @@ public:
 	SRandBasedGenerator();
 	SRandBasedGenerator(unsigned seed);
 	virtual ~SRandBasedGenerator();
-	virtual void init();
-	virtual int nextInt();
-	virtual int nextInt(int low, int high);
+	void init() override;
+	int nextInt() override;
+	int nextInt(int low, int high) override;
 private:
 	unsigned seed_;
 };

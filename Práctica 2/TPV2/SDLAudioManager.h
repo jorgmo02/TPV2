@@ -12,27 +12,27 @@ class SDLAudioManager: public AudioManager {
 public:
 	SDLAudioManager();
 	SDLAudioManager(int channels);
-	virtual ~SDLAudioManager();
+	~SDLAudioManager();
 
 	// supposed to be called before start using the object
-	virtual bool init();
+	bool init() override;
 
 	// sound effects
-	virtual bool loadSound(int tag, string fileName);
-	virtual int playChannel(int tag, int loops, int channel);
-	virtual void pauseChannel(int channel);
-	virtual void resumeChannel(int channel);
-	virtual void haltChannel(int channel);
-	virtual int setChannelVolume(int volume, int channel);
-	virtual int channels();
+	bool loadSound(int tag, const string &fileName) override;
+	int playChannel(int tag, int loops, int channel) override;
+	void pauseChannel(int channel) override;
+	void resumeChannel(int channel) override;
+	void haltChannel(int channel) override;
+	int setChannelVolume(int volume, int channel) override;
+	int channels() override;
 
 	// music
-	virtual bool loadMusic(int tag, string fileName);
-	virtual void playMusic(int tag, int loops);
-	virtual int setMusicVolume(int volume);
-	virtual void haltMusic();
-	virtual void pauseMusic();
-	virtual void resumeMusic();
+	bool loadMusic(int tag, const string &fileName) override;
+	void playMusic(int tag, int loops) override;
+	int setMusicVolume(int volume) override;
+	void haltMusic() override;
+	void pauseMusic() override;
+	void resumeMusic() override;
 
 private:
 	bool initialized_;

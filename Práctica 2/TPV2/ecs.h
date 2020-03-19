@@ -1,51 +1,58 @@
 #pragma once
+
 #include <ctime>
+#include "mpl.h"
 
-namespace ecs {
+// ** Components
+//
+// They must match the names of your components.
+//
+struct AsteroidGeneration;
+struct GameState;
+struct Health;
+struct ImageComponent;
+struct Score;
+struct Transform;
 
-using CmpIdType = std::size_t;
+using ComponentsList =
+mpl::TypeList<AsteroidGeneration, GameState, Health, ImageComponent, Score, Transform>;
 
-enum CmpId : CmpIdType {
-	Transform = 0,
-	SimpleMoveBehavior,
-	BallMoveBehaviour,
-	PaddleMoveBehaviour,
-	StopOnBorders,
-	Rectangle,
-	ScoreManager,
-	ScoreViewer,
-	PaddleKBCtrl,
-	PaddleMouseCtrl,
-	GameCtrl,
-	GameLogic,
-	FighterViewer,
-	Health,
-	FighterCtrl,
-	Gun,
-	FighterMotion,
-	AsteroidPool,
-	AsteroidsMotion,
-	AsteroidsViewer,
-	BulletsPool,
-	BulletsMotion,
-	BulletsViewer,
-	//
-	// don't touch the rest of this enum, it is to identify the max
-	// number of components
-	_LastCmptId_
-};
+// ** Groups
+//
+// start them with _grp_ to avoid conflicts (or make a name space)
+//
+struct _grp_Bullets;
+struct _grp_Asteroids;
 
-constexpr std::size_t maxComponents = _LastCmptId_;
+using GroupsList =
+mpl::TypeList<_grp_Bullets, _grp_Asteroids>;
 
-// these two should be used to get a component via the field
-// entity_
-#define GETCMP2_(id,type)  GETCMP3(entity_,id,type)
-#define GETCMP1_(type)     GETCMP3(entity_,ecs::type,type)
+// ** handlers
+//
+// start them with _grp_ to avoid conflicts (or make a name space)
+//
+struct _hdlr_GameState;
+struct _hdlr_Fighter;
 
-// these two should be used to get a component via an
-// entity e provided as a parameter
-#define GETCMP2(e,type) GETCMP3(e,ecs::type,type)
-#define GETCMP3(e,id,type) e->getComponent<type>(id)
+using HandlersList =
+mpl::TypeList<_hdlr_Fighter, _hdlr_GameState>;
 
-}
+// ** Systems
+//
+// they must match the name of the systems classes
 
+class CollisionSystem;
+class GameCtrlSystem;
+class RenderSystem;
+class AsteroidsSystem;
+class FighterSystem;
+class FighterGunSystem;
+class BulletsSystem;
+
+using SystemsList =
+mpl::TypeList<CollisionSystem, GameCtrlSystem, RenderSystem, AsteroidsSystem, FighterSystem, FighterGunSystem, BulletsSystem>;
+
+constexpr std::size_t maxComponents = ComponentsList::size;
+constexpr std::size_t maxGroups = GroupsList::size;
+constexpr std::size_t maxHandlers = HandlersList::size;
+constexpr std::size_t maxSystems = SystemsList::size;

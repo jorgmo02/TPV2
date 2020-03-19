@@ -1,6 +1,4 @@
 #include "SDLFontsManager.h"
-
-
 #include <assert.h>
 
 SDLFontsManager::SDLFontsManager() :
@@ -36,11 +34,11 @@ bool SDLFontsManager::init() {
 	return true;
 }
 
-Font* SDLFontsManager::getFont(int tag) {
+Font* SDLFontsManager::getFont(std::size_t tag) {
 	return fonts_[tag];
 }
 
-bool SDLFontsManager::loadFont(int tag, string fileName, int size) {
+bool SDLFontsManager::loadFont(std::size_t tag, const string& fileName, int size) {
 	if (!initialized_)
 		return false;
 

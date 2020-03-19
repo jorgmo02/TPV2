@@ -12,10 +12,10 @@ public:
 	virtual ~SDLFontsManager();
 
 	// supposed to be called before start using the object
-	virtual bool init();
+	bool init() override;
 
-	virtual Font* getFont(int tag);
-	virtual bool loadFont(int tag, string fileName, int size);
+	Font* getFont(std::size_t tag) override;
+	bool loadFont(std::size_t tag, const string& fileName, int size) override;
 private:
 	map<int, Font*> fonts_;
 	bool initialized_;
