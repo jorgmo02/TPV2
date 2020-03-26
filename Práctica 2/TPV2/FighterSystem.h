@@ -14,7 +14,12 @@ class FighterSystem : public System
 public:
 	FighterSystem() :
 		fighter_(nullptr),
-		tr_(nullptr) {
+		tr_(nullptr),
+		health_(nullptr),
+		thrust_(5.0),
+		speedLimit_(2.0),
+		rotationRate_(5.0),
+		right_(SDLK_RIGHT), forward_(SDLK_UP), left_(SDLK_LEFT) {
 	}
 
 	inline void setFighterConfig(

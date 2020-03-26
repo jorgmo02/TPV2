@@ -15,8 +15,8 @@ Asteroids::Asteroids() :
 		game_(nullptr), //
 		mngr_(nullptr), //
 		exit_(false) {
-	initGame();
 	loadFromJson();
+	initGame();
 	setConfig();
 }
 
@@ -50,6 +50,7 @@ void Asteroids::loadFromJson() {
 	ASTEROIDS_HEIGHT = cfg_["asteroids"]["height"].as_int();
 	ASTEROIDS_WIDTH = cfg_["asteroids"]["width"].as_int();
 	ASTEROIDS_GENS = cfg_["asteroids"]["gens"].as_int();
+	ASTEROIDS_ROT_VEL = cfg_["asteroids"]["rot vel"].as_int();
 
 	BULLETS_WIDTH = cfg_["bullets"]["width"].as_int();
 	BULLETS_HEIGHT = cfg_["bullets"]["height"].as_int();
@@ -69,7 +70,7 @@ void Asteroids::loadFromJson() {
 }
 
 void Asteroids::setConfig() {
-	asteroidsSystem_->setAsteroidsConfig(ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_VEL, ASTEROIDS_GENS);
+	asteroidsSystem_->setAsteroidsConfig(ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_VEL, ASTEROIDS_ROT_VEL, ASTEROIDS_GENS);
 	bulletsSystem_->setBulletsConfig(BULLETS_WIDTH, BULLETS_HEIGHT, BULLETS_VEL);
 	renderSystem_->setFighterClip(FIGHTER_CLIP);
 	fighterSystem_->setFighterConfig(

@@ -48,7 +48,7 @@ private:
 	const string CONFIG_FILE = "./resources/cfg/asteroids.cfg";
 
 	// asteroids config
-	int ASTEROIDS_WIDTH = 10, ASTEROIDS_HEIGHT = 10, ASTEROIDS_GENS = 3, ASTEROIDS_VEL = 10, ASTEROIDS_PER_ROUND = 10;
+	int ASTEROIDS_WIDTH = 10, ASTEROIDS_HEIGHT = 10, ASTEROIDS_GENS = 3, ASTEROIDS_VEL = 10, ASTEROIDS_ROT_VEL = 5, ASTEROIDS_PER_ROUND = 10;
 	// bullets config
 	int BULLETS_WIDTH = 10, BULLETS_HEIGHT = 10, BULLETS_VEL = 2;
 	// fighter config

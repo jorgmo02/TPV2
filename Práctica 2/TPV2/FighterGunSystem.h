@@ -10,7 +10,10 @@
 class FighterGunSystem : public System {
 public:
 	FighterGunSystem() :
-		tr_(nullptr) {
+		tr_(nullptr),
+		lastShootInstant_(0),
+		shoot_(SDLK_SPACE),
+		timeBetweenShots_(250) {
 	}
 
 	inline void setFighterGunConfig(int timeBetweenShots, SDL_Keycode shoot)
@@ -31,8 +34,9 @@ public:
 		if (ih->keyDownEvent()) {
 			 if (ih->isKeyDown(shoot_) && SDL_GetTicks() - lastShootInstant_ >= timeBetweenShots_) {
 				mngr_->getSystem<BulletsSystem>()->shoot(
-					tr_->position_, tr_->velocity_,
-					tr_->width_, tr_->height_,
+					// position
+					tr_->position_ + Vector2D(tr_->width_ / 2, tr_->height_ / 2) + Vector2D(0, -(tr_->height_ / 2)).rotate(tr_->rotation_),
+					// rotation
 					tr_->rotation_
 				);
 				game_->getAudioMngr()->playChannel(Resources::Wall_Hit, 0);

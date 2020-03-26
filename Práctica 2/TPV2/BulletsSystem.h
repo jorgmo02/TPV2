@@ -19,12 +19,9 @@ public:
 			a->setActive(false);
 	}
 
-	void shoot(Vector2D pos, Vector2D vel, double w, double h, double rot) {
-
-		Vector2D bulletPos = pos + Vector2D(w / 2, h / 2) + Vector2D(0, -(h / 2)).rotate(rot);
-
+	void shoot(Vector2D pos, double rot) {
 		Entity* b = mngr_->addEntity<BulletsPool>(
-			bulletPos,
+			pos,
 			Vector2D(0, -1).rotate(rot) * bulletsVel_,
 			bulletsWidth_,
 			bulletsHeight_,
@@ -58,7 +55,7 @@ public:
 	};
 
 private:
-	int bulletsVel_;
-	int bulletsWidth_;
-	int bulletsHeight_;
+	int bulletsVel_ = 2;
+	int bulletsWidth_ = 10;
+	int bulletsHeight_ = 10;
 };

@@ -105,6 +105,6 @@ public:
 	}
 
 private:
-	SDL_Rect fighterClip_;
+	SDL_Rect fighterClip_ = { 47, 90, 207, 250 };
 };
 

@@ -50,20 +50,22 @@ public:
 		}
 	};
 
-	void setAsteroidsConfig(int w, int h, int vel, int rotVel) {
+	void setAsteroidsConfig(int w, int h, int vel, int rotVel, int asteroidsGens) {
 		asteroidsVel_ = vel;
 		asteroidsWidth_ = w;
 		asteroidsHeight_ = h;
 		asteroidsRotVel_ = rotVel;
+		asteroidsGens_ = asteroidsGens_;
 	}
 
 private:
 
-	std::size_t numOfAsteroids_;
-	int asteroidsVel_;
-	int asteroidsRotVel_;
-	int asteroidsWidth_;
-	int asteroidsHeight_;
+	std::size_t numOfAsteroids_ = 10;
+	int asteroidsVel_ = 10;
+	int asteroidsRotVel_ = 5;
+	int asteroidsWidth_ = 10;
+	int asteroidsHeight_ = 10;
+	int asteroidsGens_ = 3;
 
 	void createAsteroid(Transform* tr, int dir, int gen)
 	{
@@ -92,7 +94,7 @@ private:
 		Vector2D pos(random->nextInt(0, w), random->nextInt(0, h));					// posición inicial del nuevo asteroide
 		Vector2D target((Vector2D(w, h) / 2) + r);									// posición hacia la que se dirige el nuevo asteroide
 		double m = random->nextInt(1, asteroidsVel_ + 1);								// número para multiplicar por el vector de velocidad
-		int gen = random->nextInt(1, 4);											// generación inicial del asteroide
+		int gen = random->nextInt(1, asteroidsGens_ + 1);											// generación inicial del asteroide
 		Vector2D vel = (target - pos).normalize() * (m / 10.0);						// velocidad final del asteroide
 
 		Entity* a = mngr_->addEntity<AsteroidsPool>(

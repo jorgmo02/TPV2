@@ -81,7 +81,7 @@ public:
 	}
 
 private:
-	GameState* gameState_;
-	int asteroidsPerRound_;
+	GameState* gameState_ = nullptr;
+	int asteroidsPerRound_ = 10;
 };
 
