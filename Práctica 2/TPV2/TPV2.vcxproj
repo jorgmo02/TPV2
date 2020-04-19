@@ -43,6 +43,7 @@
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="jute.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="messages.h" />
     <ClInclude Include="mpl.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectPool.h" />
@@ -113,6 +114,8 @@
     <None Include="ClassDiagram2.cd" />
     <None Include="ClassDiagram3.cd" />
     <None Include="ClassDiagram4.cd" />
+    <None Include="ClassDiagram5.cd" />
+    <None Include="ClassDiagram6.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -19,6 +19,17 @@ public:
 			a->setActive(false);
 	}
 
+	virtual void recieve(const msg::Message& msg) override {
+		switch (msg.id) {
+		case msg::_BULLET_ASTEROID_COLLISION_:
+			onCollisionWithAsteroid(static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid_,
+				static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).bullet_);
+			break;
+		default:
+			break;
+		}
+	}
+
 	void shoot(Vector2D pos, double rot) {
 		Entity* b = mngr_->addEntity<BulletsPool>(
 			pos,

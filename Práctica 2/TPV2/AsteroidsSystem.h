@@ -20,6 +20,17 @@ public:
 			createRandomAsteroid();
 	};
 
+	virtual void recieve(const msg::Message& msg) override {
+		switch (msg.id) {
+		case msg::_BULLET_ASTEROID_COLLISION_:
+			onCollisionWithBullet(static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid_,
+				static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).bullet_);
+			break;
+		default:
+			break;
+		}
+	}
+
 	void disableAsteroids() {
 		for (Entity* a : mngr_->getGroupEntities<_grp_Asteroids>())
 			a->setActive(false);

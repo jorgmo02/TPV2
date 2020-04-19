@@ -11,8 +11,7 @@ public:
 
 	template<typename ...Targs>
 	inline static T* construct(Targs &&...args) {
-		return OFFacotry<T>::instance()->construct_(
-				std::forward<Targs>(args)...);
+		return OFFacotry<T>::instance()->construct_(std::forward<Targs>(args)...);
 	}
 
 	inline static void destroy(T *p) {
@@ -21,7 +20,7 @@ public:
 
 	template<typename ...Targs>
 	inline T* construct_(Targs &&...args) {
-		pool_.construct(std::forward<Targs>(args)...);
+		return pool_.construct(std::forward<Targs>(args)...);
 	}
 
 	inline void destroy_(T *p) {

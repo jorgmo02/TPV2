@@ -52,6 +52,16 @@ public:
 		mngr_->setHandler<_hdlr_Fighter>(fighter_);
 	}
 
+	virtual void recieve(const msg::Message& msg) override {
+		switch (msg.id) {
+		case msg::_FIGHTER_ASTEROID_COLLISION_:
+			onCollisionWithAsteroid(static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid_);
+			break;
+		default:
+			break;
+		}
+	}
+
 	void onCollisionWithAsteroid(Entity* a);
 
 	void reset() {
@@ -64,7 +74,6 @@ public:
 
 		// fighter control
 		auto ih = InputHandler::instance();
-		assert(tr_ != nullptr);
 		
 		if (ih->keyDownEvent()) {
 			if (ih->isKeyDown(forward_)) {

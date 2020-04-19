@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AsteroidsSystem" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAARAAAAAAyUAwAAECAAAAAAAAAAAAAAAAAAAEAEAAA=</HashCode>
+      <FileName>AsteroidsSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsPool" Collapsed="true">
+    <Position X="0.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAABAAIABAEAgAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>AsteroidsPool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AudioManager" Collapsed="true">
+    <Position X="9.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAQgAAAAEAAAAACIAgAFYEACAQQQ=</HashCode>
+      <FileName>AudioManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulletsPool" Collapsed="true">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAABAEIABAEAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BulletsPool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulletsSystem" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAEEAAAAAAAAAAAAAAAAIBAEAAAAAIAAQAAEAAA=</HashCode>
+      <FileName>BulletsSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collisions" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAACAABAAAAQAAAAAAAAAAAAAAAAAAABAgA=</HashCode>
+      <FileName>Collisions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionSystem" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>CollisionSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DefFactory&lt;T&gt;" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIABAEAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>DefFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>mEAABAAgAAAEAAAECAAgQBAIACAACIAAAACAAAAEAAE=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FighterGunSystem" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAEAAAAAACAAAAAAAAAAAAQAAIAAAAAAQgEAAA=</HashCode>
+      <FileName>FighterGunSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FighterSystem" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAACAAEAAAAAAABAAAAUAAAAAAwAgIgAIAAQAAUgAQ=</HashCode>
+      <FileName>FighterSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Font" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEgAIAAAAAAAAAAAAAAAAAAAAAAAIAAAAACAAE=</HashCode>
+      <FileName>Font.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FontsManager" Collapsed="true">
+    <Position X="6.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEIAAAAAAIIAAAACAAAAAA=</HashCode>
+      <FileName>FontsManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameCtrlSystem" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACACAAAAAAABAAAAAAAAAAAAAEKAAIAAAAAAAAEEAA=</HashCode>
+      <FileName>GameCtrlSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputHandler" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAYQAAAACQAAAAAAgAIAUhACAABEAABAAAEgAAEFIgI=</HashCode>
+      <FileName>InputHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manager" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAEAAEABAcBIAAAGAAAAAAQAABABAAICAAAiAgAA=</HashCode>
+      <FileName>Manager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectFactory&lt;T, AllocType&gt;" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAQAAAAAAAAAACIAAAEBAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>ObjectFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectPool&lt;T&gt;" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAhAAAAAAAAAAAAABAAIAAgAAAAABAAAQCAAA=</HashCode>
+      <FileName>ObjectPool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OFFacotry&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAABAAIABAEAgAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>OFFacotry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Asteroids" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAICEAAMAYAAgAAAAQBQRgEssCAEBERAgoAQAIAA=</HashCode>
+      <FileName>Asteroids.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomNumberGenerator" Collapsed="true">
+    <Position X="3.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAEAAAABAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>RandomNumberGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderSystem" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQgAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAEAAI=</HashCode>
+      <FileName>RenderSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACAAAAAAAAAAAAAAAAAAAAABAAAAAAAYAAA=</HashCode>
+      <FileName>Resources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDLAudioManager" Collapsed="true">
+    <Position X="9.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAABABAgAIAQgAAAAEAAAAACIAgABYEQAAQQQ=</HashCode>
+      <FileName>SDLAudioManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDLFontsManager" Collapsed="true">
+    <Position X="6.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAIAAAAAAAQAAAAIIAAAACAAQAAA=</HashCode>
+      <FileName>SDLFontsManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDLGame" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIACAAAAUEAAAQAgyAAAAAAJCABAEAIAAAEgAQEYgEI=</HashCode>
+      <FileName>SDLGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDLTexturesManager" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAFAAAgBAACAAAAAAAAAABAIAAAAAABAQAAA=</HashCode>
+      <FileName>SDLTexturesManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAABAAAMAAIAAAAAAAAA=</HashCode>
+      <FileName>Singleton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SRandBasedGenerator" Collapsed="true">
+    <Position X="3.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAABAAAAAAAAAAAAYAIAAAAAAAAAAAA=</HashCode>
+      <FileName>SRandBasedGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEASAAAAAIAAAAAAAAAAQAAAAAAAgAIAAAAAAIAEAAA=</HashCode>
+      <FileName>System.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAgAAgQCAAAAAAAAAIQAAAAMIAABAQgAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TexturesManager" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAgAAACAAAAAAAAAAAAIAAAAIABAAAAA=</HashCode>
+      <FileName>TexturesManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector2D" Collapsed="true">
+    <Position X="20.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAQEAAAAAQWAAYAAAAAAAAAAQAgAGBAAAA=</HashCode>
+      <FileName>Vector2D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="jute::jValue" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAIAAIkExAAAoAEBAABAogAoAQAAAAg=</HashCode>
+      <FileName>jute.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="jute::parser" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAgAAAAAAAAAgAAAAAEAAgAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>jute.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="AsteroidGeneration" Collapsed="true">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>AsteroidGeneration.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Component" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GameState" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>GameState.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Health" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Health.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ImageComponent" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ImageComponent.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Score" Collapsed="true">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Score.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Transform" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgQACAIAQAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Transform.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="mpl::TypeList&lt;...Ts&gt;" Collapsed="true">
+    <Position X="18.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mpl.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="mpl::IndexOf&lt;T, TypeList&lt;T,Ts...&gt;&gt;" Collapsed="true">
+    <Position X="17" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mpl.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="msg::Message" Collapsed="true">
+    <Position X="8.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgA=</HashCode>
+      <FileName>messages.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="msg::BulletAsteroidCollisionMsg" Collapsed="true">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAQ=</HashCode>
+      <FileName>messages.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="jute::jType" Collapsed="true">
+    <Position X="17" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAkEAAAAAgIAAA=</HashCode>
+      <FileName>jute.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="msg::MsgId" Collapsed="true">
+    <Position X="18.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACACAAAAAAAAAAAgAAAAAAAQAAAAAAAIAAA=</HashCode>
+      <FileName>messages.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

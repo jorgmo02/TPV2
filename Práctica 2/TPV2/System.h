@@ -3,6 +3,7 @@
 class SDLGame;
 class Manager;
 #include "ecs.h"
+#include "messages.h"
 
 class System {
 public:
@@ -21,12 +22,10 @@ public:
 		mngr_ = mngr;
 	}
 
-	virtual void init() {
-	}
-	;
-	virtual void update() {
-	}
-	;
+	virtual void init() {};
+	virtual void update() {};
+
+	virtual void recieve(const msg::Message& msg) {}
 
 protected:
 	Manager* mngr_;
