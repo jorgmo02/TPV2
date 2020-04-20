@@ -11,8 +11,8 @@ using namespace std;
  */
 class TexturesManager {
 public:
-	TexturesManager();
-	virtual ~TexturesManager();
+	TexturesManager() {};
+	virtual ~TexturesManager() {};
 
 	// supposed to be called before start using the object
 	virtual bool init() = 0;

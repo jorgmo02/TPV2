@@ -26,6 +26,12 @@ public:
 			onCollisionWithBullet(static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid_,
 				static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).bullet_);
 			break;
+		case msg::_DISABLE_ALL_:
+			disableAsteroids();
+			break;
+		case msg::_NEW_TRY_:
+			addAsteroids(asteroidsPerRound_);
+			break;
 		default:
 			break;
 		}
@@ -61,12 +67,13 @@ public:
 		}
 	};
 
-	void setAsteroidsConfig(int w, int h, int vel, int rotVel, int asteroidsGens) {
+	void setAsteroidsConfig(int w, int h, int vel, int rotVel, int asteroidsGens, int asteroidsPerRound) {
 		asteroidsVel_ = vel;
 		asteroidsWidth_ = w;
 		asteroidsHeight_ = h;
 		asteroidsRotVel_ = rotVel;
 		asteroidsGens_ = asteroidsGens_;
+		asteroidsPerRound_ = asteroidsPerRound;
 	}
 
 private:
@@ -77,6 +84,7 @@ private:
 	int asteroidsWidth_ = 10;
 	int asteroidsHeight_ = 10;
 	int asteroidsGens_ = 3;
+	int asteroidsPerRound_ = 10;
 
 	void createAsteroid(Transform* tr, int dir, int gen)
 	{

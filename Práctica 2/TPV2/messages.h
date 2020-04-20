@@ -1,5 +1,6 @@
 #pragma once
 #include <ctime>
+#include "Vector2D.h"
 
 class Entity;
 
@@ -11,9 +12,9 @@ namespace msg {
 		_FIGHTER_ASTEROID_COLLISION_, //
 		_BULLET_ASTEROID_COLLISION_,
 		_NO_MORE_ASTEROIDS_,
-		_ADD_ASTEROIDS_REQUEST_,
-		_GAME_OVER, //
-
+		_SHOOT_,
+		_DISABLE_ALL_,
+		_NEW_TRY_,
 
 		//
 		_last_MsgId_
@@ -40,12 +41,23 @@ namespace msg {
 
 	struct BulletAsteroidCollisionMsg : Message
 	{
-		BulletAsteroidCollisionMsg(Entity* asteroid, Entity* bullet_) :
+		BulletAsteroidCollisionMsg(Entity* asteroid, Entity* bullet) :
 			Message(_BULLET_ASTEROID_COLLISION_), //
-			bullet_(bullet_), asteroid_(asteroid) {
+			bullet_(bullet), asteroid_(asteroid) {
 		}
 
 		Entity* asteroid_;
 		Entity* bullet_;
+	};
+
+	struct ShootMsg : Message
+	{
+		ShootMsg(Vector2D pos, double rot) :
+			Message(_SHOOT_), //
+			pos_(pos), rot_(rot) {
+		}
+
+		Vector2D pos_;
+		double rot_;
 	};
 }

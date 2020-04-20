@@ -10,6 +10,7 @@
 #include "BulletsSystem.h"
 #include "FighterSystem.h"
 #include "FighterGunSystem.h"
+#include "SoundSystem.h"
 #include "jute.h"
 
 class Asteroids {
@@ -20,7 +21,6 @@ public:
 
 	// from SDLGame
 	void start();
-	void stop();
 
 private:
 	void initGame();
@@ -40,6 +40,7 @@ private:
 	BulletsSystem* bulletsSystem_;
 	FighterSystem* fighterSystem_;
 	FighterGunSystem* fighterGunSystem_;
+	SoundSystem* soundSystem_;
 
 	const static int _WINDOW_WIDTH_ = 640;
 	const static int _WINDOW_HEIGHT_ = 480;

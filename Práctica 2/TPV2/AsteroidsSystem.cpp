@@ -11,10 +11,9 @@ void AsteroidsSystem::onCollisionWithBullet(Entity* a, Entity* b) {
         createAsteroid(tr, -1, gen - 1);
     }
     Score* sc = mngr_->getHandler<_hdlr_GameState>()->getComponent<Score>();
-    game_->getAudioMngr()->playChannel(Resources::Paddle_Hit, 0);
     sc->points_++;
     a->setActive(false);
     numOfAsteroids_--;
     if (numOfAsteroids_ <= 0)
-        mngr_->getSystem<GameCtrlSystem>()->onAsteroidsExtinction();
+        mngr_->send<msg::Message>(msg::_NO_MORE_ASTEROIDS_);
 };

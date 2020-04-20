@@ -48,9 +48,10 @@ class AsteroidsSystem;
 class FighterSystem;
 class FighterGunSystem;
 class BulletsSystem;
+class SoundSystem;
 
 using SystemsList =
-mpl::TypeList<CollisionSystem, GameCtrlSystem, RenderSystem, AsteroidsSystem, FighterSystem, FighterGunSystem, BulletsSystem>;
+mpl::TypeList<CollisionSystem, GameCtrlSystem, RenderSystem, AsteroidsSystem, FighterSystem, FighterGunSystem, BulletsSystem, SoundSystem>;
 
 constexpr std::size_t maxComponents = ComponentsList::size;
 constexpr std::size_t maxGroups = GroupsList::size;

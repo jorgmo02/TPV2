@@ -23,7 +23,7 @@ public:
 	}
 
 	inline void setFighterConfig(
-		double thrust, double speedLimit, double rotationRate, double reduceRate, int maxLifes,
+		double thrust, double speedLimit, double rotationRate, double reduceRate,
 		SDL_Keycode forward, SDL_Keycode left, SDL_Keycode right)
 	{
 		// values
@@ -31,7 +31,6 @@ public:
 		speedLimit_ = speedLimit;
 		rotationRate_ = rotationRate;
 		reduceRate_ = reduceRate;
-		maxLifes_ = maxLifes;
 		// keys
 		forward_ = forward;
 		left_ = left;
@@ -57,12 +56,17 @@ public:
 		case msg::_FIGHTER_ASTEROID_COLLISION_:
 			onCollisionWithAsteroid(static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid_);
 			break;
+		case msg::_DISABLE_ALL_:
+			reset();
+			break;
 		default:
 			break;
 		}
 	}
 
-	void onCollisionWithAsteroid(Entity* a);
+	void onCollisionWithAsteroid(Entity* a) {
+		health_->health_--;
+	};
 
 	void reset() {
 		tr_->position_ = Vector2D(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
@@ -74,7 +78,7 @@ public:
 
 		// fighter control
 		auto ih = InputHandler::instance();
-		
+
 		if (ih->keyDownEvent()) {
 			if (ih->isKeyDown(forward_)) {
 				Vector2D newVel = tr_->velocity_ + Vector2D(0, -1).rotate(tr_->rotation_) * thrust_;
@@ -111,8 +115,6 @@ public:
 		}
 	}
 
-	inline int getMaxLifes() const { return maxLifes_; }
-
 private:
 	Entity* fighter_;
 	Transform* tr_;
@@ -122,7 +124,6 @@ private:
 	double speedLimit_;
 	double rotationRate_;
 	double reduceRate_;
-	int maxLifes_;
 
 	SDL_Keycode forward_, left_, right_;
 };

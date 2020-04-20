@@ -40,6 +40,7 @@ void Asteroids::initGame() {
 	bulletsSystem_ = mngr_->addSystem<BulletsSystem>();  
 	fighterSystem_ = mngr_->addSystem<FighterSystem>();
 	fighterGunSystem_ = mngr_->addSystem<FighterGunSystem>();
+	soundSystem_ = mngr_->addSystem<SoundSystem>();
 }
 
 void Asteroids::loadFromJson() {
@@ -70,15 +71,15 @@ void Asteroids::loadFromJson() {
 }
 
 void Asteroids::setConfig() {
-	asteroidsSystem_->setAsteroidsConfig(ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_VEL, ASTEROIDS_ROT_VEL, ASTEROIDS_GENS);
+	asteroidsSystem_->setAsteroidsConfig(ASTEROIDS_WIDTH, ASTEROIDS_HEIGHT, ASTEROIDS_VEL, ASTEROIDS_ROT_VEL, ASTEROIDS_GENS, ASTEROIDS_PER_ROUND);
 	bulletsSystem_->setBulletsConfig(BULLETS_WIDTH, BULLETS_HEIGHT, BULLETS_VEL);
 	renderSystem_->setFighterClip(FIGHTER_CLIP);
 	fighterSystem_->setFighterConfig(
-		FIGHTER_IMPULSE, FIGHTER_SPEED_LIMIT, FIGHTER_ROTATION_RATE, FIGHTER_REDUCE_RATE, FIGHTER_MAX_LIFES,
+		FIGHTER_IMPULSE, FIGHTER_SPEED_LIMIT, FIGHTER_ROTATION_RATE, FIGHTER_REDUCE_RATE,
 		SDLK_UP, SDLK_LEFT, SDLK_RIGHT
 	);
 	fighterGunSystem_->setFighterGunConfig(FIGHTER_TIME_BETWEEN_SHOOTS, SDLK_SPACE);
-	gameCtrlSystem_->setGameCtrlConfig(ASTEROIDS_PER_ROUND);
+	gameCtrlSystem_->setConfig(FIGHTER_MAX_LIFES);
 }
 
 void Asteroids::closeGame() {
@@ -112,7 +113,9 @@ void Asteroids::start() {
 			fighterSystem_->update();
 			fighterGunSystem_->update();
 			collisionSystem_->update();
+			soundSystem_->update();
 		}
+		mngr_->flushMessages();
 
 		SDL_RenderPresent(game_->getRenderer());
 

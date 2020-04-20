@@ -33,13 +33,12 @@ public:
 
 		if (ih->keyDownEvent()) {
 			 if (ih->isKeyDown(shoot_) && SDL_GetTicks() - lastShootInstant_ >= timeBetweenShots_) {
-				mngr_->getSystem<BulletsSystem>()->shoot(
+				 mngr_->send<msg::ShootMsg>(
 					// position
 					tr_->position_ + Vector2D(tr_->width_ / 2, tr_->height_ / 2) + Vector2D(0, -(tr_->height_ / 2)).rotate(tr_->rotation_),
 					// rotation
 					tr_->rotation_
 				);
-				game_->getAudioMngr()->playChannel(Resources::Wall_Hit, 0);
 				lastShootInstant_ = SDL_GetTicks();
 			}
 		}

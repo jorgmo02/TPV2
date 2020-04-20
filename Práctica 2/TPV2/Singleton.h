@@ -53,7 +53,7 @@ public:
 		// to force initialization at the begining
 		//
 		if (instance_.get() == nullptr) {
-			instance_.reset(init());
+			init();
 		}
 		return instance_.get();
 	}

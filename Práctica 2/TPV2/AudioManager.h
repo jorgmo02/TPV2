@@ -9,8 +9,8 @@ using namespace std;
  */
 class AudioManager {
 public:
-	AudioManager();
-	virtual ~AudioManager();
+	AudioManager() {};
+	virtual ~AudioManager() {};
 
 	// supposed to be called before start using the object
 	virtual bool init() = 0;

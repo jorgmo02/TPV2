@@ -25,6 +25,13 @@ public:
 			onCollisionWithAsteroid(static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).asteroid_,
 				static_cast<const msg::BulletAsteroidCollisionMsg&>(msg).bullet_);
 			break;
+		case msg::_SHOOT_:
+			shoot(static_cast<const msg::ShootMsg&>(msg).pos_,
+				static_cast<const msg::ShootMsg&>(msg).rot_);
+			break;
+		case msg::_DISABLE_ALL_:
+			disableBullets();
+			break;
 		default:
 			break;
 		}

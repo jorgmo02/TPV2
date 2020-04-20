@@ -14,34 +14,40 @@ class GameCtrlSystem: public System {
 
 public:
 
+	virtual void recieve(const msg::Message& msg) override {
+		switch (msg.id) {
+		case msg::_FIGHTER_ASTEROID_COLLISION_:
+			onFighterDeath(static_cast<const msg::FighterAsteroidCollisionMsg&>(msg).fighter_->getComponent<Health>()->health_);
+			break;
+		case msg::_NO_MORE_ASTEROIDS_:
+			onAsteroidsExtinction();
+			break;
+		default:
+			break;
+		}
+	}
+
 	void onFighterDeath(int fighterHealth) {
 
 		if(fighterHealth <= 0 )
 			gameState_->currentState_ = GameState::State::Lose;
 		else 
 			gameState_->currentState_ = GameState::State::Stopped;
-		disableAll();
+		mngr_->send<msg::Message>(msg::_DISABLE_ALL_);
 	};
 
 	void onAsteroidsExtinction() {
 		gameState_->currentState_ = GameState::State::Win;
-		disableAll();
+		mngr_->send<msg::Message>(msg::_DISABLE_ALL_);
 	};
 
-	void disableAll() {
-		mngr_->getSystem<AsteroidsSystem>()->disableAsteroids();
-		mngr_->getSystem<BulletsSystem>()->disableBullets();
-		mngr_->getSystem<FighterSystem>()->reset();
-		game_->getAudioMngr()->pauseMusic();
+	void setConfig(int maxPlayerHealth) {
+		maxLifes_ = maxPlayerHealth;
 	}
 
 	GameState* getGameState() const {
 		return gameState_;
 	};
-
-	void setGameCtrlConfig(int asteroidsPerRound) {
-		asteroidsPerRound_ = asteroidsPerRound;
-	}
 
 	void init() override {
 		Entity *e = mngr_->addEntity();
@@ -49,8 +55,6 @@ public:
 		gameState_ = e->addComponent<GameState>();
 		sc->points_ = 0;
 		mngr_->setHandler<_hdlr_GameState>(e);
-
-		game_->getAudioMngr()->pauseMusic();
 	}
 
 	void update() override {
@@ -60,11 +64,9 @@ public:
 			auto ih = game_->getInputHandler();
 
 			if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
-				mngr_->getSystem<AsteroidsSystem>()->addAsteroids(asteroidsPerRound_);
+				mngr_->send<msg::Message>(msg::_NEW_TRY_);
 				mngr_->getHandler<_hdlr_GameState>()->getComponent<Score>()->points_ = 0;
 				gameState_->currentState_ = GameState::State::Started;
-				game_->getAudioMngr()->playMusic(Resources::MainTheme, -1);
-				game_->getAudioMngr()->resumeMusic();
 			}
 		}
 
@@ -74,14 +76,13 @@ public:
 			if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
 				gameState_->currentState_ = GameState::State::Stopped;
 				mngr_->getHandler<_hdlr_GameState>()->getComponent<Score>()->points_ = 0;
-				mngr_->getHandler<_hdlr_Fighter>()->getComponent<Health>()->health_ =
-					mngr_->getSystem<FighterSystem>()->getMaxLifes();
+				mngr_->getHandler<_hdlr_Fighter>()->getComponent<Health>()->health_ = maxLifes_;
 			}
 		}
 	}
 
 private:
 	GameState* gameState_ = nullptr;
-	int asteroidsPerRound_ = 10;
+	int maxLifes_ = 3;
 };
 

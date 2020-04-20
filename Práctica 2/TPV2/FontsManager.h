@@ -10,8 +10,8 @@ using namespace std;
  */
 class FontsManager {
 public:
-	FontsManager();
-	virtual ~FontsManager();
+	FontsManager() {};
+	virtual ~FontsManager() {};
 
 	// supposed to be called before start using the object
 	virtual bool init() = 0;

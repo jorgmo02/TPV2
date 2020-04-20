@@ -1,12 +1,5 @@
 #include "Collisions.h"
 
-Collisions::Collisions() {
-}
-
-Collisions::~Collisions() {
-}
-
-
 bool Collisions::collidesWithRotation(const Vector2D o1Pos, double o1Width, double o1Height, double o1Rot, const Vector2D o2Pos, double o2Width, double o2Height, double o2Rot) {
 	Vector2D Ac = o1Pos + Vector2D(o1Width / 2.0, o1Height / 2.0);
 
