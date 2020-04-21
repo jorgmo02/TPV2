@@ -32,14 +32,14 @@ public:
 		assert(tr_ != nullptr);
 
 		if (ih->keyDownEvent()) {
-			 if (ih->isKeyDown(shoot_) && SDL_GetTicks() - lastShootInstant_ >= timeBetweenShots_) {
+			 if (ih->isKeyDown(shoot_) && SDLGame::instance()->getTime() - lastShootInstant_ >= timeBetweenShots_) {
 				 mngr_->send<msg::ShootMsg>(
 					// position
 					tr_->position_ + Vector2D(tr_->width_ / 2, tr_->height_ / 2) + Vector2D(0, -(tr_->height_ / 2)).rotate(tr_->rotation_),
 					// rotation
 					tr_->rotation_
 				);
-				lastShootInstant_ = SDL_GetTicks();
+				lastShootInstant_ = SDLGame::instance()->getTime();
 			}
 		}
 	}

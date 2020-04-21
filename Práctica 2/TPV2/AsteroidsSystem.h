@@ -72,7 +72,7 @@ public:
 		asteroidsWidth_ = w;
 		asteroidsHeight_ = h;
 		asteroidsRotVel_ = rotVel;
-		asteroidsGens_ = asteroidsGens_;
+		asteroidsGens_ = asteroidsGens;
 		asteroidsPerRound_ = asteroidsPerRound;
 	}
 
