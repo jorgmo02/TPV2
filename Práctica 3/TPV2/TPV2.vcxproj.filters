@@ -14,221 +14,224 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Header Files\Systems">
-      <UniqueIdentifier>{8885ed7d-dd81-414e-94b1-923628478e1c}</UniqueIdentifier>
+      <UniqueIdentifier>{ebb25364-71c4-4f92-a5ae-c75796b11100}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Pools">
-      <UniqueIdentifier>{2ef92ee9-216c-41ca-b065-d17bec9d3aaa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Samir files">
-      <UniqueIdentifier>{2e652b2b-e91c-49d1-ae8c-ba1ac18a7d42}</UniqueIdentifier>
+      <UniqueIdentifier>{35bbfb29-e9a9-41ef-98a1-89ac07d78302}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Managers">
-      <UniqueIdentifier>{e73491ba-3ff5-4d2c-8540-c1608f9bbdc3}</UniqueIdentifier>
+      <UniqueIdentifier>{6dbb0f0e-f870-49f7-bac8-b6f9844ed832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{9ca82b2c-e3b9-48a5-bbb8-aa7cb215cca1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Components">
-      <UniqueIdentifier>{fba79e76-cf6f-4f36-983c-aa3c6964e404}</UniqueIdentifier>
+      <UniqueIdentifier>{421cc7ac-b81f-41ef-834f-20df34f803f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Factories">
+      <UniqueIdentifier>{407a8cc1-7b1e-49b5-b1c7-22568441d56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resource files">
+      <UniqueIdentifier>{110dac42-16db-4e08-9d75-f2edcb5b8f5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resources.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Asteroids.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AsteroidsSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletsSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterGunSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="GameCtrlSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="AsteroidsPool.h">
-      <Filter>Header Files\Pools</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectPool.h">
-      <Filter>Header Files\Pools</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletsPool.h">
-      <Filter>Header Files\Pools</Filter>
-    </ClInclude>
-    <ClInclude Include="checkML.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="AudioManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="ecs.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="AsteroidGeneration.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Collisions.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionSystem.h">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="DefFactory.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="FontsManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Health.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="jute.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="mpl.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputHandler.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="messages.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectFactory.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="OFFacotry.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Singleton.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2D.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="RandomNumberGenerator.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDLGame.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="System.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="TexturesManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="SDLAudioManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="SDLFontsManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="SDLTexturesManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="SRandBasedGenerator.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL_macros.h">
-      <Filter>Header Files\Samir files</Filter>
-    </ClInclude>
-    <ClInclude Include="Score.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
+    <ClCompile Include="..\..\..\..\..\code\GameCtrlSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\InputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\jute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Networking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\NetworkingSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\RenderSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Resources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\sdl_macros.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\SDLAudioManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\SDLFontsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\SDLGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\SDLTexturesManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\SRandBasedGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\StarWars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Vector2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\BulletsSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Collisions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\CollisionSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\FightersSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\code\Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collisions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Font.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InputHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="jute.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sdl_macros.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDLAudioManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDLFontsManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDLGame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDLTexturesManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SRandBasedGenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AsteroidsSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FighterSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Asteroids.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="..\..\..\..\..\code\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\StarWars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\BulletsPool.h">
+      <Filter>Header Files\Pools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\BulletsSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\AudioManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Collisions.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\CollisionSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Component.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\CtrlKeys.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\DefFactory.h">
+      <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\ecs.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\FighterInfo.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\FightersSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Font.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\FontsManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\GameCtrlSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Image.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\jute.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Manager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\OFFacotry.h">
+      <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\ObjectPool.h">
+      <Filter>Header Files\Pools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\SRandBasedGenerator.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Vector2D.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Resources.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Networking.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\messages.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\ObjectFactory.h">
+      <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\RenderSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\SDL_macros.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\NetworkingSystem.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\RandomNumberGenerator.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\SDLAudioManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Entity.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\InputHandler.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\SDLGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\SDLFontsManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\SDLTexturesManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\System.h">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Texture.h">
+      <Filter>Header Files\Resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\Transform.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\code\TexturesManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
