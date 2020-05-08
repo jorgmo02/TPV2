@@ -3,8 +3,9 @@
 #include "Component.h"
 #include "Texture.h"
 
-struct ImageComponent: Component {
-	ImageComponent(Texture *tex) :
+struct Image: Component {
+	Image(Texture *tex) :
+			Component(ecs::Image), //
 			tex_(tex) //
 	{
 	}

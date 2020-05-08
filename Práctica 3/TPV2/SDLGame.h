@@ -7,6 +7,7 @@
 #include "FontsManager.h"
 #include "RandomNumberGenerator.h"
 #include "InputHandler.h"
+#include "Networking.h"
 
 #include <string>
 #include <memory>
@@ -64,6 +65,10 @@ public:
 		return random_;
 	}
 
+	inline Networking* getNetworking() {
+		return networking_;
+	}
+
 	inline InputHandler* getInputHandler() const {
 		return InputHandler::instance();
 	}
@@ -91,6 +96,7 @@ private:
 
 protected:
 
+	Networking *networking_;
 	FontsManager *fonts_;
 	TexturesManager *textures_;
 	AudioManager *audio_;

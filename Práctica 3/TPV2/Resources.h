@@ -11,21 +11,13 @@ public:
 
 	enum TextureId : std::size_t {
 		// images
-		Blank,
-		TennisBall,
-		KeyBoardIcon,
-		MouseIcon,
-		AIIcon,
-		SpaceShips,
-		Airplanes,
-		Asteroid,
-		Bullet,
-		Heart,
+		Fighter,
+		WhiteRect,
 
 		// text
-		HelloWorld,
-		PressAnyKey,
+		PressEnter,
 		GameOver,
+		WaitingForPlayer
 	};
 
 	enum AudioId : std::size_t {
@@ -33,16 +25,16 @@ public:
 		Beat,
 		Cheer,
 		Boooo,
-		MainTheme,
 
 		// sound effects
 		Wall_Hit,
 		Paddle_Hit,
-		Explosion
+		RetroGameOverSound,
+		BonusBellSound
 	};
 
 	enum FontId : std::size_t {
-		ARIAL16, ARIAL24,
+		ARIAL10, ARIAL12, ARIAL16, ARIAL24,
 	};
 
 	struct FontInfo {

@@ -1,63 +1,52 @@
 #pragma once
+#include <cstdint>
+#include <cstdlib>
+#include <cstring>
 #include <ctime>
-#include "Vector2D.h"
-
-class Entity;
 
 namespace msg {
 
-	using msgType = std::size_t;
+using msgSizeType = uint32_t;
 
-	enum MsgId : msgType {
-		_FIGHTER_ASTEROID_COLLISION_, //
-		_BULLET_ASTEROID_COLLISION_,
-		_NO_MORE_ASTEROIDS_,
-		_SHOOT_,
-		_DISABLE_ALL_,
-		_NEW_TRY_,
+enum MsgId : uint8_t {
+	_CONNECTED, //
+	_CONNECTION_REFUSED, //
+	_CLIENT_DISCONNECTED, //
 
-		//
-		_last_MsgId_
-	};
+	//
+	_last_MsgId_
+};
 
-	struct Message {
-		Message(MsgId id) :
-			id(id) {
-		}
+#pragma pack(push,1)
 
-		MsgId id;
-	};
+struct Message {
+	Message(msgSizeType size, MsgId id) :
+			size(size), senderClientId(0), id(id) {
+	}
+	Message(MsgId id) :
+			Message(sizeof(Message), id) {
+	}
+	msgSizeType size;
+	uint32_t senderClientId;
+	MsgId id;
+};
 
-	struct FighterAsteroidCollisionMsg : Message
-	{
-		FighterAsteroidCollisionMsg(Entity* asteroid, Entity* fighter) :
-			Message(_FIGHTER_ASTEROID_COLLISION_), //
-			fighter_(fighter), asteroid_(asteroid) {
-		}
+struct ConnectedMsg: Message {
+	ConnectedMsg(int clientId) :
+			Message(sizeof(ConnectedMsg), _CONNECTED), clientId(clientId) {
+	}
+	uint32_t clientId;
+};
 
-		Entity* asteroid_;
-		Entity* fighter_;
-	};
+struct ClientDisconnectedMsg: Message {
+	ClientDisconnectedMsg(uint32_t clientId) :
+			Message(sizeof(ClientDisconnectedMsg), _CLIENT_DISCONNECTED), clientId(
+					clientId) {
+	}
+	uint32_t clientId;
+};
 
-	struct BulletAsteroidCollisionMsg : Message
-	{
-		BulletAsteroidCollisionMsg(Entity* asteroid, Entity* bullet) :
-			Message(_BULLET_ASTEROID_COLLISION_), //
-			bullet_(bullet), asteroid_(asteroid) {
-		}
 
-		Entity* asteroid_;
-		Entity* bullet_;
-	};
+#pragma pack(pop)
 
-	struct ShootMsg : Message
-	{
-		ShootMsg(Vector2D pos, double rot) :
-			Message(_SHOOT_), //
-			pos_(pos), rot_(rot) {
-		}
-
-		Vector2D pos_;
-		double rot_;
-	};
 }
