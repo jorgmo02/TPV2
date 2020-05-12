@@ -8,12 +8,10 @@
 
 #include "SRandBasedGenerator.h"
 
-
 unique_ptr<SDLGame> SDLGame::instance_;
 
-
 SDLGame::SDLGame(string windowTitle, int width, int height) :
-		windowTitle_(windowTitle), width_(width), height_(height) {
+	windowTitle_(windowTitle), width_(width), height_(height) {
 	initSDL();
 	initResources();
 }
@@ -24,24 +22,23 @@ SDLGame::~SDLGame() {
 }
 
 void SDLGame::initSDL() {
-
 	int sdlInit_ret = SDL_Init(SDL_INIT_EVERYTHING);
 	assert(sdlInit_ret == 0);
 
 	// Create window
 	window_ = SDL_CreateWindow(windowTitle_.c_str(),
-	SDL_WINDOWPOS_UNDEFINED,
-	SDL_WINDOWPOS_UNDEFINED, width_, height_, SDL_WINDOW_SHOWN);
+		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED, width_, height_, SDL_WINDOW_SHOWN);
 	assert(window_ != nullptr);
 
 	// Create the renderer
 	renderer_ = SDL_CreateRenderer(window_, -1,
-			SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	assert(renderer_ != nullptr);
 
 	// Clear screen (background color).
 	int sdlSetDrawColor_ret = SDL_SetRenderDrawColor(renderer_, 0, 100, 100,
-			255);  // Dark grey.
+		255);  // Dark grey.
 	assert(sdlSetDrawColor_ret != -1);
 	int sdlRenderClear_ret = SDL_RenderClear(renderer_);
 	assert(sdlRenderClear_ret != -1);
@@ -49,11 +46,9 @@ void SDLGame::initSDL() {
 
 	// hide cursor by default
 	SDL_ShowCursor(0);
-
 }
 
 void SDLGame::closeSDL() {
-
 	SDL_DestroyRenderer(renderer_);
 	renderer_ = nullptr;
 
@@ -64,7 +59,6 @@ void SDLGame::closeSDL() {
 }
 
 void SDLGame::initResources() {
-
 	networking_ = new Networking();
 
 	random_ = new SRandBasedGenerator();
@@ -79,27 +73,26 @@ void SDLGame::initResources() {
 	audio_ = new SDLAudioManager();
 	audio_->init();
 
-	for (auto &image : Resources::images_) {
+	for (auto& image : Resources::images_) {
 		textures_->loadFromImg(image.id, renderer_, image.fileName);
 	}
 
-	for (auto &font : Resources::fonts_) {
+	for (auto& font : Resources::fonts_) {
 		fonts_->loadFont(font.id, font.fileName, font.size);
 	}
 
-	for (auto &txtmsg : Resources::messages_) {
+	for (auto& txtmsg : Resources::messages_) {
 		textures_->loadFromText(txtmsg.id, renderer_, txtmsg.msg,
-				fonts_->getFont(txtmsg.fontId), txtmsg.color);
+			fonts_->getFont(txtmsg.fontId), txtmsg.color);
 	}
 
-	for (auto &sound : Resources::sounds_) {
+	for (auto& sound : Resources::sounds_) {
 		audio_->loadSound(sound.id, sound.fileName);
 	}
 
-	for (auto &music : Resources::musics_) {
+	for (auto& music : Resources::musics_) {
 		audio_->loadMusic(music.id, music.fileName);
 	}
-
 }
 
 void SDLGame::closeResources() {
@@ -109,4 +102,3 @@ void SDLGame::closeResources() {
 	delete audio_;
 	delete networking_;
 }
-

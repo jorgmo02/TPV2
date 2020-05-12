@@ -11,7 +11,7 @@
 using ecs::CmpId;
 
 GameCtrlSystem::GameCtrlSystem() :
-		System(ecs::_sys_GameCtrl) {
+	System(ecs::_sys_GameCtrl) {
 	state_ = READY;
 	resetScore();
 }
@@ -21,9 +21,8 @@ void GameCtrlSystem::init() {
 }
 
 void GameCtrlSystem::update() {
-
 	if (state_ != RUNNING) {
-		InputHandler *ih = game_->getInputHandler();
+		InputHandler* ih = game_->getInputHandler();
 		if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
 			startGame();
 		}
@@ -47,7 +46,6 @@ void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
 	score[id]++;
 	if (score[id] == 3)
 		state_ = GAMEOVER;
-
 }
 
 void GameCtrlSystem::resetScore() {

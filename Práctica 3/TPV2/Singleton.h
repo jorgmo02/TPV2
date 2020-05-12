@@ -33,7 +33,7 @@ public:
 	// some singletons need to be initialized with some parameters, we
 	// can call this init method at the begining of the program.
 	template<typename ...Targs>
-	inline static T* init(Targs &&...args) {
+	inline static T* init(Targs&&...args) {
 		//assert(instance_.get() == nullptr);
 		instance_.reset(new T(std::forward<Targs>(args)...));
 		return instance_.get();
@@ -64,4 +64,3 @@ private:
 
 template<typename T>
 std::unique_ptr<T> Singleton<T>::instance_;
-

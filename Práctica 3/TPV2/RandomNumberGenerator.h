@@ -11,4 +11,3 @@ public:
 	virtual int nextInt() = 0;
 	virtual int nextInt(int low, int high) = 0; // low is inclusive, high is exclusive
 };
-

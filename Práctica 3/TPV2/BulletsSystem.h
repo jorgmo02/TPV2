@@ -4,7 +4,7 @@
 #include "System.h"
 #include "Vector2D.h"
 
-class BulletsSystem: public System {
+class BulletsSystem : public System {
 public:
 	BulletsSystem();
 	void update() override;
@@ -12,5 +12,3 @@ public:
 	void disableAll();
 private:
 };
-
-

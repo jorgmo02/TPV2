@@ -26,8 +26,7 @@ void client(char* host, int port) {
 	}
 }
 
-int main(int argc, char **argv) {
-
+int main(int argc, char** argv) {
 	if (true) {
 		StarWars g;
 		g.start();

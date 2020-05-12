@@ -6,7 +6,7 @@
 /*
  *
  */
-class SDLFontsManager: public FontsManager {
+class SDLFontsManager : public FontsManager {
 public:
 	SDLFontsManager();
 	virtual ~SDLFontsManager();
@@ -20,4 +20,3 @@ private:
 	map<int, Font*> fonts_;
 	bool initialized_;
 };
-

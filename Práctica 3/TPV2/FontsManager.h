@@ -19,4 +19,3 @@ public:
 	virtual Font* getFont(std::size_t tag) = 0;
 	virtual bool loadFont(std::size_t tag, const string& fileName, int size) = 0;
 };
-

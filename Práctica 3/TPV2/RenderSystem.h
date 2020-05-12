@@ -3,9 +3,7 @@
 #include "Entity.h"
 #include "System.h"
 
-
-
-class RenderSystem: public System {
+class RenderSystem : public System {
 public:
 	RenderSystem();
 	void update() override;

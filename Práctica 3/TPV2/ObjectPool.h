@@ -24,13 +24,14 @@ public:
 			T* o = free_.front();
 			free_.pop_front();
 			return o;
-		} else
+		}
+		else
 			return nullptr;
 	}
 
 	void relObj(T* p) {
-		std::size_t idx = p-objs_;
-		assert(idx >=0 && idx<size_);
+		std::size_t idx = p - objs_;
+		assert(idx >= 0 && idx < size_);
 		free_.push_back(p);
 	}
 
@@ -40,8 +41,7 @@ public:
 
 private:
 	std::size_t size_;
-	T *objs_;
+	T* objs_;
 	std::vector<T*> objsPtrs_;
 	std::list<T*> free_;
 };
-

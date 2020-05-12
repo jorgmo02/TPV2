@@ -17,6 +17,4 @@ public:
 	inline static void destroy(T* p) {
 		delete p;
 	}
-
 };
-

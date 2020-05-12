@@ -7,7 +7,7 @@
 #include "System.h"
 #include "Vector2D.h"
 
-class FightersSystem: public System {
+class FightersSystem : public System {
 public:
 	FightersSystem();
 	virtual ~FightersSystem();
@@ -15,8 +15,7 @@ public:
 	void update() override;
 	void resetFighterPositions();
 private:
-	void updateFighter(Entity *e);
-	Entity *fighter0_;
-	Entity *fighter1_;
+	void updateFighter(Entity* e);
+	Entity* fighter0_;
+	Entity* fighter1_;
 };
-

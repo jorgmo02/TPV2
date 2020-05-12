@@ -11,7 +11,6 @@
 #include "SDLGame.h"
 
 class StarWars {
-
 public:
 	StarWars();
 	virtual ~StarWars();
@@ -24,17 +23,16 @@ private:
 	void initGame();
 	void closeGame();
 
-	SDLGame *game_;
-	Manager *mngr_;
+	SDLGame* game_;
+	Manager* mngr_;
 	bool exit_;
 
-	RenderSystem *renderSystem_;
-	FightersSystem *fightersSystem_;
-	GameCtrlSystem *gameCtrlSystem_;
-	BulletsSystem *bulletsSystem_;
-	CollisionSystem *collisionSystem_;
+	RenderSystem* renderSystem_;
+	FightersSystem* fightersSystem_;
+	GameCtrlSystem* gameCtrlSystem_;
+	BulletsSystem* bulletsSystem_;
+	CollisionSystem* collisionSystem_;
 
 	const static int _WINDOW_WIDTH_ = 640;
 	const static int _WINDOW_HEIGHT_ = 480;
-
 };

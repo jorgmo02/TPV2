@@ -5,7 +5,7 @@
 using namespace std;
 
 Font::Font() :
-		font_(nullptr) {
+	font_(nullptr) {
 }
 
 Font::Font(const string& fileName, int size) {
@@ -34,7 +34,8 @@ void Font::close() {
 SDL_Surface* Font::renderText(const string& text, SDL_Color color) const {
 	if (font_) {
 		return TTF_RenderText_Solid(font_, text.c_str(), color);
-	} else {
+	}
+	else {
 		return nullptr;
 	}
 }

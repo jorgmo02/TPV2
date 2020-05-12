@@ -8,7 +8,7 @@
 /*
  *
  */
-class SDLAudioManager: public AudioManager {
+class SDLAudioManager : public AudioManager {
 public:
 	SDLAudioManager();
 	SDLAudioManager(int channels);
@@ -18,7 +18,7 @@ public:
 	bool init() override;
 
 	// sound effects
-	bool loadSound(int tag, const string &fileName) override;
+	bool loadSound(int tag, const string& fileName) override;
 	int playChannel(int tag, int loops, int channel) override;
 	void pauseChannel(int channel) override;
 	void resumeChannel(int channel) override;
@@ -27,7 +27,7 @@ public:
 	int channels() override;
 
 	// music
-	bool loadMusic(int tag, const string &fileName) override;
+	bool loadMusic(int tag, const string& fileName) override;
 	void playMusic(int tag, int loops) override;
 	int setMusicVolume(int volume) override;
 	void haltMusic() override;
@@ -40,4 +40,3 @@ private:
 	map<int, Mix_Chunk*> chunks_;
 	map<int, Mix_Music*> music_;
 };
-

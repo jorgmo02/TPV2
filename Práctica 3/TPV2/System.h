@@ -8,7 +8,7 @@ class Manager;
 class System {
 public:
 	System(ecs::SysIdType id) :
-			 id_(id), mngr_(nullptr), game_(nullptr) {
+		id_(id), mngr_(nullptr), game_(nullptr) {
 	}
 
 	virtual ~System() {
@@ -28,12 +28,10 @@ public:
 
 	virtual void init() {};
 	virtual void update() {};
-    virtual void recieve(const msg::Message& msg) {}
+	virtual void recieve(const msg::Message& msg) {}
 
 protected:
 	ecs::SysIdType id_;
-	Manager *mngr_;
-	SDLGame *game_;
-
+	Manager* mngr_;
+	SDLGame* game_;
 };
-

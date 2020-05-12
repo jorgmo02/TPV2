@@ -9,7 +9,7 @@ public:
 	virtual ~Networking();
 
 	// for client use
-	void send(const msg::Message &msg) {
+	void send(const msg::Message& msg) {
 		send(msg, sock);
 	}
 
@@ -24,7 +24,7 @@ public:
 	void server(int port);
 
 	// start client
-	bool client(char *host, int port);
+	bool client(char* host, int port);
 
 	uint8_t getClientId() {
 		return clientId;
@@ -32,7 +32,7 @@ public:
 
 private:
 	void error();
-	void send(const msg::Message &msg, TCPsocket sock);
+	void send(const msg::Message& msg, TCPsocket sock);
 	msg::Message* recieve(TCPsocket sock);
 
 	TCPsocket sock;
@@ -41,4 +41,3 @@ private:
 	char buffer[256];
 	uint8_t clientId;
 };
-

@@ -14,6 +14,5 @@ private:
 	Collisions();
 	static bool PointInTriangle(const Vector2D A, const Vector2D B, const Vector2D C, const Vector2D P);
 	static bool PointInRectangle(const Vector2D X, const Vector2D Y, const Vector2D Z, const Vector2D W,
-			Vector2D P);
-
+		Vector2D P);
 };

@@ -15,5 +15,5 @@ public:
 	void close();
 	SDL_Surface* renderText(const string& text, SDL_Color color) const;
 private:
-	TTF_Font *font_;
+	TTF_Font* font_;
 };

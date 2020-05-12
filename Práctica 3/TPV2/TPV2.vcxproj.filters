@@ -19,26 +19,26 @@
     <Filter Include="Header Files\Managers">
       <UniqueIdentifier>{64e32346-5f5d-43a3-acd9-e8be9c145ec2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Factories">
-      <UniqueIdentifier>{66fed6bb-d871-4fbb-89f2-7e09f42daa13}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Components">
       <UniqueIdentifier>{7b4c563a-35d6-482a-a535-e6df218ee056}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Pools">
       <UniqueIdentifier>{7a6f93d5-417d-4817-87a2-91d8d66ed286}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Math">
-      <UniqueIdentifier>{19027b2c-a3b0-4c0f-9086-9c7570c47bb3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Resources">
       <UniqueIdentifier>{ba472307-9b34-489f-b4e7-d147e55b8462}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Don%27t Edit">
+      <UniqueIdentifier>{1eb25d19-9d9d-4fb5-b0d7-0cec40c1ffc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Don%27t Edit\Math">
+      <UniqueIdentifier>{19027b2c-a3b0-4c0f-9086-9c7570c47bb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Don%27t Edit\Factories">
+      <UniqueIdentifier>{66fed6bb-d871-4fbb-89f2-7e09f42daa13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDLGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StarWars.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -61,13 +61,13 @@
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
     <ClInclude Include="ObjectFactory.h">
-      <Filter>Header Files\Factories</Filter>
+      <Filter>Header Files\Don%27t Edit\Factories</Filter>
     </ClInclude>
     <ClInclude Include="DefFactory.h">
-      <Filter>Header Files\Factories</Filter>
+      <Filter>Header Files\Don%27t Edit\Factories</Filter>
     </ClInclude>
     <ClInclude Include="OFFacotry.h">
-      <Filter>Header Files\Factories</Filter>
+      <Filter>Header Files\Don%27t Edit\Factories</Filter>
     </ClInclude>
     <ClInclude Include="FontsManager.h">
       <Filter>Header Files\Managers</Filter>
@@ -91,19 +91,19 @@
       <Filter>Header Files\Pools</Filter>
     </ClInclude>
     <ClInclude Include="Collisions.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Header Files\Don%27t Edit\Math</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Header Files\Don%27t Edit\Math</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="SRandBasedGenerator.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Header Files\Don%27t Edit\Math</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Header Files\Don%27t Edit\Math</Filter>
     </ClInclude>
     <ClInclude Include="TexturesManager.h">
       <Filter>Header Files\Managers</Filter>
@@ -159,27 +159,21 @@
     <ClInclude Include="InputHandler.h">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="SDLGame.h">
+      <Filter>Header Files\Don%27t Edit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StarWars.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SRandBasedGenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Singleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SDLTexturesManager.cpp">
@@ -203,13 +197,7 @@
     <ClCompile Include="RenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OFFacotry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NetworkingSystem.cpp">
@@ -242,9 +230,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DefFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -252,9 +237,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BulletsSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletsPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

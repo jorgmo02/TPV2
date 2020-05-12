@@ -38,7 +38,7 @@ public:
 	}
 
 	inline bool isKeyDown(SDL_Scancode key) {
-	// return kbState_[key] == 1;
+		// return kbState_[key] == 1;
 		return keyDownEvent() && kbState_[key] == 1;
 	}
 
@@ -82,32 +82,34 @@ private:
 	InputHandler();
 	void clearState();
 
-	inline void onKeyDown(SDL_Event &event) {
+	inline void onKeyDown(SDL_Event& event) {
 		isKeyDownEvent_ = true;
 		// kbState_ = SDL_GetKeyboardState(0);
 	}
-	inline void onKeyUp(SDL_Event &event) {
+	inline void onKeyUp(SDL_Event& event) {
 		isKeyUpEvent_ = true;
 		// kbState_ = SDL_GetKeyboardState(0);
 	}
-	inline void onMouseMotion(SDL_Event &event) {
+	inline void onMouseMotion(SDL_Event& event) {
 		isMouseMotionEvent_ = true;
 		mousePos_.set(event.motion.x, event.motion.y);
 	}
-	inline void onMouseButtonChange(SDL_Event &event, bool isDown) {
+	inline void onMouseButtonChange(SDL_Event& event, bool isDown) {
 		isMouseButtonEvent_ = true;
 		if (event.button.button == SDL_BUTTON_LEFT) {
 			mbState_[LEFT] = isDown;
-		} else if (event.button.button == SDL_BUTTON_MIDDLE) {
+		}
+		else if (event.button.button == SDL_BUTTON_MIDDLE) {
 			mbState_[MIDDLE] = isDown;
-		} else if (event.button.button == SDL_BUTTON_RIGHT) {
+		}
+		else if (event.button.button == SDL_BUTTON_RIGHT) {
 			mbState_[RIGHT] = isDown;
 		}
 	}
 
 	static unique_ptr<InputHandler> instance_;
 
-	const Uint8 *kbState_;
+	const Uint8* kbState_;
 	bool isKeyUpEvent_;
 	bool isKeyDownEvent_;
 	bool isMouseMotionEvent_;
@@ -116,4 +118,3 @@ private:
 	Vector2D mousePos_;
 	std::array<bool, 3> mbState_;
 };
-

@@ -3,25 +3,25 @@
 #include "Vector2D.h"
 #include "Component.h"
 
-struct Transform: Component {
+struct Transform : Component {
 	Transform(Vector2D pos, Vector2D vel, double width, double height,
-			double rotation) :
-			Component(ecs::Transform), //
-			position_(pos), //
-			velocity_(vel), //
-			width_(width), //
-			height_(height), //
-			rotation_(rotation) //
+		double rotation) :
+		Component(ecs::Transform), //
+		position_(pos), //
+		velocity_(vel), //
+		width_(width), //
+		height_(height), //
+		rotation_(rotation) //
 	{
 	}
 
 	Transform() :
-			Component(ecs::Transform), //
-			position_(), //
-			velocity_(), //
-			width_(), //
-			height_(), //
-			rotation_() //
+		Component(ecs::Transform), //
+		position_(), //
+		velocity_(), //
+		width_(), //
+		height_(), //
+		rotation_() //
 	{
 	}
 
@@ -31,4 +31,3 @@ struct Transform: Component {
 	double height_;
 	double rotation_;
 };
-

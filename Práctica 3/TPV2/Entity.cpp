@@ -3,5 +3,5 @@
 
 void Entity::addToGroup(ecs::GrpIdType id) {
 	groups_[id] = true;
-	mngr_->addToGroup(id,this);
+	mngr_->addToGroup(id, this);
 }

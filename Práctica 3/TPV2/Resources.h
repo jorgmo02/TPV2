@@ -63,7 +63,6 @@ public:
 	struct SoundInfo {
 		AudioId id;
 		string fileName;
-
 	};
 
 	static vector<FontInfo> fonts_; // initialized in .cpp
@@ -71,5 +70,4 @@ public:
 	static vector<TextMsgInfo> messages_; // initialized in .cpp
 	static vector<MusicInfo> musics_; // initialized in .cpp
 	static vector<SoundInfo> sounds_; // initialized in .cpp
-
 };

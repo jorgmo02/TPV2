@@ -5,7 +5,7 @@
 /*
  *
  */
-class SRandBasedGenerator: public RandomNumberGenerator {
+class SRandBasedGenerator : public RandomNumberGenerator {
 public:
 	SRandBasedGenerator();
 	SRandBasedGenerator(unsigned seed);
@@ -16,4 +16,3 @@ public:
 private:
 	unsigned seed_;
 };
-

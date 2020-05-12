@@ -5,7 +5,7 @@
 using namespace std;
 
 StarWars::StarWars() :
-		exit_(false) {
+	exit_(false) {
 	initGame();
 }
 
@@ -14,7 +14,6 @@ StarWars::~StarWars() {
 }
 
 void StarWars::initGame() {
-
 	game_ = SDLGame::init("Star Wars", _WINDOW_WIDTH_, _WINDOW_HEIGHT_);
 
 	mngr_ = new Manager(game_);
@@ -26,7 +25,6 @@ void StarWars::initGame() {
 	bulletsSystem_ = mngr_->addSystem<BulletsSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	renderSystem_ = mngr_->addSystem<RenderSystem>();
-
 }
 
 void StarWars::closeGame() {
@@ -67,4 +65,3 @@ void StarWars::start() {
 			SDL_Delay(10 - frameTime);
 	}
 }
-
