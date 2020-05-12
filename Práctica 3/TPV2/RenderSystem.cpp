@@ -37,25 +37,34 @@ void RenderSystem::drawImage(Entity* e) {
 }
 
 void RenderSystem::drawCtrlMessages() {
-	auto gameState =
-		mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->getState();
+	GameCtrlSystem* gameCtrlSystem = mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl); 
 
-	if (gameState != GameCtrlSystem::RUNNING) {
-		auto msgTex = game_->getTextureMngr()->getTexture(
-			Resources::PressEnter);
+	if (!gameCtrlSystem->ready()) {
+		Texture* msgTex = game_->getTextureMngr()->getTexture(
+			Resources::WaitingForPlayer);
 		msgTex->render((game_->getWindowWidth() - msgTex->getWidth()) / 2,
 			(game_->getWindowHeight() - msgTex->getHeight() - 10));
 	}
+	else
+	{
+		GameCtrlSystem::State gameState = gameCtrlSystem->getState();
+		if (gameState != GameCtrlSystem::RUNNING) {
+			Texture* msgTex = game_->getTextureMngr()->getTexture(
+				Resources::PressEnter);
+			msgTex->render((game_->getWindowWidth() - msgTex->getWidth()) / 2,
+				(game_->getWindowHeight() - msgTex->getHeight() - 10));
+		}
 
-	if (gameState == GameCtrlSystem::GAMEOVER) {
-		auto msgTex = game_->getTextureMngr()->getTexture(Resources::GameOver);
-		msgTex->render((game_->getWindowWidth() - msgTex->getWidth()) / 2,
-			(game_->getWindowHeight() - msgTex->getHeight()) / 2);
+		else if (gameState == GameCtrlSystem::GAMEOVER) {
+			Texture* msgTex = game_->getTextureMngr()->getTexture(Resources::GameOver);
+			msgTex->render((game_->getWindowWidth() - msgTex->getWidth()) / 2,
+				(game_->getWindowHeight() - msgTex->getHeight()) / 2);
+		}
 	}
 }
 
 void RenderSystem::drawScore() {
-	auto gameCtrl = mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl);
+	GameCtrlSystem* gameCtrl = mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl);
 
 	Texture scoreTex(game_->getRenderer(),
 		to_string(gameCtrl->getScore(0)) + " - "

@@ -10,7 +10,6 @@ namespace ecs {
 	enum CmpId : CmpIdType {
 		Transform = 0,
 		Image,
-		GameState,
 		CtrlKeys,
 		FighterInfo,
 		//

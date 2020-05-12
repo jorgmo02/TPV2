@@ -18,13 +18,16 @@ GameCtrlSystem::GameCtrlSystem() :
 
 void GameCtrlSystem::init() {
 	state_ = READY;
+	mngr_->send<msg::Message>(msg::_PLAYER_INFO);
 }
 
 void GameCtrlSystem::update() {
-	if (state_ != RUNNING) {
-		InputHandler* ih = game_->getInputHandler();
-		if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
-			startGame();
+	if (ready_) {
+		if (state_ != RUNNING) {
+			InputHandler* ih = game_->getInputHandler();
+			if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
+				startGame();
+			}
 		}
 	}
 }
@@ -46,6 +49,23 @@ void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
 	score[id]++;
 	if (score[id] == 3)
 		state_ = GAMEOVER;
+}
+
+void GameCtrlSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id)
+	{
+	case msg::_PLAYER_INFO:
+	{
+		if (ready_ || msg.senderClientId == mngr_->getClientId()) return;
+
+		ready_ = true;
+		mngr_->send<msg::Message>(msg::_PLAYER_INFO);
+		break;
+	}
+	default:
+		break;
+	}
 }
 
 void GameCtrlSystem::resetScore() {

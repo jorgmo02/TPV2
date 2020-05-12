@@ -11,6 +11,7 @@ namespace msg {
 		_CONNECTED, //
 		_CONNECTION_REFUSED, //
 		_CLIENT_DISCONNECTED, //
+		_PLAYER_INFO, //
 
 		//
 		_last_MsgId_

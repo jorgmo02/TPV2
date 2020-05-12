@@ -28,13 +28,13 @@
     <Filter Include="Header Files\Resources">
       <UniqueIdentifier>{ba472307-9b34-489f-b4e7-d147e55b8462}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Don%27t Edit">
+    <Filter Include="Header Files\!touch">
       <UniqueIdentifier>{1eb25d19-9d9d-4fb5-b0d7-0cec40c1ffc6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Don%27t Edit\Math">
+    <Filter Include="Header Files\!touch\Math">
       <UniqueIdentifier>{19027b2c-a3b0-4c0f-9086-9c7570c47bb3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Don%27t Edit\Factories">
+    <Filter Include="Header Files\!touch\Factories">
       <UniqueIdentifier>{66fed6bb-d871-4fbb-89f2-7e09f42daa13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -61,13 +61,13 @@
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
     <ClInclude Include="ObjectFactory.h">
-      <Filter>Header Files\Don%27t Edit\Factories</Filter>
+      <Filter>Header Files\!touch\Factories</Filter>
     </ClInclude>
     <ClInclude Include="DefFactory.h">
-      <Filter>Header Files\Don%27t Edit\Factories</Filter>
+      <Filter>Header Files\!touch\Factories</Filter>
     </ClInclude>
     <ClInclude Include="OFFacotry.h">
-      <Filter>Header Files\Don%27t Edit\Factories</Filter>
+      <Filter>Header Files\!touch\Factories</Filter>
     </ClInclude>
     <ClInclude Include="FontsManager.h">
       <Filter>Header Files\Managers</Filter>
@@ -91,19 +91,19 @@
       <Filter>Header Files\Pools</Filter>
     </ClInclude>
     <ClInclude Include="Collisions.h">
-      <Filter>Header Files\Don%27t Edit\Math</Filter>
+      <Filter>Header Files\!touch\Math</Filter>
     </ClInclude>
     <ClInclude Include="RandomNumberGenerator.h">
-      <Filter>Header Files\Don%27t Edit\Math</Filter>
+      <Filter>Header Files\!touch\Math</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="SRandBasedGenerator.h">
-      <Filter>Header Files\Don%27t Edit\Math</Filter>
+      <Filter>Header Files\!touch\Math</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
-      <Filter>Header Files\Don%27t Edit\Math</Filter>
+      <Filter>Header Files\!touch\Math</Filter>
     </ClInclude>
     <ClInclude Include="TexturesManager.h">
       <Filter>Header Files\Managers</Filter>
@@ -160,7 +160,7 @@
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
     <ClInclude Include="SDLGame.h">
-      <Filter>Header Files\Don%27t Edit</Filter>
+      <Filter>Header Files\!touch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

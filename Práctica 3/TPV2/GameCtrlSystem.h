@@ -22,10 +22,17 @@ public:
 		assert(fighterId >= 0 && fighterId <= 1);
 		return score[fighterId];
 	}
+	bool ready() const { return ready_; }
+	void playersReady() { ready_ = true; }
+
+	virtual void recieve(const msg::Message& msg) override;
+
 private:
 	void resetScore();
 	void startGame();
 	void sendMyInfo();
+
+	bool ready_;
 
 	uint8_t score[2];
 	State state_;

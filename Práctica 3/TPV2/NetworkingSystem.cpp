@@ -17,11 +17,16 @@ void NetworkingSystem::recieve(const msg::Message& msg) {
 }
 
 void NetworkingSystem::update() {
-	auto net = game_->getNetworking();
+	Networking* net = game_->getNetworking();
 	msg::Message* msg = nullptr;
 
 	while ((msg = net->recieve()) != nullptr) {
 		switch (msg->id) {
+			case msg::_PLAYER_INFO:
+			mngr_->forwardMsg<msg::ClientDisconnectedMsg>(msg->senderClientId,
+				static_cast<msg::ClientDisconnectedMsg*>(msg)->clientId);
+			break;
+			
 		case msg::_CLIENT_DISCONNECTED:
 			mngr_->forwardMsg<msg::ClientDisconnectedMsg>(msg->senderClientId,
 				static_cast<msg::ClientDisconnectedMsg*>(msg)->clientId);
