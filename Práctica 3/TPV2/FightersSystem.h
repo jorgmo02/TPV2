@@ -12,6 +12,7 @@ public:
 	FightersSystem();
 	virtual ~FightersSystem();
 	void init() override;
+	virtual void recieve(const msg::Message& msg) override;
 	void update() override;
 	void resetFighterPositions();
 private:

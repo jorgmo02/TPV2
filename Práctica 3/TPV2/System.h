@@ -4,6 +4,7 @@ class SDLGame;
 class Manager;
 #include "ecs.h"
 #include "messages.h"
+#include "Vector2D.h"
 
 class System {
 public:

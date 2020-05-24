@@ -56,13 +56,14 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 	switch (msg.id)
 	{
 	case msg::_PLAYER_INFO:
-	{
 		if (ready_ || msg.senderClientId == mngr_->getClientId()) return;
-
 		ready_ = true;
 		mngr_->send<msg::Message>(msg::_PLAYER_INFO);
 		break;
-	}
+	case msg::_CLIENT_DISCONNECTED:
+		ready_ = false;
+		resetScore();
+		break;
 	default:
 		break;
 	}

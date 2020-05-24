@@ -12,6 +12,9 @@ namespace msg {
 		_CONNECTION_REFUSED, //
 		_CLIENT_DISCONNECTED, //
 		_PLAYER_INFO, //
+		_FIGHTER_INFO, //
+		_BULLET_SHOOT,
+		_FIGHTER_KILLED,
 
 		//
 		_last_MsgId_
@@ -44,6 +47,30 @@ namespace msg {
 				clientId) {
 		}
 		uint32_t clientId;
+	};
+
+	struct FighterInfoMsg : Message {
+		FighterInfoMsg(double x, double y, double rot, MsgId id = _FIGHTER_INFO) :
+			Message(sizeof(FighterInfoMsg), id), x(x), y(y), rotation(rot) {}
+		double rotation;
+		double x;
+		double y;
+	};
+	
+	struct BulletShootMsg : Message {
+		BulletShootMsg(double x, double y, Vector2D vel, double rot, int playerWhoShot) :
+			Message(sizeof(BulletShootMsg), id), x(x), y(y), vel(vel), rotation(rot), playerWhoShot(playerWhoShot) {}
+		double rotation;
+		double x;
+		double y;
+		Vector2D vel;
+		int playerWhoShot;
+	};
+	
+	struct FighterKill : Message {
+		FighterKill(uint8_t playerId) :
+			Message(sizeof(FighterKill), _FIGHTER_KILLED), playerId(playerId) {};
+		uint8_t playerId;
 	};
 
 #pragma pack(pop)
