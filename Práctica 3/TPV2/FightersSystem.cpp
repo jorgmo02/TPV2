@@ -73,9 +73,10 @@ void FightersSystem::init() {
 void FightersSystem::recieve(const msg::Message& msg)
 {
 	Transform* fighterTR = nullptr;
+	msg::BulletShootMsg bulletMsg;
 	switch (msg.id)
 	{
-	case msg::_FIGHTER_INFO:
+	case msg::_FIGHTER_MOVE:
 		if (msg.senderClientId == mngr_->getClientId()) return;
 
 		fighterTR = ((msg.senderClientId == 0) ? fighter0_ : fighter1_)->getComponent<Transform>(ecs::Transform);
@@ -84,10 +85,11 @@ void FightersSystem::recieve(const msg::Message& msg)
 		fighterTR->rotation_ = (static_cast<const msg::FighterInfoMsg&>(msg)).rotation;
 		break;
 
-	case msg::_FIGHTER_SHOOT:
+	case msg::_BULLET_SHOOT:
 		if (msg.senderClientId == mngr_->getClientId()) return;
 
-		
+		bulletMsg = static_cast<const msg::BulletShootMsg&>(msg);
+		mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->shoot(Vector2D(bulletMsg.x, bulletMsg.y), bulletMsg.vel, 2, 5);
 		break;
 
 	default:
@@ -109,6 +111,7 @@ void FightersSystem::updateFighter(Entity* e) {
 	CtrlKeys* keys = e->getComponent<CtrlKeys>(ecs::CtrlKeys);
 
 	auto ih = game_->getInputHandler();
+
 	if (ih->keyDownEvent()) {
 		if (ih->isKeyDown(keys->shoot)
 			&& game_->getTime() - keys->lastShootTime > 1000) { // shoot
@@ -120,10 +123,9 @@ void FightersSystem::updateFighter(Entity* e) {
 			Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2;
 
 			mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->shoot(p, d, 2, 5);
-			mngr_->send<msg::FighterInfoMsg>(tr->position_.getX(), tr->position_.getY(), tr->rotation_, msg::_FIGHTER_SHOOT);
+			mngr_->send<msg::FighterInfoMsg>(tr->position_.getX(), tr->position_.getY(), tr->rotation_, msg::_BULLET_SHOOT);
 		}
 		else {
-			bool moved = true;
 			if (ih->isKeyDown(keys->left)) { // turn left
 				tr->rotation_ = fmod(tr->rotation_ - 5.0, 360.0);
 				tr->velocity_ = tr->velocity_.rotate(-5.0);
@@ -140,11 +142,13 @@ void FightersSystem::updateFighter(Entity* e) {
 				tr->velocity_ = Vector2D(0.0, -1.0).rotate(tr->rotation_)
 					* (std::max(tr->velocity_.magnitude() - 0.2, 0.0));
 			}
-			else moved = false;
-			if (moved) mngr_->send<msg::FighterInfoMsg>(tr->position_.getX(), tr->position_.getY(), tr->rotation_);
 		}
 	}
+	motionFighter(tr);
+}
 
+void FightersSystem::motionFighter(Transform* tr)
+{
 	// motion
 	Vector2D oldPos = tr->position_;
 	Vector2D newPos = tr->position_ + tr->velocity_;
@@ -160,4 +164,5 @@ void FightersSystem::updateFighter(Entity* e) {
 		tr->velocity_ = Vector2D();
 		tr->position_ = oldPos;
 	}
+	mngr_->send<msg::FighterInfoMsg>(tr->position_.getX(), tr->position_.getY(), tr->rotation_);
 }

@@ -26,6 +26,7 @@ void GameCtrlSystem::update() {
 		if (state_ != RUNNING) {
 			InputHandler* ih = game_->getInputHandler();
 			if (ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
+				mngr_->send<msg::Message>(msg::_PLAYERS_READY);
 				startGame();
 			}
 		}
@@ -59,6 +60,10 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		if (ready_ || msg.senderClientId == mngr_->getClientId()) return;
 		ready_ = true;
 		mngr_->send<msg::Message>(msg::_PLAYER_INFO);
+		break;
+	case msg::_PLAYERS_READY:
+		if (state_ != RUNNING)
+			startGame();
 		break;
 	case msg::_CLIENT_DISCONNECTED:
 		ready_ = false;

@@ -38,11 +38,15 @@ void NetworkingSystem::update() {
 				static_cast<msg::ClientDisconnectedMsg*>(msg)->clientId);
 			break;
 
+		case msg::_PLAYERS_READY:
+			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_PLAYERS_READY);
+			break;
+
 		case msg::_PLAYER_INFO:
 			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_PLAYER_INFO);
 			break;
 
-		case msg::_FIGHTER_INFO:
+		case msg::_FIGHTER_MOVE:
 			fighterMensj = static_cast<msg::FighterInfoMsg*>(msg);
 			mngr_->forwardMsg<msg::FighterInfoMsg>(fighterMensj->senderClientId,
 				fighterMensj->x, fighterMensj->y, fighterMensj->rotation);

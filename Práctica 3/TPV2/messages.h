@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
+#include "Vector2D.h"
 
 namespace msg {
 	using msgSizeType = uint32_t;
@@ -12,7 +13,8 @@ namespace msg {
 		_CONNECTION_REFUSED, //
 		_CLIENT_DISCONNECTED, //
 		_PLAYER_INFO, //
-		_FIGHTER_INFO, //
+		_PLAYERS_READY,
+		_FIGHTER_MOVE, //
 		_BULLET_SHOOT,
 		_FIGHTER_KILLED,
 
@@ -50,7 +52,7 @@ namespace msg {
 	};
 
 	struct FighterInfoMsg : Message {
-		FighterInfoMsg(double x, double y, double rot, MsgId id = _FIGHTER_INFO) :
+		FighterInfoMsg(double x, double y, double rot, MsgId id = _FIGHTER_MOVE) :
 			Message(sizeof(FighterInfoMsg), id), x(x), y(y), rotation(rot) {}
 		double rotation;
 		double x;
@@ -58,8 +60,9 @@ namespace msg {
 	};
 	
 	struct BulletShootMsg : Message {
+		BulletShootMsg() : BulletShootMsg(0, 0, {0, 0}, 0, 0) {}
 		BulletShootMsg(double x, double y, Vector2D vel, double rot, int playerWhoShot) :
-			Message(sizeof(BulletShootMsg), id), x(x), y(y), vel(vel), rotation(rot), playerWhoShot(playerWhoShot) {}
+			Message(sizeof(BulletShootMsg), _BULLET_SHOOT), x(x), y(y), vel(vel), rotation(rot), playerWhoShot(playerWhoShot) {}
 		double rotation;
 		double x;
 		double y;
