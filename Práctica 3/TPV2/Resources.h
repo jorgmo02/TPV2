@@ -17,6 +17,8 @@ public:
 		// text
 		PressEnter,
 		GameOver,
+		YouWin,
+		YouLose,
 		WaitingForPlayer
 	};
 

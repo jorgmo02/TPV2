@@ -48,8 +48,10 @@ void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
 
 	state_ = ROUNDOVER;
 	score[id]++;
-	if (score[id] == 3)
+	if (score[id] == 3) {
+		thisPlayerWon_ = id == mngr_->getClientId();
 		state_ = GAMEOVER;
+	}
 }
 
 void GameCtrlSystem::recieve(const msg::Message& msg)

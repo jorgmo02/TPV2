@@ -27,12 +27,16 @@ public:
 
 	virtual void recieve(const msg::Message& msg) override;
 
+	bool thisPlayerWon() const { return thisPlayerWon_; };
+
 private:
 	void resetScore();
 	void startGame();
 	void sendMyInfo();
 
 	bool ready_;
+
+	bool thisPlayerWon_ = false;
 
 	uint8_t score[2];
 	State state_;
