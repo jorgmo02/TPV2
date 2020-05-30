@@ -56,7 +56,12 @@ void RenderSystem::drawCtrlMessages() {
 		}
 
 		if (gameState == GameCtrlSystem::GAMEOVER) {
-			Texture* msgTex = game_->getTextureMngr()->getTexture((gameCtrlSystem->thisPlayerWon()) ? Resources::YouWin : Resources::YouLose);
+
+			Resources::TextureId msgTexTexture = Resources::GameOver;
+			if (gameCtrlSystem->getScore(0) == gameCtrlSystem->getScore(1)) msgTexTexture = Resources::Draw;
+			else msgTexTexture = (gameCtrlSystem->getScore(mngr_->getClientId()) == 3) ? Resources::YouWin : Resources::YouLose;
+
+			Texture* msgTex = game_->getTextureMngr()->getTexture(msgTexTexture);
 			msgTex->render((game_->getWindowWidth() - msgTex->getWidth()) / 2,
 				(game_->getWindowHeight() - msgTex->getHeight()) / 2);
 		}

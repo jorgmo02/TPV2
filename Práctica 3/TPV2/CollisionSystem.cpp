@@ -23,6 +23,19 @@ void CollisionSystem::update() {
 	for (auto& f : mngr_->getGroupEntities(ecs::_grp_Fighters)) {
 		auto fTR = f->getComponent<Transform>(ecs::Transform);
 
+		for (auto& otherF : mngr_->getGroupEntities(ecs::_grp_Fighters)) {
+			if (otherF != f) {
+				Transform* otherFTR = otherF->getComponent<Transform>(ecs::Transform);
+				if (Collisions::collidesWithRotation(otherFTR->position_, otherFTR->width_,
+					otherFTR->height_, otherFTR->rotation_, fTR->position_, fTR->width_,
+					fTR->height_, fTR->rotation_)) {
+					auto id = 2;
+					mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onFighterDeath(id);
+					mngr_->send<msg::FighterKill>(id);
+				}
+			}
+		}
+
 		for (auto& b : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
 			if (!b->isActive())
 				continue;
@@ -35,7 +48,6 @@ void CollisionSystem::update() {
 				auto id = f->getComponent<FighterInfo>(ecs::FighterInfo)->fighterId;
 				mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onFighterDeath(id);
 				mngr_->send<msg::FighterKill>(id);
-				break;
 			}
 		}
 	}

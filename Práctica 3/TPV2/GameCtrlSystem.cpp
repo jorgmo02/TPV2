@@ -42,15 +42,21 @@ void GameCtrlSystem::startGame() {
 }
 
 void GameCtrlSystem::onFighterDeath(uint8_t fighterId) {
-	assert(fighterId >= 0 && fighterId <= 1);
+	if (fighterId == 2) state_ = ROUNDOVER;
+	else {
+		assert(fighterId >= 0 && fighterId <= 1);
 
-	uint8_t id = 1 - fighterId; // the id of the other player fighter
+		if (state_ != ROUNDOVER)	// evitar el caso de que te puedan dar dos o más veces y quitarte más de una vida a la vez
+		{
+			uint8_t id = 1 - fighterId; // the id of the other player fighter
 
-	state_ = ROUNDOVER;
-	score[id]++;
-	if (score[id] == 3) {
-		thisPlayerWon_ = id == mngr_->getClientId();
-		state_ = GAMEOVER;
+			state_ = ROUNDOVER;
+			score[id]++;
+			if (score[id] == 3) {
+				thisPlayerWon_ = id == mngr_->getClientId();
+				state_ = GAMEOVER;
+			}
+		}
 	}
 }
 

@@ -19,6 +19,7 @@ public:
 		GameOver,
 		YouWin,
 		YouLose,
+		Draw,
 		WaitingForPlayer
 	};
 
