@@ -26,11 +26,9 @@ void NetworkingSystem::update() {
 	while ((msg = net->recieve()) != nullptr) {
 		switch (msg->id) {
 		case msg::_CONNECTED:
-
 			break;
 
 		case msg::_CONNECTION_REFUSED:
-			
 			break;
 
 		case msg::_CLIENT_DISCONNECTED:
@@ -55,13 +53,12 @@ void NetworkingSystem::update() {
 		case msg::_BULLET_SHOOT:
 			bulletMensj = static_cast<msg::BulletShootMsg*>(msg);
 			mngr_->forwardMsg<msg::BulletShootMsg>(bulletMensj->senderClientId,
-				bulletMensj->x, bulletMensj->y, bulletMensj->vel, bulletMensj->rotation, bulletMensj->playerWhoShot);
+				bulletMensj->x, bulletMensj->y, bulletMensj->vel, bulletMensj->playerWhoShot);
 			break;
 			
 		case msg::_FIGHTER_KILLED:
 			killedMensj = static_cast<msg::FighterKill*>(msg);
-			mngr_->forwardMsg<msg::FighterKill>(killedMensj->senderClientId,
-				killedMensj->playerId);
+			mngr_->forwardMsg<msg::FighterKill>(killedMensj->senderClientId, killedMensj->playerId);
 			break;
 
 		default:

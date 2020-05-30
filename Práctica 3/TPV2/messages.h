@@ -51,6 +51,12 @@ namespace msg {
 		uint32_t clientId;
 	};
 
+	struct PlayerInfoMsg : Message {
+		PlayerInfoMsg() :
+			Message(sizeof(PlayerInfoMsg), _PLAYER_INFO) {}
+		string name;
+	};
+
 	struct FighterInfoMsg : Message {
 		FighterInfoMsg(double x, double y, double rot, MsgId id = _FIGHTER_MOVE) :
 			Message(sizeof(FighterInfoMsg), id), x(x), y(y), rotation(rot) {}
@@ -60,10 +66,9 @@ namespace msg {
 	};
 	
 	struct BulletShootMsg : Message {
-		BulletShootMsg() : BulletShootMsg(0, 0, {0, 0}, 0, 0) {}
-		BulletShootMsg(double x, double y, Vector2D vel, double rot, int playerWhoShot) :
-			Message(sizeof(BulletShootMsg), _BULLET_SHOOT), x(x), y(y), vel(vel), rotation(rot), playerWhoShot(playerWhoShot) {}
-		double rotation;
+		BulletShootMsg() : BulletShootMsg(0, 0, {0, 0}, 0) {}
+		BulletShootMsg(double x, double y, Vector2D vel, int playerWhoShot) :
+			Message(sizeof(BulletShootMsg), _BULLET_SHOOT), x(x), y(y), vel(vel), playerWhoShot(playerWhoShot) {}
 		double x;
 		double y;
 		Vector2D vel;

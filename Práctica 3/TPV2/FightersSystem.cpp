@@ -43,8 +43,7 @@ void FightersSystem::init() {
 	f0Tr->width_ = 50.0;
 	f0Tr->height_ = 50.0;
 	f0Tr->rotation_ = 90.0;
-	fighter0_->addComponent<CtrlKeys>(SDLK_LEFT, SDLK_RIGHT, SDLK_UP, SDLK_DOWN,
-		SDLK_SPACE);
+	fighter0_->addComponent<CtrlKeys>(SDLK_LEFT, SDLK_RIGHT, SDLK_UP, SDLK_DOWN, SDLK_SPACE);
 
 	fighter0_->addComponent<Image>(
 		game_->getTextureMngr()->getTexture(Resources::Fighter));
@@ -61,7 +60,7 @@ void FightersSystem::init() {
 	f1Tr->width_ = 50.0;
 	f1Tr->height_ = 50.0;
 	f1Tr->rotation_ = -90.0;
-	fighter1_->addComponent<CtrlKeys>(SDLK_a, SDLK_s, SDLK_w, SDLK_z, SDLK_x);
+	fighter1_->addComponent<CtrlKeys>(SDLK_LEFT, SDLK_RIGHT, SDLK_UP, SDLK_DOWN, SDLK_SPACE);
 
 	fighter1_->addComponent<Image>(
 		game_->getTextureMngr()->getTexture(Resources::Fighter));
@@ -123,7 +122,7 @@ void FightersSystem::updateFighter(Entity* e) {
 			Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2;
 
 			mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->shoot(p, d, 2, 5);
-			mngr_->send<msg::FighterInfoMsg>(tr->position_.getX(), tr->position_.getY(), tr->rotation_, msg::_BULLET_SHOOT);
+			mngr_->send<msg::BulletShootMsg>(p.getX(), p.getY(), d, msg::_BULLET_SHOOT);
 		}
 		else {
 			if (ih->isKeyDown(keys->left)) { // turn left

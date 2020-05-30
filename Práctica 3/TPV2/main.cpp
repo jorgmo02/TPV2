@@ -9,7 +9,7 @@ void server(int port) {
 	net.server(port);
 }
 
-void client(char* host, int port) {
+void client(char* host, int port, char* name) {
 	try {
 		StarWars g(host, port);
 		g.start();
@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 		server(atoi(argv[2])); // start in server mode
 	}
 	else if (argc == 4 && strcmp(argv[1], "client") == 0) {
-		client(argv[2], atoi(argv[3])); // start in client mode
+		client(argv[2], atoi(argv[3]), argv[4]); // start in client mode
 	}
 	else {
 		cout << "Usage: " << endl;

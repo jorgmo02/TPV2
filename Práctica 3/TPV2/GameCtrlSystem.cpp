@@ -18,7 +18,7 @@ GameCtrlSystem::GameCtrlSystem() :
 
 void GameCtrlSystem::init() {
 	state_ = READY;
-	mngr_->send<msg::Message>(msg::_PLAYER_INFO);
+	mngr_->send<msg::PlayerInfoMsg>();
 }
 
 void GameCtrlSystem::update() {
@@ -59,7 +59,7 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 	case msg::_PLAYER_INFO:
 		if (ready_ || msg.senderClientId == mngr_->getClientId()) return;
 		ready_ = true;
-		mngr_->send<msg::Message>(msg::_PLAYER_INFO);
+		mngr_->send<msg::PlayerInfoMsg>();
 		break;
 	case msg::_PLAYERS_READY:
 		if (state_ != RUNNING)
@@ -68,6 +68,7 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 	case msg::_CLIENT_DISCONNECTED:
 		ready_ = false;
 		resetScore();
+		mngr_->getSystem<FightersSystem>(ecs::_sys_Fighters)->resetFighterPositions();
 		break;
 	default:
 		break;

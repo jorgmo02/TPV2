@@ -126,8 +126,18 @@ public:
 		return game_->getNetworking()->getClientId();
 	}
 
+	inline string getClientName(int id) {
+		return (id == 0) ? playerName0 : playerName1;
+	}
+
+	inline void setClientName(int id, const char* c) {
+		((id == 0) ? playerName0 : playerName1) = c;
+	}
+
 private:
 	SDLGame* game_;
+
+	string playerName0, playerName1;
 
 	std::vector<uptr_ent> ents_;
 	std::array<std::vector<Entity*>, ecs::maxGroups> entsGroups_;
