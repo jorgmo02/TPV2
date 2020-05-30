@@ -55,7 +55,7 @@ void RenderSystem::drawCtrlMessages() {
 				(game_->getWindowHeight() - msgTex->getHeight() - 10));
 		}
 
-		else if (gameState == GameCtrlSystem::GAMEOVER) {
+		if (gameState == GameCtrlSystem::GAMEOVER) {
 			Texture* msgTex = game_->getTextureMngr()->getTexture(Resources::GameOver);
 			msgTex->render((game_->getWindowWidth() - msgTex->getWidth()) / 2,
 				(game_->getWindowHeight() - msgTex->getHeight()) / 2);
