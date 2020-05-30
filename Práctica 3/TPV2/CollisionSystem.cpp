@@ -17,10 +17,8 @@ CollisionSystem::~CollisionSystem() {
 void CollisionSystem::update() {
 	auto gameCtrlSys = mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl);
 
-	if (gameCtrlSys->getState() != GameCtrlSystem::RUNNING)
+	if (gameCtrlSys->getState() != GameCtrlSystem::RUNNING || mngr_->getClientId() != 0)
 		return;
-
-	bool roundOver = false;
 
 	for (auto& f : mngr_->getGroupEntities(ecs::_grp_Fighters)) {
 		auto fTR = f->getComponent<Transform>(ecs::Transform);
@@ -34,14 +32,11 @@ void CollisionSystem::update() {
 			if (Collisions::collidesWithRotation(bTR->position_, bTR->width_,
 				bTR->height_, bTR->rotation_, fTR->position_, fTR->width_,
 				fTR->height_, fTR->rotation_)) {
-				roundOver = true;
 				auto id = f->getComponent<FighterInfo>(ecs::FighterInfo)->fighterId;
 				mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onFighterDeath(id);
 				mngr_->send<msg::FighterKill>(id);
+				break;
 			}
 		}
 	}
-
-	if (roundOver)
-		mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->disableAll();
 }

@@ -20,6 +20,18 @@ void BulletsSystem::disableAll() {
 		b->setActive(false);
 }
 
+void BulletsSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id)
+	{
+	case msg::_FIGHTER_KILLED:
+		disableAll();
+		break;
+	default:
+		break;
+	}
+}
+
 void BulletsSystem::update() {
 	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Bullets)) {
 		Transform* tr = e->getComponent<Transform>(ecs::Transform);

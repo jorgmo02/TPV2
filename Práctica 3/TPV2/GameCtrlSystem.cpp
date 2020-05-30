@@ -70,6 +70,10 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		resetScore();
 		mngr_->getSystem<FightersSystem>(ecs::_sys_Fighters)->resetFighterPositions();
 		break;
+	case msg::_FIGHTER_KILLED:
+		if (msg.senderClientId == mngr_->getClientId()) return;
+		onFighterDeath(static_cast<const msg::FighterKill&>(msg).playerId);
+		break;
 	default:
 		break;
 	}
