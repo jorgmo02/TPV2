@@ -24,6 +24,7 @@ void RenderSystem::update() {
 
 	drawCtrlMessages();
 	drawScore();
+	drawNames();
 }
 
 void RenderSystem::drawImage(Entity* e) {
@@ -77,4 +78,17 @@ void RenderSystem::drawScore() {
 		game_->getFontMngr()->getFont(Resources::ARIAL24),
 		{ COLOR(0x111122ff) });
 	scoreTex.render(game_->getWindowWidth() / 2 - scoreTex.getWidth() / 2, 10);
+}
+
+void RenderSystem::drawNames() {
+	string thisName = mngr_->getClientName();
+	string otherName = mngr_->getOtherName();
+
+	std::cout << "names: "<< thisName << "    " << otherName << endl;
+
+	Texture thisNameTexture(game_->getRenderer(), thisName, game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0x111122ff) });
+	Texture otherNameTexture(game_->getRenderer(), otherName, game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0x111122ff) });
+
+	thisNameTexture.render(game_->getWindowWidth() / 10, game_->getWindowHeight() / 10);
+	otherNameTexture.render(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
 }

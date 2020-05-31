@@ -43,6 +43,13 @@ namespace msg {
 		uint32_t clientId;
 	};
 
+	struct ConnectionRefusedMsg : Message {
+		ConnectionRefusedMsg(int clientId) :
+			Message(sizeof(ConnectedMsg), _CONNECTION_REFUSED), clientId(clientId) {
+		}
+		uint32_t clientId;
+	};
+
 	struct ClientDisconnectedMsg : Message {
 		ClientDisconnectedMsg(uint32_t clientId) :
 			Message(sizeof(ClientDisconnectedMsg), _CLIENT_DISCONNECTED), clientId(
@@ -68,13 +75,12 @@ namespace msg {
 	};
 	
 	struct BulletShootMsg : Message {
-		BulletShootMsg() : BulletShootMsg(0, 0, {0, 0}, 0) {}
-		BulletShootMsg(double x, double y, Vector2D vel, int playerWhoShot) :
-			Message(sizeof(BulletShootMsg), _BULLET_SHOOT), x(x), y(y), vel(vel), playerWhoShot(playerWhoShot) {}
+		BulletShootMsg() : BulletShootMsg(0, 0, {0, 0}) {}
+		BulletShootMsg(double x, double y, Vector2D vel) :
+			Message(sizeof(BulletShootMsg), _BULLET_SHOOT), x(x), y(y), vel(vel) {}
 		double x;
 		double y;
 		Vector2D vel;
-		int playerWhoShot;
 	};
 	
 	struct FighterKill : Message {

@@ -125,7 +125,7 @@ void FightersSystem::updateFighter(Entity* e) {
 				Vector2D d = Vector2D(0, -1).rotate(tr->rotation_) * 2;
 
 				mngr_->getSystem<BulletsSystem>(ecs::_sys_Bullets)->shoot(p, d, 2, 5);
-				mngr_->send<msg::BulletShootMsg>(p.getX(), p.getY(), d, msg::_BULLET_SHOOT);
+				mngr_->send<msg::BulletShootMsg>(p.getX(), p.getY(), d);
 			}
 			else {
 				if (ih->isKeyDown(keys->left)) { // turn left

@@ -24,6 +24,7 @@ void BulletsSystem::recieve(const msg::Message& msg)
 {
 	switch (msg.id)
 	{
+	case msg::_CLIENT_DISCONNECTED:
 	case msg::_FIGHTER_KILLED:
 		disableAll();
 		break;

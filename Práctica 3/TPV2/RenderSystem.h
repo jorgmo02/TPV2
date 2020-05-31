@@ -11,4 +11,5 @@ private:
 	void drawImage(Entity* e);
 	void drawCtrlMessages();
 	void drawScore();
+	void drawNames();
 };
