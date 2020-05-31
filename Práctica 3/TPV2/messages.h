@@ -12,6 +12,7 @@ namespace msg {
 		_CONNECTED, //
 		_CONNECTION_REFUSED, //
 		_CLIENT_DISCONNECTED, //
+
 		_PLAYER_INFO, //
 		_PLAYERS_READY,
 		_FIGHTER_MOVE, //

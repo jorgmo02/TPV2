@@ -135,16 +135,18 @@ public:
 
 	inline void setClientName(const char* c) {
 		strcpy_s(playerName, 11, c);
+		std::cout << "This name: " << playerName << endl;
 	}
 	inline void setOtherClientName(const char* c) {
 		strcpy_s(otherPlayerName, 11, c);
+		std::cout << "Other name: " << otherPlayerName << endl;
 	}
 
 private:
 	SDLGame* game_;
 
-	char playerName[11] = "";
-	char otherPlayerName[11] = "";
+	char playerName[11] = "          ";
+	char otherPlayerName[11] = "          ";
 
 	std::vector<uptr_ent> ents_;
 	std::array<std::vector<Entity*>, ecs::maxGroups> entsGroups_;

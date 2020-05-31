@@ -40,9 +40,9 @@ int main(int argc, char** argv) {
 	else if (argc == 5 && strcmp(argv[1], "client") == 0 && std::strlen(argv[4]) < 11) {
 		client(argv[2], atoi(argv[3]), argv[4]); // start in client mode
 	}
-	//else if (true) {
-	//	client(ip, port, anon);
-	//}
+	else if (true) {
+		client(ip, port, anon);
+	}
 	else {
 		cout << "Usage: " << endl;
 		cout << "  " << argv[0] << " client host port " << endl;

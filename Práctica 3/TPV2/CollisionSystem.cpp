@@ -29,9 +29,8 @@ void CollisionSystem::update() {
 				if (Collisions::collidesWithRotation(otherFTR->position_, otherFTR->width_,
 					otherFTR->height_, otherFTR->rotation_, fTR->position_, fTR->width_,
 					fTR->height_, fTR->rotation_)) {
-					auto id = 2;
-					mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onFighterDeath(id);
-					mngr_->send<msg::FighterKill>(id);
+					mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onFighterDeath(2);
+					mngr_->send<msg::FighterKill>(2);
 				}
 			}
 		}

@@ -38,7 +38,7 @@ void RenderSystem::drawImage(Entity* e) {
 }
 
 void RenderSystem::drawCtrlMessages() {
-	GameCtrlSystem* gameCtrlSystem = mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl); 
+	GameCtrlSystem* gameCtrlSystem = mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl);
 
 	if (!gameCtrlSystem->ready()) {
 		Texture* msgTex = game_->getTextureMngr()->getTexture(
@@ -57,7 +57,6 @@ void RenderSystem::drawCtrlMessages() {
 		}
 
 		if (gameState == GameCtrlSystem::GAMEOVER) {
-
 			Resources::TextureId msgTexTexture = Resources::GameOver;
 			if (gameCtrlSystem->getScore(0) == gameCtrlSystem->getScore(1)) msgTexTexture = Resources::Draw;
 			else msgTexTexture = (gameCtrlSystem->getScore(mngr_->getClientId()) == 3) ? Resources::YouWin : Resources::YouLose;
@@ -84,11 +83,23 @@ void RenderSystem::drawNames() {
 	string thisName = mngr_->getClientName();
 	string otherName = mngr_->getOtherName();
 
-	std::cout << "names: "<< thisName << "    " << otherName << endl;
-
 	Texture thisNameTexture(game_->getRenderer(), thisName, game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0x111122ff) });
 	Texture otherNameTexture(game_->getRenderer(), otherName, game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0x111122ff) });
 
-	thisNameTexture.render(game_->getWindowWidth() / 10, game_->getWindowHeight() / 10);
-	otherNameTexture.render(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2);
+	int id = mngr_->getClientId();
+	int posX = 14;
+	// dibuja rectangulo blanco
+	if (thisName != "          ") {
+		SDL_Rect dest{
+			(id * posX + 1) * game_->getWindowWidth() / 20,
+			game_->getWindowHeight() / 20,
+			thisNameTexture.getWidth(),
+			thisNameTexture.getHeight()
+		};
+		SDL_SetRenderDrawColor(game_->getRenderer(), 255, 255, 255, 255);
+		SDL_RenderFillRect(game_->getRenderer(), &dest);
+	}
+
+	thisNameTexture.render((id * posX + 1) * game_->getWindowWidth() / 20, game_->getWindowHeight() / 20);
+	otherNameTexture.render(((1 - id) * posX + 1) * game_->getWindowWidth() / 20, game_->getWindowHeight() / 20);
 }

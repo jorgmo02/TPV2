@@ -65,9 +65,10 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 	switch (msg.id)
 	{
 	case msg::_PLAYER_INFO:
+		if (msg.senderClientId != mngr_->getClientId()) mngr_->setOtherClientName(static_cast<const msg::PlayerInfoMsg&>(msg).name_);
 		if (ready_ || msg.senderClientId == mngr_->getClientId()) return;
 		ready_ = true;
-		mngr_->setOtherClientName(static_cast<const msg::PlayerInfoMsg&>(msg).name_);
+		mngr_->send<msg::PlayerInfoMsg>(mngr_->getClientName());
 		break;
 	case msg::_PLAYERS_READY:
 		if (state_ != RUNNING)
@@ -78,6 +79,7 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		state_ = GAMEOVER;
 		resetScore();
 		mngr_->getSystem<FightersSystem>(ecs::_sys_Fighters)->resetFighterPositions();
+		mngr_->setOtherClientName(" ");
 		break;
 	case msg::_FIGHTER_KILLED:
 		if (msg.senderClientId == mngr_->getClientId()) return;

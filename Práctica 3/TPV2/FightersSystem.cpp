@@ -49,7 +49,7 @@ void FightersSystem::init() {
 		game_->getTextureMngr()->getTexture(Resources::Fighter));
 	fighter0_->addToGroup(ecs::_grp_Fighters);
 	mngr_->setHandler(ecs::_hdlr_Fighter0, fighter0_);
-	fighter0_->addComponent<FighterInfo>(0, mngr_->getClientName());
+	fighter0_->addComponent<FighterInfo>(0);
 
 	// right fighter
 	fighter1_ = mngr_->addEntity();
@@ -65,7 +65,7 @@ void FightersSystem::init() {
 	fighter1_->addComponent<Image>(
 		game_->getTextureMngr()->getTexture(Resources::Fighter));
 	fighter1_->addToGroup(ecs::_grp_Fighters);
-	fighter1_->addComponent<FighterInfo>(1, mngr_->getOtherName());
+	fighter1_->addComponent<FighterInfo>(1);
 	mngr_->setHandler(ecs::_hdlr_Fighter1, fighter1_);
 }
 
