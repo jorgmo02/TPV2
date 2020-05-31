@@ -41,7 +41,7 @@ void NetworkingSystem::update() {
 			break;
 
 		case msg::_PLAYER_INFO:
-			mngr_->forwardMsg<msg::Message>(msg->senderClientId, msg::_PLAYER_INFO);
+			mngr_->forwardMsg<msg::PlayerInfoMsg>(msg->senderClientId, static_cast<msg::PlayerInfoMsg*>(msg)->name_);
 			break;
 
 		case msg::_FIGHTER_MOVE:

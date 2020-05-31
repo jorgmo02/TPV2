@@ -32,7 +32,6 @@ public:
 private:
 	void resetScore();
 	void startGame();
-	void sendMyInfo();
 
 	bool ready_;
 

@@ -13,7 +13,7 @@
 
 class StarWars {
 public:
-	StarWars(char* host, int port);
+	StarWars(char* host, int port, char* name);
 	virtual ~StarWars();
 
 	// from SDLGame

@@ -122,22 +122,29 @@ public:
 		}
 	}
 
-	inline uint32_t getClientId() {
+	inline uint32_t getClientId() const {
 		return game_->getNetworking()->getClientId();
 	}
 
-	inline string getClientName(int id) {
-		return (id == 0) ? playerName0 : playerName1;
+	inline const char* getClientName() const {
+		return &playerName[0];
+	}
+	inline const char* getOtherName() const {
+		return &otherPlayerName[0];
 	}
 
-	inline void setClientName(int id, const char* c) {
-		((id == 0) ? playerName0 : playerName1) = c;
+	inline void setClientName(const char* c) {
+		strcpy_s(playerName, 11, c);
+	}
+	inline void setOtherClientName(const char* c) {
+		strcpy_s(otherPlayerName, 11, c);
 	}
 
 private:
 	SDLGame* game_;
 
-	string playerName0, playerName1;
+	char playerName[11] = "";
+	char otherPlayerName[11] = "";
 
 	std::vector<uptr_ent> ents_;
 	std::array<std::vector<Entity*>, ecs::maxGroups> entsGroups_;

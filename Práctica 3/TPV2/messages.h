@@ -52,9 +52,11 @@ namespace msg {
 	};
 
 	struct PlayerInfoMsg : Message {
-		PlayerInfoMsg() :
-			Message(sizeof(PlayerInfoMsg), _PLAYER_INFO) {}
-		string name;
+		PlayerInfoMsg(const char* name) :
+			Message(sizeof(PlayerInfoMsg), _PLAYER_INFO) {
+			strcpy_s(name_, 11, name);
+		}
+		char name_[11];
 	};
 
 	struct FighterInfoMsg : Message {

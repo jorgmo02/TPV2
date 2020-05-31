@@ -4,13 +4,14 @@
 #include "SDL_macros.h"
 using namespace std;
 
-StarWars::StarWars(char* host, int port) :
+StarWars::StarWars(char* host, int port, char* name) :
 	host_(host),
 	port_(port),
 	game_(nullptr),
 	mngr_(nullptr),
 	exit_(false) {
 	initGame();
+	mngr_->setClientName(name);
 }
 
 StarWars::~StarWars() {

@@ -18,7 +18,7 @@ GameCtrlSystem::GameCtrlSystem() :
 
 void GameCtrlSystem::init() {
 	state_ = READY;
-	mngr_->send<msg::PlayerInfoMsg>();
+	mngr_->send<msg::PlayerInfoMsg>(mngr_->getClientName());
 }
 
 void GameCtrlSystem::update() {
@@ -67,7 +67,8 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 	case msg::_PLAYER_INFO:
 		if (ready_ || msg.senderClientId == mngr_->getClientId()) return;
 		ready_ = true;
-		mngr_->send<msg::PlayerInfoMsg>();
+		mngr_->setOtherClientName(static_cast<const msg::PlayerInfoMsg&>(msg).name_);
+		mngr_->send<msg::PlayerInfoMsg>(static_cast<const msg::PlayerInfoMsg&>(msg).name_);
 		break;
 	case msg::_PLAYERS_READY:
 		if (state_ != RUNNING)

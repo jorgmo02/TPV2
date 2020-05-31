@@ -26,7 +26,7 @@ public:
 	// start client
 	bool client(char* host, int port);
 
-	uint8_t getClientId() {
+	uint8_t getClientId() const {
 		return clientId;
 	}
 
