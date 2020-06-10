@@ -30,6 +30,17 @@ void PacManSystem::init() {
 	mngr_->setHandler(ecs::_hdlr_PacManEntity, pacman_);
 }
 
+void PacManSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id) {
+	case msg::_PACMAN_DEAD:
+		resetPacManPosition();
+		break;
+	default:
+		break;
+	}
+}
+
 void PacManSystem::update() {
 
 	auto gameState = mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(ecs::GameState);

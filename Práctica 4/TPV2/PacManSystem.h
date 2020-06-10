@@ -8,11 +8,12 @@ class PacManSystem: public System {
 public:
 	PacManSystem();
 	void init() override;
+	virtual void recieve(const msg::Message& msg) override;
 	void update() override;
 
-	// TODO: these methods should go private
-	void resetPacManPosition();
 private:
+	void resetPacManPosition();
+
 	Entity *pacman_;
 	Transform *tr_;
 };

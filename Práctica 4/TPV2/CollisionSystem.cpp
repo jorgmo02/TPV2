@@ -1,5 +1,4 @@
 #include "CollisionSystem.h"
-
 #include "Collisions.h"
 #include "FoodSystem.h"
 #include "GameState.h"
@@ -14,28 +13,28 @@ CollisionSystem::CollisionSystem() :
 void CollisionSystem::update() {
 
 	auto gameState = mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(ecs::GameState);
-	if ( gameState->state_ != GameState::RUNNING)
+	if (gameState->state_ != GameState::RUNNING)
 		return;
 
-	auto ptr = mngr_->getHandler(ecs::_hdlr_PacManEntity)->getComponent<Transform>(ecs::Transform);
+	Entity* pacmanEntity = mngr_->getHandler(ecs::_hdlr_PacManEntity);	// guardar referencia por si pudiera hacer falta en el mensaje de la colisión
+	auto ptr = pacmanEntity->getComponent<Transform>(ecs::Transform);
 
 	// collision with food
-	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Food)) {
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Food)) {
 		auto etr = e->getComponent<Transform>(ecs::Transform);
 		if (Collisions::collides(ptr->position_, ptr->width_, ptr->height_,
-				etr->position_, etr->width_, etr->height_)) {
-				mngr_->getSystem<FoodSystem>(ecs::_sys_Food)->onEat(e);
+			etr->position_, etr->width_, etr->height_)) {
+			mngr_->send<msg::CollisionMessage>(msg::_PACMAN_TSUKKI_COLLISION, pacmanEntity, e);
 		}
 	}
 
 	// collision with ghosts
-	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
 		auto etr = e->getComponent<Transform>(ecs::Transform);
 		if (Collisions::collides(ptr->position_, ptr->width_, ptr->height_,
-				etr->position_, etr->width_, etr->height_)) {
-				mngr_->getSystem<GhostsSystem>(ecs::_sys_Ghosts)->onCollisionWithPacMan(e);
-				break;
+			etr->position_, etr->width_, etr->height_)) {
+			mngr_->send<msg::CollisionMessage>(msg::_PACMAN_GHOST_COLLISION, pacmanEntity, e);
+			break;
 		}
 	}
-
 }

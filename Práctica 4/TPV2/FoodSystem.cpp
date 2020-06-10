@@ -17,26 +17,45 @@ FoodSystem::FoodSystem() :
 void FoodSystem::init() {
 }
 
+void FoodSystem::recieve(const msg::Message& msg)
+{
+	switch (msg.id) {
+		// los dos casos deshabilitan la comida
+		case msg::_NO_MORE_TSUKKIS:
+		case msg::_PACMAN_DEAD:
+			disableAll();
+			break;
+		// añade comida
+		case msg::_ADD_TSUKKIS:
+			addFood(static_cast<const msg::AddItemMessage&>(msg).numItems_);
+			break;
+		// pacman come una cereza
+		case msg::_PACMAN_TSUKKI_COLLISION:
+			onEat(static_cast<const msg::CollisionMessage&>(msg).collidedWith_);
+			break;
+		default:
+			break;
+	}
+}
+
 void FoodSystem::update() {
 }
 
+// pacman come una cereza
 void FoodSystem::onEat(Entity *e) {
 	// update score
 	auto gameState = mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(ecs::GameState);
 	gameState->score_++;
 
-	game_->getAudioMngr()->playChannel(Resources::PacMan_Eat,0);
-
-	// disbale food
+	// disable food
 	e->setActive(false);
 	numOfFoodPieces_--;
 
-	if ( numOfFoodPieces_ == 0)
-		mngr_->getSystem<GameCtrlSystem>(ecs::_sys_GameCtrl)->onNoMoreFood();
+	if (numOfFoodPieces_ == 0)
+		mngr_->send<msg::Message>(msg::_NO_MORE_TSUKKIS);
 }
 
 void FoodSystem::addFood(std::size_t n) {
-
 
 	RandomNumberGenerator *r = game_->getRandGen();
 

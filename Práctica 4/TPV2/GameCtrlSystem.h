@@ -10,13 +10,12 @@ public:
 	GameCtrlSystem();
 
 	void init() override;
+	virtual void recieve(const msg::Message& msg) override;
 	void update() override;
 
-	// TODO: these methods should go private
+private:
 	void onPacManDeath();
 	void onNoMoreFood();
-
-private:
 	void startGame();
 
 	GameState *gameState_;

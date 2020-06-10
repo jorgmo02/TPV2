@@ -54,6 +54,7 @@
     <ClInclude Include="SDLTexturesManager.h" />
     <ClInclude Include="SDL_macros.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SoundSystem.h" />
     <ClInclude Include="SRandBasedGenerator.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Texture.h" />
@@ -92,6 +93,7 @@
     <ClCompile Include="SDLTexturesManager.cpp" />
     <ClCompile Include="sdl_macros.cpp" />
     <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="SoundSystem.cpp" />
     <ClCompile Include="SRandBasedGenerator.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="Texture.cpp" />
