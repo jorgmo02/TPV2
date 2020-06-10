@@ -42,6 +42,7 @@ void PacMan::initGame() {
 	renderSystem_ = mngr_->addSystem<RenderSystem>();
 	collisionSystem_ = mngr_->addSystem<CollisionSystem>();
 	gameCtrlSystem_ = mngr_->addSystem<GameCtrlSystem>();
+	soundSystem_ = mngr_->addSystem<SoundSystem>();
 }
 
 void PacMan::closeGame() {
@@ -73,6 +74,7 @@ void PacMan::start() {
 		foodSystem_->update();
 		collisionSystem_->update();
 		renderSystem_->update();
+		soundSystem_->update();
 
 		// this is needed for sending the messages!
 		mngr_->flushMessages();

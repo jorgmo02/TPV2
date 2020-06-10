@@ -24,14 +24,14 @@ void GameCtrlSystem::init() {
 void GameCtrlSystem::recieve(const msg::Message& msg)
 {
 	switch (msg.id) {
-	case msg::_PACMAN_DEAD:
-		onPacManDeath();
-		break;
-	case msg::_NO_MORE_TSUKKIS:
-		onNoMoreFood();
-		break;
-	default:
-		break;
+		case msg::_PACMAN_DEAD:
+			onPacManDeath();
+			break;
+		case msg::_NO_MORE_TSUKKIS:
+			onNoMoreFood();
+			break;
+		default:
+			break;
 	}
 }
 
@@ -44,20 +44,15 @@ void GameCtrlSystem::update() {
 
 	if ( ih->keyDownEvent() && ih->isKeyDown(SDLK_RETURN)) {
 		switch ( gameState_->state_) {
-		case GameState::READY:
-			gameState_->state_ = GameState::RUNNING;
-			game_->getAudioMngr()->haltMusic();
-			startGame();
-			break;
-		case GameState::OVER:
-			gameState_->state_ = GameState::READY;
-			gameState_->score_ = 0;
-			gameState_->won_ = false;
-			game_->getAudioMngr()->playMusic(Resources::PacMan_Intro);
-			break;
-		default:
-			assert(false); // should not be rechable
-			break;
+			case GameState::READY:
+				startGame();
+				break;
+			case GameState::OVER:
+				resetGame();
+				break;
+			default:
+				assert(false); // should not be rechable
+				break;
 		}
 	}
 }
@@ -73,7 +68,17 @@ void GameCtrlSystem::onNoMoreFood() {
 }
 
 void GameCtrlSystem::startGame() {
+	gameState_->state_ = GameState::RUNNING;
+	//game_->getAudioMngr()->haltMusic();
 	mngr_->send<msg::Message>(msg::_GAME_START);
 	mngr_->send<msg::AddItemMessage>(msg::_ADD_TSUKKIS, 10);
 	mngr_->send<msg::AddItemMessage>(msg::_ADD_GHOSTS, 2);
+}
+
+void GameCtrlSystem::resetGame() {
+	gameState_->state_ = GameState::READY;
+	gameState_->score_ = 0;
+	gameState_->won_ = false;
+	//game_->getAudioMngr()->playMusic(Resources::PacMan_Intro);
+	mngr_->send<msg::Message>(msg::_GAME_RESET);
 }

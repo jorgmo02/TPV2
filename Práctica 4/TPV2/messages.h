@@ -10,6 +10,7 @@ namespace msg {
 	enum MsgId : msgType {
 		_GAME_START,
 		_GAME_OVER,
+		_GAME_RESET,
 		_PACMAN_DEAD,
 		_NO_MORE_TSUKKIS,
 		_ADD_GHOSTS,

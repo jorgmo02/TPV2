@@ -17,6 +17,7 @@ private:
 	void onPacManDeath();
 	void onNoMoreFood();
 	void startGame();
+	void resetGame();
 
 	GameState *gameState_;
 

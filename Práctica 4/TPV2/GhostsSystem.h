@@ -19,4 +19,3 @@ private:
 	int maxGhosts_;
 	int numOfGhosts_;
 };
-
