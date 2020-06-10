@@ -29,6 +29,8 @@ void SoundSystem::recieve(const msg::Message& msg)
 		audioMngr_->haltMusic();
 		break;
 	case msg::_GAME_RESET:
+		audioMngr_->haltMusic();
+		audioMngr_->haltChannel();
 		audioMngr_->playMusic(Resources::PacMan_Intro);
 		break;
 	default:

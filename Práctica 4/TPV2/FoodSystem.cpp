@@ -22,7 +22,7 @@ void FoodSystem::recieve(const msg::Message& msg)
 	switch (msg.id) {
 		// los dos casos deshabilitan la comida
 		case msg::_NO_MORE_TSUKKIS:
-		case msg::_PACMAN_DEAD:
+		case msg::_GAME_OVER:
 			disableAll();
 			break;
 		// añade comida

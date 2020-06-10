@@ -10,6 +10,7 @@ public:
 	void init() override;
 	virtual void recieve(const msg::Message& msg) override;
 	void update() override;
+	int lifes = 1;
 
 private:
 	void resetPacManPosition();

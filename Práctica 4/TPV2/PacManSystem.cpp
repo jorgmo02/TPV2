@@ -33,8 +33,13 @@ void PacManSystem::init() {
 void PacManSystem::recieve(const msg::Message& msg)
 {
 	switch (msg.id) {
+	case msg::_GAME_RESET:
+		resetPacManPosition();
+		break;
 	case msg::_PACMAN_DEAD:
 		resetPacManPosition();
+		if ((--lifes) <= 0)
+			mngr_->send<msg::Message>(msg::_GAME_OVER);
 		break;
 	default:
 		break;
@@ -87,5 +92,4 @@ void PacManSystem::resetPacManPosition() {
 			(game_->getWindowHeight()-tr_->height_)/2);
 	tr_->velocity_ = Vector2D(0.0, 0.0);
 	tr_->rotation_ = 0.0;
-
 }
