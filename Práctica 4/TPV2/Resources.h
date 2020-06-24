@@ -17,6 +17,7 @@ public:
 		PressEnterToStartANewGame,
 		PressEnterToContinue,
 		GameOver,
+		GameWon,
 	};
 
 	enum AudioId : std::size_t {

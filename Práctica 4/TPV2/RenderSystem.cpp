@@ -94,7 +94,7 @@ void RenderSystem::drawState(GameState *gs) {
 		y = (game_->getWindowHeight() - toContMsg->getHeight()) / 2;
 		toContMsg->render(x, y);
 
-		auto gameOverMsg = game_->getTextureMngr()->getTexture(Resources::GameOver);
+		auto gameOverMsg = game_->getTextureMngr()->getTexture((gs->won_) ? Resources::GameWon : Resources::GameOver);
 		x = (game_->getWindowWidth() - gameOverMsg->getWidth())/ 2;
 		y = (game_->getWindowHeight() - gameOverMsg->getHeight()) / 2 - 50;
 		gameOverMsg->render(x, y);

@@ -14,8 +14,12 @@ public:
 
 private:
 	void resetPacManPosition();
+	void loseLife();
 
 	Entity *pacman_;
 	Transform *tr_;
+
+	const int rotateRate_ = 10;
+	const float speedChangeRate_ = 0.5;
 };
 

@@ -16,7 +16,8 @@ vector<Resources::TextMsgInfo> Resources::messages_ {
 //
 		{ PressEnterToStartANewGame, "Press ENTER to start a new game", { COLOR(0xaaffffff) }, ARIAL16 }, //
 		{ PressEnterToContinue, "Press ENTER to continue", { COLOR(0xaaffbbff) }, ARIAL24 }, //
-		{ GameOver, "Game Over!", { COLOR(0xffffbbff) }, ARIAL24 } //
+		{ GameOver, "Game Over!", { COLOR(0xffffbbff) }, ARIAL24 }, //
+		{ GameWon, "You won!", { COLOR(0xffffbbff) }, ARIAL24 } //
 };
 
 vector<Resources::MusicInfo> Resources::musics_ {

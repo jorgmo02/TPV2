@@ -63,7 +63,7 @@ void FoodSystem::addFood(std::size_t n) {
 	int width = 30;
 	int height = 30;
 
-	for (auto i(0u); i < n; i++) {
+	for (unsigned int i(0u); i < n; i++) {
 
 		int x = r->nextInt(10, game_->getWindowWidth() - width - 10);
 		int y = r->nextInt(10, game_->getWindowHeight() - height - 10);

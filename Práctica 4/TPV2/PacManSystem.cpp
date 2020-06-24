@@ -38,8 +38,7 @@ void PacManSystem::recieve(const msg::Message& msg)
 		break;
 	case msg::_PACMAN_DEAD:
 		resetPacManPosition();
-		if ((--lifes) <= 0)
-			mngr_->send<msg::Message>(msg::_GAME_OVER);
+		loseLife();
 		break;
 	default:
 		break;
@@ -56,18 +55,20 @@ void PacManSystem::update() {
 	assert(tr_ != nullptr);
 	if (ih->keyDownEvent()) {
 		if (ih->isKeyDown(SDLK_RIGHT)) {
-			tr_->rotation_ = tr_->rotation_ + 10;
-			tr_->velocity_ = tr_->velocity_.rotate(10);
-		} else if (ih->isKeyDown(SDLK_LEFT)) {
-			tr_->rotation_ = tr_->rotation_ - 10;
-			tr_->velocity_ = tr_->velocity_.rotate(-10);
-		} else if (ih->isKeyDown(SDLK_UP)) {
-			auto nv = Vector2D(0, -1).rotate(tr_->rotation_);
-			tr_->velocity_ = nv * (tr_->velocity_.magnitude() + 0.5);
-		} else if (ih->isKeyDown(SDLK_DOWN)) {
-			auto nv = Vector2D(0, -1).rotate(tr_->rotation_);
-			tr_->velocity_ = nv
-					* std::max(0.0, (tr_->velocity_.magnitude() - 0.5));
+			tr_->rotation_ = tr_->rotation_ + rotateRate_;
+			tr_->velocity_ = tr_->velocity_.rotate(rotateRate_);
+		}
+		else if (ih->isKeyDown(SDLK_LEFT)) {
+			tr_->rotation_ = tr_->rotation_ - rotateRate_;
+			tr_->velocity_ = tr_->velocity_.rotate(-rotateRate_);
+		}
+		else if (ih->isKeyDown(SDLK_UP)) {
+			Vector2D newVel = Vector2D(0, -1).rotate(tr_->rotation_);
+			tr_->velocity_ = newVel * (tr_->velocity_.magnitude() + speedChangeRate_);
+		}
+		else if (ih->isKeyDown(SDLK_DOWN)) {
+			Vector2D newVel = Vector2D(0, -1).rotate(tr_->rotation_);
+			tr_->velocity_ = newVel * std::max(0.0, (tr_->velocity_.magnitude() - speedChangeRate_));
 		}
 	}
 
@@ -92,4 +93,10 @@ void PacManSystem::resetPacManPosition() {
 			(game_->getWindowHeight()-tr_->height_)/2);
 	tr_->velocity_ = Vector2D(0.0, 0.0);
 	tr_->rotation_ = 0.0;
+}
+
+void PacManSystem::loseLife() {
+	if ((--lifes) <= 0) {
+		mngr_->send<msg::Message>(msg::_GAME_OVER);
+	}
 }
