@@ -59,7 +59,7 @@ void FoodSystem::addFood(std::size_t n) {
 
 	RandomNumberGenerator *r = game_->getRandGen();
 
-	// ghost width and height
+	// food width and height
 	int width = 30;
 	int height = 30;
 

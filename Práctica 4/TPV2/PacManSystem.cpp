@@ -19,10 +19,11 @@ void PacManSystem::init() {
 	tr_ = pacman_->addComponent<Transform>();
 	resetPacManPosition();
 
-	auto animatedImage = pacman_->addComponent<AnimatedImageComponent>();
+	pacmanLife_ = pacman_->addComponent<Life>(1);
+
+	AnimatedImageComponent* animatedImage = pacman_->addComponent<AnimatedImageComponent>();
 	animatedImage->setFrameTime(100);
-	Texture *spritesTex = game_->getTextureMngr()->getTexture(
-			Resources::PacManSprites);
+	Texture *spritesTex = game_->getTextureMngr()->getTexture(Resources::PacManSprites);
 	for (int i = 0; i < 4; i++) {
 		animatedImage->addFrame(spritesTex, { i * 128, 0, 128, 128 });
 	}
@@ -35,6 +36,7 @@ void PacManSystem::recieve(const msg::Message& msg)
 	switch (msg.id) {
 	case msg::_GAME_RESET:
 		resetPacManPosition();
+		pacmanLife_->lifes_ = maxLifes_;
 		break;
 	case msg::_PACMAN_DEAD:
 		resetPacManPosition();
@@ -96,7 +98,7 @@ void PacManSystem::resetPacManPosition() {
 }
 
 void PacManSystem::loseLife() {
-	if ((--lifes) <= 0) {
+	if (--(pacmanLife_->lifes_) <= 0) {
 		mngr_->send<msg::Message>(msg::_GAME_OVER);
 	}
 }

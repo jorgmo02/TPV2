@@ -38,6 +38,7 @@
     <ClInclude Include="ImageComponent.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="jute.h" />
+    <ClInclude Include="Life.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="messages.h" />
     <ClInclude Include="ObjectFactory.h" />
@@ -77,6 +78,7 @@
     <ClCompile Include="GhostsSystem.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="jute.cpp" />
+    <ClCompile Include="Life.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="ObjectFactory.cpp" />
