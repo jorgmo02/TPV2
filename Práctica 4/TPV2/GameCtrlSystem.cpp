@@ -30,6 +30,10 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		case msg::_NO_MORE_TSUKKIS:
 			onNoMoreFood();
 			break;
+		case msg::_GAME_START:
+			mngr_->send<msg::AddItemMessage>(msg::_ADD_TSUKKIS, 10);
+			mngr_->send<msg::AddItemMessage>(msg::_ADD_GHOSTS, 2);
+			break;
 		default:
 			break;
 	}
@@ -70,8 +74,6 @@ void GameCtrlSystem::onNoMoreFood() {
 void GameCtrlSystem::startGame() {
 	gameState_->state_ = GameState::RUNNING;
 	mngr_->send<msg::Message>(msg::_GAME_START);
-	mngr_->send<msg::AddItemMessage>(msg::_ADD_TSUKKIS, 10);
-	mngr_->send<msg::AddItemMessage>(msg::_ADD_GHOSTS, 2);
 }
 
 void GameCtrlSystem::resetGame() {

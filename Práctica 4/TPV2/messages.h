@@ -8,15 +8,15 @@ namespace msg {
 	using msgType = std::size_t;
 
 	enum MsgId : msgType {
-		_GAME_START,
-		_GAME_OVER,
-		_GAME_RESET,
-		_PACMAN_DEAD,
-		_NO_MORE_TSUKKIS,
-		_ADD_GHOSTS,
-		_ADD_TSUKKIS,
-		_PACMAN_GHOST_COLLISION,
-		_PACMAN_TSUKKI_COLLISION,
+		_GAME_START,				// Comienza una nueva partida (State = running)
+		_GAME_OVER,					// Pacman no tiene más vidas
+		_GAME_RESET,				// El jugador comienza una nueva partida
+		_PACMAN_DEAD,				// Pacman pierde una vida
+		_NO_MORE_TSUKKIS,			// No queda Food (gana el jugador)
+		_ADD_GHOSTS,				// Petición de añadir fantasmas
+		_ADD_TSUKKIS,				// Petición de añadir comida
+		_PACMAN_GHOST_COLLISION,	// Colisión (pacman con fantasma)
+		_PACMAN_TSUKKI_COLLISION,	// Colisión (pacman con comida)
 
 		//
 		_last_MsgId_
