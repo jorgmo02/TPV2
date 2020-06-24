@@ -14,7 +14,7 @@ void SoundSystem::init() {
 void SoundSystem::recieve(const msg::Message& msg)
 {
 	switch (msg.id) {
-	case msg::_PACMAN_DEAD:
+	case msg::_GAME_OVER:
 		audioMngr_->haltMusic();
 		audioMngr_->playChannel(Resources::PacMan_Death, 0);
 		break;

@@ -18,28 +18,29 @@ RenderSystem::RenderSystem() :
 		System(ecs::_sys_Render) {
 }
 
-void RenderSystem::drawAnimated(Entity *e) {
+void RenderSystem::drawAnimated(Entity *e)
+{
 	Transform *tr = e->getComponent<Transform>(ecs::Transform);
-	AnimatedImageComponent *img = e->getComponent<AnimatedImageComponent>(
-			ecs::AnimatedImageComponent);
-	const auto &sprite = img->getSprite(game_->getTime());
-	SDL_Rect dest =
-	RECT(tr->position_.getX(), tr->position_.getY(), tr->width_,
-			tr->height_);
+	AnimatedImageComponent *img = e->getComponent<AnimatedImageComponent>(ecs::AnimatedImageComponent);
+	const AnimatedImageComponent::frame &sprite = img->getSprite(game_->getTime());
+
+	SDL_Rect dest = {
+		tr->position_.getX(),
+		tr->position_.getY(),
+		tr->width_,
+		tr->height_
+	};
 	sprite.first->render(dest, tr->rotation_, sprite.second);
 }
 
 void RenderSystem::update() {
 
-	auto gameState_ =
-			mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(
-					ecs::GameState);
+	GameState* gameState_ = mngr_->getHandler(ecs::_hdlr_GameStateEntity)->getComponent<GameState>(ecs::GameState);
 
 	drawFood(gameState_);
 	drawGhosts(gameState_);
 	drawPacMan(gameState_);
 	drawState(gameState_);
-
 }
 
 void RenderSystem::drawFood(GameState *gs) {
@@ -71,8 +72,8 @@ void RenderSystem::drawState(GameState *gs) {
 
 	// score
 	Texture scoreMsg(game_->getRenderer(), std::to_string(gs->score_),
-			game_->getFontMngr()->getFont(Resources::ARIAL24),
-			{ COLOR(0xff0000ff) });
+		game_->getFontMngr()->getFont(Resources::ARIAL24), { COLOR(0xff0000ff) });
+
 	scoreMsg.render(game_->getWindowWidth() / 2 - scoreMsg.getWidth() / 2, 10);
 
 	if (gs->state_ == GameState::RUNNING)
@@ -82,19 +83,19 @@ void RenderSystem::drawState(GameState *gs) {
 	int y = 0;
 	switch (gs->state_) {
 	case GameState::READY: {
-		auto startNewGameMsg = game_->getTextureMngr()->getTexture(Resources::PressEnterToStartANewGame);
+		Texture* startNewGameMsg = game_->getTextureMngr()->getTexture(Resources::PressEnterToStartANewGame);
 		x = (game_->getWindowWidth() - startNewGameMsg->getWidth())/ 2;
 		y = (game_->getWindowHeight() - startNewGameMsg->getHeight()) / 2;
 		startNewGameMsg->render(x, y);
 	}
 		break;
 	case GameState::OVER: {
-		auto toContMsg = game_->getTextureMngr()->getTexture(Resources::PressEnterToContinue);
+		Texture* toContMsg = game_->getTextureMngr()->getTexture(Resources::PressEnterToContinue);
 		x = (game_->getWindowWidth() - toContMsg->getWidth())/ 2;
 		y = (game_->getWindowHeight() - toContMsg->getHeight()) / 2;
 		toContMsg->render(x, y);
 
-		auto gameOverMsg = game_->getTextureMngr()->getTexture((gs->won_) ? Resources::GameWon : Resources::GameOver);
+		Texture* gameOverMsg = game_->getTextureMngr()->getTexture((gs->won_) ? Resources::GameWon : Resources::GameOver);
 		x = (game_->getWindowWidth() - gameOverMsg->getWidth())/ 2;
 		y = (game_->getWindowHeight() - gameOverMsg->getHeight()) / 2 - 50;
 		gameOverMsg->render(x, y);
@@ -104,6 +105,5 @@ void RenderSystem::drawState(GameState *gs) {
 	}
 	default:
 		assert(false); // should be unreachable;
-
 	}
 }
