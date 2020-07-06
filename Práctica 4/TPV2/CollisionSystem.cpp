@@ -28,6 +28,19 @@ void CollisionSystem::update() {
 		}
 	}
 
+	// collision with bonus
+	// lo he hecho en otro grupo separado del de comida porque me parecia un poco feo saber que tipo de entidad era mediante el componente IsBonus.
+	// Pero la otra opcion seria:
+	// if(e->getComponent<IsBonus(ecs::IsBonus) != nullptr) { envia mensaje de colision con bonus}
+	// else { envia mensaje de colision con comida}
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Bonus)) {
+		auto etr = e->getComponent<Transform>(ecs::Transform);
+		if (Collisions::collides(ptr->position_, ptr->width_, ptr->height_,
+			etr->position_, etr->width_, etr->height_)) {
+			mngr_->send<msg::CollisionMessage>(msg::_PACMAN_BONUS_COLLISION, pacmanEntity, e);
+		}
+	}
+
 	// collision with ghosts
 	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
 		auto etr = e->getComponent<Transform>(ecs::Transform);

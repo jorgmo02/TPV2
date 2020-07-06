@@ -37,6 +37,7 @@
     <ClInclude Include="GhostsSystem.h" />
     <ClInclude Include="ImageComponent.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="IsBonus.h" />
     <ClInclude Include="jute.h" />
     <ClInclude Include="Life.h" />
     <ClInclude Include="Manager.h" />
@@ -77,6 +78,7 @@
     <ClCompile Include="GhostsPool.cpp" />
     <ClCompile Include="GhostsSystem.cpp" />
     <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="IsBonus.cpp" />
     <ClCompile Include="jute.cpp" />
     <ClCompile Include="Life.cpp" />
     <ClCompile Include="main.cpp" />

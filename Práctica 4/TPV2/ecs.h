@@ -14,6 +14,7 @@ enum CmpId : CmpIdType {
 	AnimatedImageComponent,
 	GameState,
 	Lifes,
+	IsBonus,
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of components
@@ -24,6 +25,7 @@ enum GrpId : GrpIdType {
 	_grp_Star,
 	_grp_Ghost,
 	_grp_Food,
+	_grp_Bonus,		// se explica por que uso dos grupos diferentes en update de CollisionSystem
 	//
 	// don't touch the rest of this enum, it is to identify the max
 	// number of groups

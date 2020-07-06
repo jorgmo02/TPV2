@@ -50,6 +50,10 @@ void RenderSystem::drawFood(GameState *gs) {
 	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Food)) {
 		drawAnimated(e);
 	}
+	// se explica por qué hay dos grupos diferentes en update de CollisionSystem
+	for (auto &e : mngr_->getGroupEntities(ecs::_grp_Bonus)) {
+		drawAnimated(e);
+	}
 }
 
 void RenderSystem::drawGhosts(GameState *gs) {

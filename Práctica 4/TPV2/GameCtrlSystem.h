@@ -21,5 +21,6 @@ private:
 
 	GameState *gameState_;
 
+	int bonusStartTime_ = 0;
 };
 

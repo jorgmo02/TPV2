@@ -13,9 +13,11 @@ public:
 private:
 	void onCollisionWithPacMan(Entity *e);
 	void addGhosts(std::size_t n);
+	void setGhostVulnerable(bool vulnerability);
 	void disableAll();
 
 	Uint32 lastTimeAdded_;
 	int maxGhosts_;
 	int numOfGhosts_;
+	bool bonusActive_ = false;
 };

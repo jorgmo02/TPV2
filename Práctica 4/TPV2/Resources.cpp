@@ -30,5 +30,6 @@ vector<Resources::SoundInfo> Resources::sounds_ {
 		{ PacMan_Eat, "resources/sound/pacman_eat.wav" }, //
 		{ PacMan_Death, "resources/sound/pacman_death.wav" }, //
 		{ PacMan_Won, "resources/sound/pacman_won.wav" }, //
+		{ PacMan_Bonus, "resources/sound/pacman_bonus.wav" }, //
 };
 

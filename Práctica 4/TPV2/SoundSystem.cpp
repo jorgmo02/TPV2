@@ -25,6 +25,12 @@ void SoundSystem::recieve(const msg::Message& msg)
 	case msg::_PACMAN_TSUKKI_COLLISION:
 		audioMngr_->playChannel(Resources::PacMan_Eat, 0);
 		break;
+	case msg::_GHOST_DEAD:
+		audioMngr_->playChannel(Resources::PacMan_Eat, 0);
+		break;
+	case msg::_PACMAN_BONUS_COLLISION:
+		audioMngr_->playChannel(Resources::PacMan_Bonus, 0);
+		break;
 	case msg::_GAME_START:
 		audioMngr_->haltMusic();
 		break;

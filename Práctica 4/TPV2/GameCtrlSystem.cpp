@@ -33,6 +33,10 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 		case msg::_GAME_START:
 			mngr_->send<msg::AddItemMessage>(msg::_ADD_TSUKKIS, 10);
 			mngr_->send<msg::AddItemMessage>(msg::_ADD_GHOSTS, 2);
+			mngr_->send<msg::AddItemMessage>(msg::_ADD_BONUS, 1);
+			break;
+		case msg::_PACMAN_BONUS_COLLISION:
+			bonusStartTime_ = game_->getTime();
 			break;
 		default:
 			break;
@@ -40,6 +44,12 @@ void GameCtrlSystem::recieve(const msg::Message& msg)
 }
 
 void GameCtrlSystem::update() {
+
+	// timer del bonus
+	if ((bonusStartTime_ + 10000 < game_->getTime() && gameState_->state_ == GameState::RUNNING)	// comprueba si ha pasado el tiempo dentro del juego
+		|| gameState_->state_ == GameState::OVER) {	// también desactiva bonus si acaba la partida (imposible por diseño del juego, pero no molesta)
+		mngr_->send<msg::Message>(msg::_BONUS_END);
+	}
 
 	if ( gameState_->state_ == GameState::RUNNING )
 		return;

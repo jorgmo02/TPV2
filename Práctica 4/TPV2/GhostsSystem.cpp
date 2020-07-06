@@ -34,10 +34,17 @@ void GhostsSystem::recieve(const msg::Message& msg)
 	case msg::_PACMAN_GHOST_COLLISION:
 		onCollisionWithPacMan(static_cast<const msg::CollisionMessage&>(msg).collidedWith_);
 		break;
+	case msg::_PACMAN_BONUS_COLLISION:
+		setGhostVulnerable(true);
+		break;
+	case msg::_BONUS_END:
+		setGhostVulnerable(false);
 	default:
 		break;
 	}
 }
+
+
 
 void GhostsSystem::update() {
 
@@ -46,7 +53,7 @@ void GhostsSystem::update() {
 		return;
 
 	// add 2 ghosts every 5sec
-	if (lastTimeAdded_ + 5000 < game_->getTime()) {
+	if (!bonusActive_ && lastTimeAdded_ + 5000 < game_->getTime()) {
 		lastTimeAdded_ = game_->getTime();
 		addGhosts(2);
 	}
@@ -83,7 +90,13 @@ void GhostsSystem::update() {
 
 
 void GhostsSystem::onCollisionWithPacMan(Entity *e) {
-	mngr_->send<msg::Message>(msg::_PACMAN_DEAD);
+	if (!bonusActive_) {
+		mngr_->send<msg::Message>(msg::_PACMAN_DEAD);
+	}
+	else {
+		e->setActive(false);
+		mngr_->send<msg::Message>(msg::_GHOST_DEAD);
+	}
 }
 
 void GhostsSystem::addGhosts(std::size_t n) {
@@ -137,6 +150,20 @@ void GhostsSystem::addGhosts(std::size_t n) {
 		if (e != nullptr) {
 			e->addToGroup(ecs::_grp_Ghost);
 			numOfGhosts_++;
+		}
+	}
+}
+
+void GhostsSystem::setGhostVulnerable(bool vulnerability)
+{
+	bonusActive_ = vulnerability;
+	for (auto& e : mngr_->getGroupEntities(ecs::_grp_Ghost)) {
+		AnimatedImageComponent* aImg = e->getComponent<AnimatedImageComponent>(ecs::AnimatedImageComponent);
+		aImg->reset();
+		aImg->setFrameTime(100);
+		Texture* spritesTex = SDLGame::instance()->getTextureMngr()->getTexture(Resources::PacManSprites);
+		for (int i = 0; i < 4; i++) {
+			aImg->addFrame(spritesTex, { i * 128, (vulnerability) ? 640 : 768, 128, 128 });
 		}
 	}
 }

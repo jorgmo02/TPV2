@@ -10,7 +10,7 @@ public:
 	void update() override;
 
 private:
-	void addFood(std::size_t n);
+	void addFood(std::size_t n, bool makeBonus = false);
 	void onEat(Entity *e);
 	void disableAll();
 

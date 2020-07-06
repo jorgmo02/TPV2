@@ -27,7 +27,8 @@ public:
 		// sound effects
 		PacMan_Eat,
 		PacMan_Death,
-		PacMan_Won
+		PacMan_Won,
+		PacMan_Bonus,
 	};
 
 	enum FontId : std::size_t {
